@@ -9,6 +9,7 @@ class ScreenNavigator {
   switchScreen() {
     if (this.actualScreen === "startscreen" && mouseIsPressed) {
       this.actualScreen = "mainscreen";
+      console.log("screen switched to mainscreen");
     }
   }
 
