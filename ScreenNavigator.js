@@ -1,5 +1,5 @@
-import Startscreen from "./Startscreen";
-import Mainscreen from "./Mainscreen";
+import Startscreen from "./Startscreen.js";
+import Mainscreen from "./Mainscreen.js";
 
 class ScreenNavigator {
   constructor() {
