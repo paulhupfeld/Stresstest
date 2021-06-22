@@ -1,5 +1,8 @@
-import Startscreen from "./Startscreen";
-import Mainscreen from "./Mainscreen";
+import Startscreen from "./Startscreen.js";
+import Mainscreen from "./Mainscreen.js";
+
+let startscreen = new Startscreen();
+let mainscreen = new Mainscreen();
 
 let startscreen = new Startscreen();
 let mainscreen = new Mainscreen();
@@ -37,5 +40,9 @@ function draw() {
 function mousePressed() {}
 
 window.draw = draw;
+<<<<<<< Updated upstream
 window.mousePressed = mousePressed;
 
+=======
+window.mousePressed = mousePressed;
+>>>>>>> Stashed changes
