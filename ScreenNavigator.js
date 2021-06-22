@@ -4,9 +4,6 @@ import Mainscreen from "./Mainscreen.js";
 let startscreen = new Startscreen();
 let mainscreen = new Mainscreen();
 
-let startscreen = new Startscreen();
-let mainscreen = new Mainscreen();
-
 class ScreenNavigator {
   constructor() {
     this.actualScreen = "startscreen";
@@ -40,9 +37,4 @@ function draw() {
 function mousePressed() {}
 
 window.draw = draw;
-<<<<<<< Updated upstream
 window.mousePressed = mousePressed;
-
-=======
-window.mousePressed = mousePressed;
->>>>>>> Stashed changes

@@ -7,7 +7,4 @@ export default class Mainscreen {
   }
 }
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
