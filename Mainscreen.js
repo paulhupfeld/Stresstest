@@ -7,4 +7,3 @@ export default class Mainscreen {
   }
 }
 
-let mainscreen = new Mainscreen();

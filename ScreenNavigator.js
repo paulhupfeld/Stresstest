@@ -1,6 +1,9 @@
 import Startscreen from "./Startscreen";
 import Mainscreen from "./Mainscreen";
 
+let startscreen = new Startscreen();
+let mainscreen = new Mainscreen();
+
 class ScreenNavigator {
   constructor() {
     this.actualScreen = "startscreen";
@@ -32,3 +35,7 @@ function draw() {
 }
 
 function mousePressed() {}
+
+window.draw = draw;
+window.mousePressed = mousePressed;
+

@@ -7,4 +7,3 @@ export default class Startscreen {
   }
 }
 
-let startscreen = new Startscreen();
