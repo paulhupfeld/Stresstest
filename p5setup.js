@@ -4,13 +4,8 @@ function setup() {
   frameRate(30);
 }
 window.setup = setup;
-/*
-new p5();
-var width = windowWidth;
-var height = windowHeight;
-*/
 
-// let tree;
+let actorImage;
 // let bush;
 // let animal;
 // let trash;
@@ -21,19 +16,19 @@ var height = windowHeight;
 // let stone1;
 // let stone2;
 
-// function preload() {
-//   tree = loadImage("./images/tree1.png");
-//   bush = loadImage("./images/bush1.png");
-//   animal = loadImage("./images/animal.png");
-//   trash = loadImage("./images/trash.png");
-//   weed = loadImage("./images/weed.png");
-//   stump = loadImage("./images/stump.png");
-//   log = loadImage("./images/log.png");
-//   deko = loadImage("./images/deko.png");
-//   stone1 = loadImage("./images/stone1.png");
-//   stone2 = loadImage("./images/stone2.png");
-// }
+function preload() {
+  actorImage = loadImage("./assets/actorImage.png");
+  // bush = loadImage("./images/bush1.png");
+  // animal = loadImage("./images/animal.png");
+  // trash = loadImage("./images/trash.png");
+  // weed = loadImage("./images/weed.png");
+  // stump = loadImage("./images/stump.png");
+  // log = loadImage("./images/log.png");
+  // deko = loadImage("./images/deko.png");
+  // stone1 = loadImage("./images/stone1.png");
+  // stone2 = loadImage("./images/stone2.png");
+}
 
-// export { tree, bush, animal, trash, weed, stump, log, deko, stone1, stone2 };
+export { actorImage };
 
-// window.preload = preload;
+window.preload = preload;

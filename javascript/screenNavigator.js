@@ -1,5 +1,5 @@
-import Startscreen from "./Startscreen.js";
-import Mainscreen from "./Mainscreen.js";
+import Startscreen from "./startscreen.js";
+import Mainscreen from "./mainscreen.js";
 
 let startscreen = new Startscreen();
 let mainscreen = new Mainscreen();
