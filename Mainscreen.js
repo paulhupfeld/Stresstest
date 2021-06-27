@@ -6,5 +6,3 @@ export default class Mainscreen {
     text("mainscreen", 100, 100);
   }
 }
-
-
