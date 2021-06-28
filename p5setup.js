@@ -1,34 +1,24 @@
 function setup() {
-  let canvas = createCanvas(600, 595);
-  // canvas.parent("sketch-holder");
+  createCanvas(600, 595);
   frameRate(30);
 }
 window.setup = setup;
 
+new p5();
+var width = windowWidth;
+var height = windowHeight;
+
+window.addEventListener("resize", function () {
+  resizeCanvas(width, height);
+  clear();
+});
+
+window.preload = preload;
+
 let actorImage;
-// let bush;
-// let animal;
-// let trash;
-// let weed;
-// let stump;
-// let log;
-// let deko;
-// let stone1;
-// let stone2;
 
 function preload() {
-  actorImage = loadImage("./assets/actorImage.png");
-  // bush = loadImage("./images/bush1.png");
-  // animal = loadImage("./images/animal.png");
-  // trash = loadImage("./images/trash.png");
-  // weed = loadImage("./images/weed.png");
-  // stump = loadImage("./images/stump.png");
-  // log = loadImage("./images/log.png");
-  // deko = loadImage("./images/deko.png");
-  // stone1 = loadImage("./images/stone1.png");
-  // stone2 = loadImage("./images/stone2.png");
+  actorImage = loadImage("javascript/theater/actorImage.png");
 }
 
 export { actorImage };
-
-window.preload = preload;

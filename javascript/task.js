@@ -1,6 +1,26 @@
 import Button from "./button.js";
 
-actorImage = loadImage("./actorImage.png");
+import { actorImage } from ".p5setup.js";
+
+// let actorImage = loadImage("theater/actorImage.png");
+// let boxesImage = loadImage("theater/Boxes.png");
+// let broomImage = loadImage("theater/Broom-n-bucket.png");
+// let chairboxImage = loadImage("theater/Chair-box.png");
+// let chairsImage = loadImage("theater/Chairs.png");
+// let chairsReservedImage = loadImage("theater/Chairs-reserved.png");
+// let curtainLeft = loadImage("theater/Curtain-Left.png");
+// let curtainRight = loadImage("theater/Curtain-right.png");
+// let doorLeft = loadImage("theater/Door-Left.png");
+// let doorRight = loadImage("theater/Door-Right.png");
+// let exit = loadImage("theater/Exit.png");
+// let konfetti = loadImage("theater/Konfetti.png");
+// let reservedBox = loadImage("theater/Reserved-Box.png");
+// let spotlightDown = loadImage("theater/Spotlight-down.png");
+// let spotlightOff = loadImage("theater/Spotlight-off.png");
+// let spotlightOn  = loadImage("theater/Spotlight-on.png");
+// let supportBeam = loadImage("theater/Support-beam.png");
+// let teleprompterOff = loadImage("theater/Teleprompter-Off.png");
+// let teleprompterOn = loadImage("theater/Teleprompter-On.png");
 
 class Task extends Button {
   constructor(imageX, imageY, scale, hitboxX, hitboxY, width, height) {
