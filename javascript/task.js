@@ -2,7 +2,7 @@ import Button from "./button.js";
 
 import { actorImage } from ".p5setup.js";
 
-// let actorImage = loadImage("theater/actorImage.png");
+//let actorImage = loadImage("theater/actorImage.png");
 // let boxesImage = loadImage("theater/Boxes.png");
 // let broomImage = loadImage("theater/Broom-n-bucket.png");
 // let chairboxImage = loadImage("theater/Chair-box.png");
@@ -73,3 +73,6 @@ function mouseClicked() {
     console.log("erfolg!!");
   }
 }
+
+window.draw = draw;
+window.mouseClicked = mouseClicked;
