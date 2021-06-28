@@ -21,4 +21,4 @@ function preload() {
   actorImage = loadImage("javascript/theater/actorImage.png");
 }
 
-export { actorImage };
+//export { actorImage };
