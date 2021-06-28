@@ -60,14 +60,32 @@ class Task extends Button {
 }
 
 let start = true;
-let actor;
+
 let broom;
+let boxes;
+let chairbox;
+let chairsReserved;
+let chairs;
+let curtainLeft;
+let curtainRight;
+let doorLeft;
+let doorRight;
+let exit;
+let konfetti;
+let reservedBox;
+let spotlightDown;
+let spotlightOff;
+let spotlightOn;
+let stage;
+let supportBeam;
+let teleprompterOff;
+let teleprompterOn;
 let theaterBackground;
 
 function draw() {
   if (start === true) {
-    actor = new Task(200, 200, 1, 180, 180, 160, 170, actorImage);
-    broom = new Task(200, 200, 1, 180, 180, 160, 170, spotlightDownImage);
+    broom = new Task(200, 200, 1, 180, 180, 160, 170, broomImage);
+    boxes = new Task(200, 200, 1, 180, 180, 160, 170, boxesImage);
     theaterBackground = new Task(
       640,
       360,
@@ -78,19 +96,104 @@ function draw() {
       170,
       theaterBackgroundImage
     );
+    chairbox = new Task(640, 360, 1, 180, 180, 160, 170, chairboxImage);
+    chairsReserved = new Task(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      chairsReservedImage
+    );
+    chairs = new Task(640, 360, 1, 180, 180, 160, 170, chairsImage);
+    curtainLeft = new Task(120, 350, 1, 180, 180, 160, 170, curtainLeftImage);
+    curtainRight = new Task(
+      1160,
+      350,
+      1,
+      180,
+      180,
+      160,
+      170,
+      curtainRightImage
+    );
+    doorLeft = new Task(640, 360, 1, 180, 180, 160, 170, doorLeftImage);
+    doorRight = new Task(640, 360, 1, 180, 180, 160, 170, doorRightImage);
+    exit = new Task(640, 360, 1, 180, 180, 160, 170, exitImage);
+    konfetti = new Task(640, 360, 1, 180, 180, 160, 170, konfettiImage);
+    reservedBox = new Task(640, 360, 1, 180, 180, 160, 170, reservedBoxImage);
+    spotlightDown = new Task(
+      640,
+      650,
+      1,
+      180,
+      180,
+      160,
+      170,
+      spotlightDownImage
+    );
+    spotlightOff = new Task(640, 360, 1, 180, 180, 160, 170, spotlightOffImage);
+    spotlightOn = new Task(640, 360, 1, 180, 180, 160, 170, spotlightOnImage);
+    stage = new Task(640, 360, 1, 180, 180, 160, 170, stageImage);
+    supportBeam = new Task(640, 45, 1, 180, 180, 160, 170, supportBeamImage);
+    teleprompterOff = new Task(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      teleprompterOffImage
+    );
+    teleprompterOn = new Task(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      teleprompterOnImage
+    );
 
     start = false;
   }
-  // image(theaterImg, 0, 0);
-  // actor.display();
-  // actor.showHitbox();
+
   theaterBackground.display();
-  // theaterBackground.showHitbox();
+  konfetti.display();
+  spotlightDown.display();
+  stage.display();
+  supportBeam.display();
+  // doorLeft.display();
+  // doorRight.display();
+  // exit.display();
+
+  curtainLeft.display();
+  curtainRight.display();
+  // broom.display();
+  // chairsReserved.display();
+  // chairs.display();
+  // reservedBox.display();
+  // spotlightOff.display();
+  // spotlightOn.display();
+  // teleprompterOff.display();
+  // teleprompterOn.display();
+
+  // doppelt?
+  // boxes.display();
+  // chairbox.display();
+
+  // Vorhang zu fehlt noch
+
+  // ... .showHitbox();
 }
 
 function mouseClicked() {
-  if (actor.hitTest()) {
-    console.log("erfolg!!");
+  if (curtainLeft.hitTest() || curtainRight.hitTest()) {
+    console.log("Vorhang zu");
   }
 }
 
