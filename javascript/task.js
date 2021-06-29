@@ -1,7 +1,6 @@
 import Button from "./button.js";
 
 import {
-  actorImage,
   boxesImage,
   broomImage,
   chairboxImage,
@@ -26,7 +25,7 @@ import {
   emergencySignImage,
 } from "../p5setup.js";
 
-class Task extends Button {
+class TaskImage extends Button {
   constructor(imageX, imageY, scale, hitboxX, hitboxY, width, height, image) {
     super(hitboxX, hitboxY);
     this.imageX = imageX;
@@ -37,6 +36,10 @@ class Task extends Button {
     this.width = width;
     this.height = height;
     this.image = image;
+    // this.title = title;
+    // this.time = time;
+    // this.prioboard = false;
+    // this.done = false;
   }
 
   display() {
@@ -88,7 +91,7 @@ let emergencySign;
 
 function draw() {
   if (start === true) {
-    theaterBackground = new Task(
+    theaterBackground = new TaskImage(
       640,
       360,
       1,
@@ -98,11 +101,11 @@ function draw() {
       170,
       theaterBackgroundImage
     );
-    broom = new Task(1150, 480, 1, 180, 180, 160, 170, broomImage);
-    boxes = new Task(640, 360, 1, 180, 180, 160, 170, boxesImage);
+    broom = new TaskImage(1150, 480, 1, 180, 180, 160, 170, broomImage);
+    boxes = new TaskImage(640, 360, 1, 180, 180, 160, 170, boxesImage);
 
-    chairbox = new Task(130, 555, 1, 180, 180, 160, 170, chairboxImage);
-    chairsReserved = new Task(
+    chairbox = new TaskImage(130, 555, 1, 180, 180, 160, 170, chairboxImage);
+    chairsReserved = new TaskImage(
       640,
       485,
       1,
@@ -112,9 +115,18 @@ function draw() {
       170,
       chairsReservedImage
     );
-    chairs = new Task(640, 485, 1, 180, 180, 160, 170, chairsImage);
-    curtainLeft = new Task(120, 350, 1, 180, 180, 160, 170, curtainLeftImage);
-    curtainRight = new Task(
+    chairs = new TaskImage(640, 485, 1, 180, 180, 160, 170, chairsImage);
+    curtainLeft = new TaskImage(
+      120,
+      350,
+      1,
+      180,
+      180,
+      160,
+      170,
+      curtainLeftImage
+    );
+    curtainRight = new TaskImage(
       1160,
       350,
       1,
@@ -124,12 +136,21 @@ function draw() {
       170,
       curtainRightImage
     );
-    doorLeft = new Task(253, 386, 1, 180, 180, 160, 170, doorLeftImage);
-    doorRight = new Task(1030, 386, 1, 180, 180, 160, 170, doorRightImage);
-    exit = new Task(76, 230, 1, 180, 180, 160, 170, exitImage);
-    konfetti = new Task(640, 360, 1, 180, 180, 160, 170, konfettiImage);
-    reservedBox = new Task(1135, 612, 1, 180, 180, 160, 170, reservedBoxImage);
-    spotlightDown = new Task(
+    doorLeft = new TaskImage(253, 386, 1, 180, 180, 160, 170, doorLeftImage);
+    doorRight = new TaskImage(1030, 386, 1, 180, 180, 160, 170, doorRightImage);
+    exit = new TaskImage(76, 230, 1, 180, 180, 160, 170, exitImage);
+    konfetti = new TaskImage(640, 360, 1, 180, 180, 160, 170, konfettiImage);
+    reservedBox = new TaskImage(
+      1135,
+      612,
+      1,
+      180,
+      180,
+      160,
+      170,
+      reservedBoxImage
+    );
+    spotlightDown = new TaskImage(
       640,
       360,
       1,
@@ -139,11 +160,38 @@ function draw() {
       170,
       spotlightDownImage
     );
-    spotlightOff = new Task(640, 360, 1, 180, 180, 160, 170, spotlightOffImage);
-    spotlightOn = new Task(640, 360, 1, 180, 180, 160, 170, spotlightOnImage);
-    stage = new Task(640, 360, 1, 180, 180, 160, 170, stageImage);
-    supportBeam = new Task(640, 45, 1, 180, 180, 160, 170, supportBeamImage);
-    teleprompterOff = new Task(
+    spotlightOff = new TaskImage(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      spotlightOffImage
+    );
+    spotlightOn = new TaskImage(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      spotlightOnImage
+    );
+    stage = new TaskImage(640, 360, 1, 180, 180, 160, 170, stageImage);
+    supportBeam = new TaskImage(
+      640,
+      45,
+      1,
+      180,
+      180,
+      160,
+      170,
+      supportBeamImage
+    );
+    teleprompterOff = new TaskImage(
       540,
       220,
       1,
@@ -153,7 +201,7 @@ function draw() {
       170,
       teleprompterOffImage
     );
-    teleprompterOn = new Task(
+    teleprompterOn = new TaskImage(
       540,
       220,
       1,
@@ -163,7 +211,7 @@ function draw() {
       170,
       teleprompterOnImage
     );
-    curtainClosed = new Task(
+    curtainClosed = new TaskImage(
       640,
       360,
       1,
@@ -173,7 +221,7 @@ function draw() {
       170,
       curtainClosedImage
     );
-    emergencySign = new Task(
+    emergencySign = new TaskImage(
       1020,
       240,
       1,
