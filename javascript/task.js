@@ -1,4 +1,10 @@
+//Next Steps:
+// Hittest für Images einbauen
+// TaskNavigator erstellen
+
 import TaskImage from "./taskImage.js";
+import TaskInfo from "./taskInfo.js";
+
 import {
   boxesImage,
   broomImage,
@@ -23,12 +29,41 @@ import {
   curtainClosedImage,
   emergencySignImage,
 } from "../p5setup.js";
-class Task {
+
+class InstallLights extends TaskInfo {
   constructor(title, time) {
-    this.title = title;
-    this.time = time;
-    this.prioboard = false;
+    super(title, time, 640, 500);
+
+    this.clicked = true;
+    this.prioBoard = false;
+    this.inProgress = false;
     this.done = false;
+  }
+
+  displayImage() {
+    if (this.done === false) {
+      spotlightDown.display();
+    } else {
+      spotlightOff.display();
+    }
+  }
+
+  checkMouseClicks() {
+    if (this.prioButtonHitTest()) {
+      this.prioBoard = !this.prioBoard;
+      console.log("prioBoard = " + this.prioBoard);
+    }
+
+    if (this.taskButtonHitTest()) {
+      //activate TaskScreen
+      this.clicked = false;
+      console.log("activate TaskScreen");
+    }
+
+    // if (this.done === false && spotlightDown.hitTest()) {
+    //   this.clicked = true;
+    //   console.log("activate TaskScreen");
+    // }
   }
 }
 
@@ -57,6 +92,7 @@ let theaterBackground;
 let curtainClosed;
 let emergencySign;
 
+// let taskInfo;
 let installLights;
 
 function draw() {
@@ -202,7 +238,7 @@ function draw() {
       emergencySignImage
     );
 
-    installLights = new Task("Lampen aufbauen", 13);
+    installLights = new InstallLights("Lampen aufbauen", 13);
 
     start = false;
   }
@@ -212,34 +248,35 @@ function draw() {
   teleprompterOff.display();
   doorLeft.display();
   doorRight.display();
-  broom.display();
-  emergencySign.display();
-  //boxes.display();
-  chairbox.display();
-  chairs.display();
-  chairsReserved.display();
-
-  reservedBox.display();
-  spotlightDown.display();
-  stage.display();
-  //curtainClosed.display();
-  curtainLeft.display();
-  curtainRight.display();
+  exit.display();
   supportBeam.display();
 
-  exit.display();
+  installLights.displayImage();
 
+  stage.display();
+
+  // broom.display();
+  // emergencySign.display();
+  // //boxes.display();
+  // chairbox.display();
+  // chairs.display();
+  // chairsReserved.display();
+  // reservedBox.display();
+  // //curtainClosed.display();
+  // curtainLeft.display();
+  // curtainRight.display();
   // teleprompterOn.display();
-  spotlightOff.display();
-  //spotlightOn.display();
+  // spotlightOn.display();
+
+  //Spotlights verschieben!!
+
   // ... .showHitbox();
-  installLights.display();
+
+  installLights.displayTaskInfo();
 }
 
 function mouseClicked() {
-  if (curtainLeft.hitTest() || curtainRight.hitTest()) {
-    console.log("Vorhang zu");
-  }
+  installLights.checkMouseClicks();
 }
 
 window.draw = draw;
