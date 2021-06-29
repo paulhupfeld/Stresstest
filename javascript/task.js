@@ -22,6 +22,8 @@ import {
   teleprompterOffImage,
   teleprompterOnImage,
   theaterBackgroundImage,
+  curtainClosedImage,
+  emergencySignImage,
 } from "../p5setup.js";
 
 class Task extends Button {
@@ -81,11 +83,11 @@ let supportBeam;
 let teleprompterOff;
 let teleprompterOn;
 let theaterBackground;
+let curtainClosed;
+let emergencySign;
 
 function draw() {
   if (start === true) {
-    broom = new Task(200, 200, 1, 180, 180, 160, 170, broomImage);
-    boxes = new Task(200, 200, 1, 180, 180, 160, 170, boxesImage);
     theaterBackground = new Task(
       640,
       360,
@@ -96,10 +98,13 @@ function draw() {
       170,
       theaterBackgroundImage
     );
-    chairbox = new Task(640, 360, 1, 180, 180, 160, 170, chairboxImage);
+    broom = new Task(1150, 480, 1, 180, 180, 160, 170, broomImage);
+    boxes = new Task(640, 360, 1, 180, 180, 160, 170, boxesImage);
+
+    chairbox = new Task(130, 555, 1, 180, 180, 160, 170, chairboxImage);
     chairsReserved = new Task(
       640,
-      360,
+      485,
       1,
       180,
       180,
@@ -107,7 +112,7 @@ function draw() {
       170,
       chairsReservedImage
     );
-    chairs = new Task(640, 360, 1, 180, 180, 160, 170, chairsImage);
+    chairs = new Task(640, 485, 1, 180, 180, 160, 170, chairsImage);
     curtainLeft = new Task(120, 350, 1, 180, 180, 160, 170, curtainLeftImage);
     curtainRight = new Task(
       1160,
@@ -119,14 +124,14 @@ function draw() {
       170,
       curtainRightImage
     );
-    doorLeft = new Task(640, 360, 1, 180, 180, 160, 170, doorLeftImage);
-    doorRight = new Task(640, 360, 1, 180, 180, 160, 170, doorRightImage);
-    exit = new Task(640, 360, 1, 180, 180, 160, 170, exitImage);
+    doorLeft = new Task(253, 386, 1, 180, 180, 160, 170, doorLeftImage);
+    doorRight = new Task(1030, 386, 1, 180, 180, 160, 170, doorRightImage);
+    exit = new Task(76, 230, 1, 180, 180, 160, 170, exitImage);
     konfetti = new Task(640, 360, 1, 180, 180, 160, 170, konfettiImage);
-    reservedBox = new Task(640, 360, 1, 180, 180, 160, 170, reservedBoxImage);
+    reservedBox = new Task(1135, 612, 1, 180, 180, 160, 170, reservedBoxImage);
     spotlightDown = new Task(
       640,
-      650,
+      360,
       1,
       180,
       180,
@@ -139,8 +144,8 @@ function draw() {
     stage = new Task(640, 360, 1, 180, 180, 160, 170, stageImage);
     supportBeam = new Task(640, 45, 1, 180, 180, 160, 170, supportBeamImage);
     teleprompterOff = new Task(
-      640,
-      360,
+      540,
+      220,
       1,
       180,
       180,
@@ -149,8 +154,8 @@ function draw() {
       teleprompterOffImage
     );
     teleprompterOn = new Task(
-      640,
-      360,
+      540,
+      220,
       1,
       180,
       180,
@@ -158,36 +163,55 @@ function draw() {
       170,
       teleprompterOnImage
     );
+    curtainClosed = new Task(
+      640,
+      360,
+      1,
+      180,
+      180,
+      160,
+      170,
+      curtainClosedImage
+    );
+    emergencySign = new Task(
+      1020,
+      240,
+      1,
+      180,
+      180,
+      160,
+      170,
+      emergencySignImage
+    );
 
     start = false;
   }
 
   theaterBackground.display();
   konfetti.display();
+  teleprompterOff.display();
+  doorLeft.display();
+  doorRight.display();
+  broom.display();
+  emergencySign.display();
+  //boxes.display();
+  chairbox.display();
+  chairs.display();
+  chairsReserved.display();
+
+  reservedBox.display();
   spotlightDown.display();
   stage.display();
-  supportBeam.display();
-  // doorLeft.display();
-  // doorRight.display();
-  // exit.display();
-
+  //curtainClosed.display();
   curtainLeft.display();
   curtainRight.display();
-  // broom.display();
-  // chairsReserved.display();
-  // chairs.display();
-  // reservedBox.display();
-  // spotlightOff.display();
-  // spotlightOn.display();
-  // teleprompterOff.display();
+  supportBeam.display();
+
+  exit.display();
+
   // teleprompterOn.display();
-
-  // doppelt?
-  // boxes.display();
-  // chairbox.display();
-
-  // Vorhang zu fehlt noch
-
+  spotlightOff.display();
+  //spotlightOn.display();
   // ... .showHitbox();
 }
 

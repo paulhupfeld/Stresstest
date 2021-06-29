@@ -34,6 +34,8 @@ export let supportBeamImage;
 export let teleprompterOffImage;
 export let teleprompterOnImage;
 export let theaterBackgroundImage;
+export let curtainClosedImage;
+export let emergencySignImage;
 
 function preload() {
   actorImage = loadImage("javascript/theater/actorImage.png");
@@ -59,6 +61,8 @@ function preload() {
   theaterBackgroundImage = loadImage(
     "javascript/theater/Theater-Background.png"
   );
+  curtainClosedImage = loadImage("javascript/theater/Curtain-closed.png");
+  emergencySignImage = loadImage("javascript/theater/Emergency-sign.png");
 }
 
 window.preload = preload;
