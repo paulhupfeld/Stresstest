@@ -7,6 +7,7 @@ export default class Button {
   }
 
   showHitbox() {
+    push();
     noFill();
     stroke(255, 0, 0);
     strokeWeight(3);
@@ -16,6 +17,7 @@ export default class Button {
       this.width,
       this.height
     );
+    pop();
   }
 
   hitTest() {

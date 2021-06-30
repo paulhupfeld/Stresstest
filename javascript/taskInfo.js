@@ -8,32 +8,36 @@ export default class TaskInfo {
   }
 
   taskInfo() {
-    fill(250);
-    strokeWeight(2);
-    rect(this.taskInfoX - 125, this.taskInfoY - 35, 250, 70);
+    push();
+    fill(255);
+    noStroke();
+    // rect(this.taskInfoX - 160, this.taskInfoY - 35, 320, 70);
 
     fill(0);
     textAlign(LEFT, TOP);
     textFont("Allerta");
-    textSize(18);
-    text(this.title, this.taskInfoX - 115, this.taskInfoY - 18);
+    textSize(17);
+    strokeWeight(0);
+    text(this.title, this.taskInfoX - 148, this.taskInfoY - 18);
     textSize(13);
     text(
       "ca. " + this.time + " min.",
-      this.taskInfoX - 115,
-      this.taskInfoY + 5
+      this.taskInfoX - 148,
+      this.taskInfoY + 8
     );
 
-    line(
-      this.taskInfoX + 75,
-      this.taskInfoY - 35,
-      this.taskInfoX + 75,
-      this.taskInfoY + 35
-    );
+    // line(
+    //   this.taskInfoX + 110,
+    //   this.taskInfoY - 35,
+    //   this.taskInfoX + 110,
+    //   this.taskInfoY + 35
+    // );
     fill(255, 75, 9);
-    textSize(50);
+    textSize(35);
+    noStroke();
     textAlign(CENTER, CENTER);
-    text("!", this.taskInfoX + 100, this.taskInfoY + 5);
+    text("X", this.taskInfoX + 140, this.taskInfoY);
+    pop();
   }
 
   displayTaskInfo() {

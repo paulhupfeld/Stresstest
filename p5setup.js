@@ -37,6 +37,8 @@ export let theaterBackgroundImage;
 export let curtainClosedImage;
 export let emergencySignImage;
 
+export let prioBoardImage;
+
 function preload() {
   actorImage = loadImage("javascript/theater/actorImage.png");
   boxesImage = loadImage("javascript/theater/Boxes.png");
@@ -63,6 +65,8 @@ function preload() {
   );
   curtainClosedImage = loadImage("javascript/theater/Curtain-closed.png");
   emergencySignImage = loadImage("javascript/theater/Emergency-sign.png");
+
+  prioBoardImage = loadImage("javascript/theater/Prioboard.png");
 }
 
 window.preload = preload;

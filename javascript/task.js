@@ -4,6 +4,7 @@
 
 import TaskImage from "./taskImage.js";
 import TaskInfo from "./taskInfo.js";
+import PrioBoard from "./prioBoard.js";
 
 import {
   boxesImage,
@@ -32,11 +33,12 @@ import {
 
 class InstallLights extends TaskInfo {
   constructor(title, time) {
-    super(title, time, 640, 500);
+    super(title, time, 640, 223);
 
     this.clicked = true;
     this.prioBoard = false;
     this.inProgress = false;
+    this.progress = 0;
     this.done = false;
   }
 
@@ -60,6 +62,7 @@ class InstallLights extends TaskInfo {
       console.log("activate TaskScreen");
     }
 
+    //Hittest manuell
     // if (this.done === false && spotlightDown.hitTest()) {
     //   this.clicked = true;
     //   console.log("activate TaskScreen");
@@ -92,8 +95,9 @@ let theaterBackground;
 let curtainClosed;
 let emergencySign;
 
-// let taskInfo;
 let installLights;
+
+let prioBoard;
 
 function draw() {
   if (start === true) {
@@ -238,22 +242,26 @@ function draw() {
       emergencySignImage
     );
 
-    installLights = new InstallLights("Lampen aufbauen", 13);
+    installLights = new InstallLights("Teleprompter programmieren", 13);
+
+    prioBoard = new PrioBoard();
 
     start = false;
   }
 
   theaterBackground.display();
   konfetti.display();
-  // teleprompterOff.display();
-  // doorLeft.display();
-  // doorRight.display();
-  // exit.display();
-  // supportBeam.display();
+  teleprompterOff.display();
+  doorLeft.display();
+  doorRight.display();
+  exit.display();
 
-  // installLights.displayImage();
+  installLights.displayImage();
 
-  // stage.display();
+  stage.display();
+  curtainLeft.display();
+  curtainRight.display();
+  supportBeam.display();
 
   // broom.display();
   // emergencySign.display();
@@ -262,27 +270,26 @@ function draw() {
   // chairs.display();
   // chairsReserved.display();
   // reservedBox.display();
-  // curtainClosed.display();
-  // curtainLeft.display();
-  // curtainRight.display();
+
   // teleprompterOn.display();
   // spotlightOn.display();
 
-  //Spotlights verschieben!!
+  installLights.displayTaskInfo();
+
+  prioBoard.display();
 
   // ... .showHitbox();
 
-  installLights.displayTaskInfo();
+  // broom.showHitbox();
+  // chairbox.showHitbox();
 
-  broom.showHitbox();
-  chairbox.showHitbox();
-
-  reservedBox.showHitbox();
-  curtainClosed.showHitbox();
-  curtainLeft.showHitbox();
-  curtainRight.showHitbox();
-  teleprompterOn.showHitbox();
-  spotlightOn.showHitbox();
+  // reservedBox.showHitbox();
+  // curtainClosed.showHitbox();
+  // curtainLeft.showHitbox();
+  // curtainRight.showHitbox();
+  // teleprompterOn.showHitbox();
+  // spotlightOn.showHitbox();
+  // curtainClosed.display();
 }
 
 function mouseClicked() {
