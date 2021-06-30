@@ -274,9 +274,9 @@ function draw() {
   // teleprompterOn.display();
   // spotlightOn.display();
 
-  installLights.displayTaskInfo();
-
   prioBoard.display();
+
+  installLights.displayTaskInfo();
 
   // ... .showHitbox();
 

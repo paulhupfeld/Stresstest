@@ -1,10 +1,17 @@
+import TaskInfo from "./taskInfo.js";
 import { prioBoardImage } from "../p5setup.js";
 
-export default class PrioBoard {
-  constructor() {}
+export default class PrioBoard extends TaskInfo {
+  constructor() {
+    super(0, 0, 640, 223);
+    this.active = false;
+  }
 
-  display() {
-    image(prioBoardImage, 350, 0, prioBoardImage.width, prioBoardImage.height);
+  displayBoard() {
+    push();
+    scale(1);
+    image(prioBoardImage, 350, 5, prioBoardImage.width, prioBoardImage.height);
+    pop();
 
     for (let i = 0; i < 17; i++) {
       push();
@@ -19,6 +26,26 @@ export default class PrioBoard {
       }
 
       pop();
+    }
+  }
+  displayFrame() {
+    push();
+    scale(0.9);
+    image(
+      prioBoardImage,
+      1315,
+      70,
+      prioBoardImage.width,
+      prioBoardImage.height
+    );
+    pop();
+  }
+
+  display() {
+    if (this.active) {
+      this.displayBoard();
+    } else {
+      this.displayFrame();
     }
   }
 }
