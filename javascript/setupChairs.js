@@ -1,14 +1,14 @@
 import TaskInfo from "./taskInfo.js";
 
-export default class InstallLights extends TaskInfo {
+export default class SetupChairs extends TaskInfo {
   constructor(title, time) {
     super(title, time, 640, 223);
 
     this.clicked = true;
-    this.prioBoard = true;
+    this.prioBoard = false;
     this.inProgress = false;
     this.progress = 0;
-    this.done = false;
+    this.done = true;
   }
 
   // displayImage() {
