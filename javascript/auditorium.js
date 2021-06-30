@@ -70,10 +70,10 @@ function draw() {
       170,
       theaterBackgroundImage
     );
-    broom = new TaskImage(1150, 480, 1, 180, 180, 160, 170, broomImage);
+    broom = new TaskImage(1150, 480, 1, 1150, 480, 80, 200, broomImage);
     boxes = new TaskImage(640, 360, 1, 180, 180, 160, 170, boxesImage);
 
-    chairbox = new TaskImage(130, 555, 1, 180, 180, 160, 170, chairboxImage);
+    chairbox = new TaskImage(130, 555, 1, 129, 555, 150, 100, chairboxImage);
     chairsReserved = new TaskImage(
       640,
       485,
@@ -107,26 +107,26 @@ function draw() {
     );
     doorLeft = new TaskImage(253, 386, 1, 180, 180, 160, 170, doorLeftImage);
     doorRight = new TaskImage(1030, 386, 1, 180, 180, 160, 170, doorRightImage);
-    exit = new TaskImage(76, 230, 1, 180, 180, 160, 170, exitImage);
+    exit = new TaskImage(76, 230, 1, 75, 230, 110, 60, exitImage);
     konfetti = new TaskImage(640, 360, 1, 180, 180, 160, 170, konfettiImage);
     reservedBox = new TaskImage(
       1135,
       612,
       1,
-      180,
-      180,
-      160,
-      170,
+      1135,
+      613,
+      60,
+      45,
       reservedBoxImage
     );
     spotlightDown = new TaskImage(
       640,
       360,
       1,
-      180,
-      180,
-      160,
+      245,
+      630,
       170,
+      45,
       spotlightDownImage
     );
     spotlightOff = new TaskImage(
@@ -164,10 +164,10 @@ function draw() {
       540,
       220,
       1,
-      180,
-      180,
-      160,
-      170,
+      540,
+      220,
+      150,
+      90,
       teleprompterOffImage
     );
     teleprompterOn = new TaskImage(
