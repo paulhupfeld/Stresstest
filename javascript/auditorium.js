@@ -1,10 +1,8 @@
-//Next Steps:
-// Hittest für Images einbauen
-// TaskNavigator erstellen
+// Offene F rage: display wieder in installLights einbauen
 
 import TaskImage from "./taskImage.js";
-import TaskInfo from "./taskInfo.js";
 import PrioBoard from "./prioBoard.js";
+import InstallLights from "./installLights.js";
 
 import {
   boxesImage,
@@ -30,45 +28,6 @@ import {
   curtainClosedImage,
   emergencySignImage,
 } from "../p5setup.js";
-
-class InstallLights extends TaskInfo {
-  constructor(title, time) {
-    super(title, time, 640, 223);
-
-    this.clicked = true;
-    this.prioBoard = false;
-    this.inProgress = false;
-    this.progress = 0;
-    this.done = false;
-  }
-
-  displayImage() {
-    if (this.done === false) {
-      spotlightDown.display();
-    } else {
-      spotlightOff.display();
-    }
-  }
-
-  checkMouseClicks() {
-    if (this.prioButtonHitTest()) {
-      this.prioBoard = !this.prioBoard;
-      console.log("prioBoard = " + this.prioBoard);
-    }
-
-    if (this.taskButtonHitTest()) {
-      //activate TaskScreen
-      this.clicked = false;
-      console.log("activate TaskScreen");
-    }
-
-    //Hittest manuell
-    // if (this.done === false && spotlightDown.hitTest()) {
-    //   this.clicked = true;
-    //   console.log("activate TaskScreen");
-    // }
-  }
-}
 
 let start = true;
 
@@ -256,12 +215,20 @@ function draw() {
   doorRight.display();
   exit.display();
 
-  installLights.displayImage();
+  //   installLights.displayImage();
+  if (installLights.done === false) {
+    spotlightDown.display();
+  } else {
+    spotlightOff.display();
+  }
 
   stage.display();
   curtainLeft.display();
   curtainRight.display();
   supportBeam.display();
+
+  //   prioBoard.display();
+  //   installLights.displayTaskInfo();
 
   // broom.display();
   // emergencySign.display();
@@ -273,10 +240,6 @@ function draw() {
 
   // teleprompterOn.display();
   // spotlightOn.display();
-
-  prioBoard.display();
-
-  installLights.displayTaskInfo();
 
   // ... .showHitbox();
 
