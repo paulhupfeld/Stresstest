@@ -245,24 +245,24 @@ function draw() {
 
   theaterBackground.display();
   konfetti.display();
-  teleprompterOff.display();
-  doorLeft.display();
-  doorRight.display();
-  exit.display();
-  supportBeam.display();
+  // teleprompterOff.display();
+  // doorLeft.display();
+  // doorRight.display();
+  // exit.display();
+  // supportBeam.display();
 
-  installLights.displayImage();
+  // installLights.displayImage();
 
-  stage.display();
+  // stage.display();
 
   // broom.display();
   // emergencySign.display();
-  // //boxes.display();
+  // boxes.display();
   // chairbox.display();
   // chairs.display();
   // chairsReserved.display();
   // reservedBox.display();
-  // //curtainClosed.display();
+  // curtainClosed.display();
   // curtainLeft.display();
   // curtainRight.display();
   // teleprompterOn.display();
@@ -273,6 +273,16 @@ function draw() {
   // ... .showHitbox();
 
   installLights.displayTaskInfo();
+
+  broom.showHitbox();
+  chairbox.showHitbox();
+
+  reservedBox.showHitbox();
+  curtainClosed.showHitbox();
+  curtainLeft.showHitbox();
+  curtainRight.showHitbox();
+  teleprompterOn.showHitbox();
+  spotlightOn.showHitbox();
 }
 
 function mouseClicked() {
