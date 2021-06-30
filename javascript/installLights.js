@@ -8,7 +8,7 @@ export default class InstallLights extends TaskInfo {
     this.prioBoard = false;
     this.inProgress = false;
     this.progress = 0;
-    this.done = false;
+    this.done = true;
     this.image1;
     this.image2;
   }

@@ -1,4 +1,6 @@
-// Offene F rage: display wieder in installLights einbauen
+// Offene Fragen:
+// display wieder in installLights einbauen
+// if start=true funktion auslagern
 
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
@@ -63,32 +65,30 @@ function draw() {
     theaterBackground = new TaskImage(
       640,
       360,
-      1,
+
       180,
       180,
       160,
       170,
       theaterBackgroundImage
     );
-    broom = new TaskImage(1150, 480, 1, 1150, 480, 80, 200, broomImage);
-    boxes = new TaskImage(640, 360, 1, 180, 180, 160, 170, boxesImage);
-
-    chairbox = new TaskImage(130, 555, 1, 129, 555, 150, 100, chairboxImage);
+    broom = new TaskImage(1150, 480, 1150, 540, 100, 80, broomImage);
+    boxes = new TaskImage(640, 360, 180, 180, 160, 170, boxesImage);
+    chairbox = new TaskImage(130, 555, 129, 555, 150, 100, chairboxImage);
     chairsReserved = new TaskImage(
       640,
       485,
-      1,
       180,
       180,
       160,
       170,
       chairsReservedImage
     );
-    chairs = new TaskImage(640, 485, 1, 180, 180, 160, 170, chairsImage);
+    chairs = new TaskImage(640, 485, 180, 180, 160, 170, chairsImage);
     curtainLeft = new TaskImage(
       120,
       350,
-      1,
+
       180,
       180,
       160,
@@ -98,31 +98,21 @@ function draw() {
     curtainRight = new TaskImage(
       1160,
       350,
-      1,
+
       180,
       180,
       160,
       170,
       curtainRightImage
     );
-    doorLeft = new TaskImage(253, 386, 1, 180, 180, 160, 170, doorLeftImage);
-    doorRight = new TaskImage(1030, 386, 1, 180, 180, 160, 170, doorRightImage);
-    exit = new TaskImage(76, 230, 1, 75, 230, 110, 60, exitImage);
-    konfetti = new TaskImage(640, 360, 1, 180, 180, 160, 170, konfettiImage);
-    reservedBox = new TaskImage(
-      1135,
-      612,
-      1,
-      1135,
-      613,
-      60,
-      45,
-      reservedBoxImage
-    );
+    doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
+    doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
+    exit = new TaskImage(76, 230, 75, 230, 110, 60, exitImage);
+    konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
+    reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
     spotlightDown = new TaskImage(
       640,
       360,
-      1,
       245,
       630,
       170,
@@ -132,38 +122,18 @@ function draw() {
     spotlightOff = new TaskImage(
       640,
       360,
-      1,
       180,
       180,
       160,
       170,
       spotlightOffImage
     );
-    spotlightOn = new TaskImage(
-      640,
-      360,
-      1,
-      180,
-      180,
-      160,
-      170,
-      spotlightOnImage
-    );
-    stage = new TaskImage(640, 360, 1, 180, 180, 160, 170, stageImage);
-    supportBeam = new TaskImage(
-      640,
-      45,
-      1,
-      180,
-      180,
-      160,
-      170,
-      supportBeamImage
-    );
+    spotlightOn = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOnImage);
+    stage = new TaskImage(640, 360, 180, 180, 160, 170, stageImage);
+    supportBeam = new TaskImage(640, 45, 180, 180, 160, 170, supportBeamImage);
     teleprompterOff = new TaskImage(
       540,
       220,
-      1,
       540,
       220,
       150,
@@ -173,7 +143,6 @@ function draw() {
     teleprompterOn = new TaskImage(
       540,
       220,
-      1,
       180,
       180,
       160,
@@ -183,7 +152,6 @@ function draw() {
     curtainClosed = new TaskImage(
       640,
       360,
-      1,
       180,
       180,
       160,
@@ -193,7 +161,6 @@ function draw() {
     emergencySign = new TaskImage(
       1020,
       240,
-      1,
       180,
       180,
       160,
@@ -214,8 +181,9 @@ function draw() {
   doorLeft.display();
   doorRight.display();
   exit.display();
+  curtainLeft.display();
+  curtainRight.display();
 
-  //   installLights.displayImage();
   if (installLights.done === false) {
     spotlightDown.display();
   } else {
@@ -223,36 +191,29 @@ function draw() {
   }
 
   stage.display();
-  curtainLeft.display();
-  curtainRight.display();
+
   supportBeam.display();
 
-  //   prioBoard.display();
+  prioBoard.display();
   //   installLights.displayTaskInfo();
 
-  // broom.display();
-  // emergencySign.display();
-  // boxes.display();
-  // chairbox.display();
-  // chairs.display();
-  // chairsReserved.display();
-  // reservedBox.display();
+  //   broom.display();
+  //   emergencySign.display();
+  //   boxes.display();
+  //   chairbox.display();
+  //   chairs.display();
+  //   chairsReserved.display();
+  //   reservedBox.display();
+  //   teleprompterOn.display();
+  //   spotlightOn.display();
 
-  // teleprompterOn.display();
-  // spotlightOn.display();
+  //   curtainClosed.display();
 
-  // ... .showHitbox();
-
-  // broom.showHitbox();
-  // chairbox.showHitbox();
-
-  // reservedBox.showHitbox();
-  // curtainClosed.showHitbox();
-  // curtainLeft.showHitbox();
-  // curtainRight.showHitbox();
-  // teleprompterOn.showHitbox();
-  // spotlightOn.showHitbox();
-  // curtainClosed.display();
+  //Hitboxen:
+  //   broom.showHitbox();
+  //   chairbox.showHitbox();
+  //   reservedBox.showHitbox();
+  //   teleprompterOff.showHitbox();
 }
 
 function mouseClicked() {
