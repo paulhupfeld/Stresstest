@@ -4,7 +4,9 @@ import { prioBoardImage } from "../p5setup.js";
 export default class PrioBoard extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223);
-    this.active = false;
+    this.active = true;
+
+    this.tasksOnPrioBoard = [];
   }
 
   displayBoard() {

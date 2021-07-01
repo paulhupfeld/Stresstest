@@ -191,7 +191,14 @@ function draw() {
   supportBeam.display();
 
   prioBoard.display();
-  //   installLights.displayTaskInfo();
+
+  // noFill();
+  // strokeWeight(5);
+  // stroke(200, 0, 0);
+  // rect(150, 600, 200, 50);
+  // rect(915, 600, 200, 50);
+
+  installLights.displayTaskInfo();
 
   //   broom.display();
   //   emergencySign.display();
