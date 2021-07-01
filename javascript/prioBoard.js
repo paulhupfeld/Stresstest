@@ -20,13 +20,7 @@ export default class PrioBoard extends TaskInfo {
       strokeWeight(1.3);
       stroke(150);
 
-      //Lücke für X nur wenn Zeile auch beschrieben
-      if (i % 3 === 0) {
-        line(480, 220 + i * 23, 767, 220 + i * 23);
-        line(792, 220 + i * 23, 800, 220 + i * 23);
-      } else {
-        line(480, 220 + i * 23, 800, 220 + i * 23);
-      }
+      line(480, 220 + i * 23, 800, 220 + i * 23);
 
       pop();
     }
@@ -48,9 +42,31 @@ export default class PrioBoard extends TaskInfo {
   display() {
     if (this.active) {
       this.displayBoard();
-      this.taskInfoPrioBoard();
+      this.displayTaskInfoPrioBoard();
     } else {
       this.displayFrame();
+    }
+  }
+
+  prioButtonHitTest() {
+    if (
+      mouseX >= this.taskInfoX + 120 &&
+      mouseX <= this.taskInfoX + 160 &&
+      mouseY >= this.taskInfoY - 35 &&
+      mouseY <= this.taskInfoY + 35
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  checkMouseClicks() {
+    if (this.active) {
+      for (let i = 0; i < this.tasksOnPrioBoard.length; i++)
+        if (this.taskButtonHitTest(i)) {
+          console.log("activate TaskScreen");
+        }
     }
   }
 }

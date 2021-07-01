@@ -8,63 +8,46 @@ export default class TaskInfo {
     this.actualTask = taskInfoY;
   }
 
-  taskInfoPrioBoard() {
-    push();
-    fill(255);
-    noStroke();
-
-    fill(0);
-    textAlign(LEFT, TOP);
-    textFont("Allerta");
-    textSize(17);
-    strokeWeight(0);
-
-    //Problem:
-    //For tasksOnPrioBoard.length
-
+  displayTaskInfoPrioBoard() {
     let i = 0;
     this.tasksOnPrioBoard.forEach((actualTask) => {
-      // actualTask = tasksOnPrioBoard[0].title;
-      console.log(actualTask);
+      push();
+
+      fill(0);
+      textAlign(LEFT, TOP);
+      textFont("Allerta");
+      textSize(17);
+      strokeWeight(0);
       text(
         actualTask.title,
         this.taskInfoX - 148,
-        this.taskInfoY - 18 + i * 23
+        this.taskInfoY - 17 + i * 39
       );
+      textSize(13);
+      text(
+        "ca. " + actualTask.time + "min.",
+        this.taskInfoX - 148,
+        this.taskInfoY + 9 + i * 39
+      );
+
+      //white space behind X
+      fill(255);
+      rect(this.taskInfoX + 130, this.taskInfoY - 7 + i * 39, 20, 10);
+
+      fill(255, 75, 9);
+      textSize(35);
+      noStroke();
+      textAlign(CENTER, CENTER);
+      text("X", this.taskInfoX + 140, this.taskInfoY + i * 39);
+
+      //falls i * 39 ändern -> auch in hittest ändern
+
+      pop();
       i++;
     });
-
-    // if (this.tasksOnPrioBoard.length) {
-    //   // debugger;
-
-    //   console.log(this.actualTask);
-    //   text(this.actualTask, this.taskInfoX - 148, this.taskInfoY - 18);
-    // }
-
-    // text(
-    //   "Teleprompter programmieren",
-    //   this.taskInfoX - 148,
-    //   this.taskInfoY - 18
-    // );
-
-    textSize(13);
-    text("ca. 8 min.", this.taskInfoX - 148, this.taskInfoY + 8);
-
-    // line(
-    //   this.taskInfoX + 110,
-    //   this.taskInfoY - 35,
-    //   this.taskInfoX + 110,
-    //   this.taskInfoY + 35
-    // );
-    fill(255, 75, 9);
-    textSize(35);
-    noStroke();
-    textAlign(CENTER, CENTER);
-    text("X", this.taskInfoX + 140, this.taskInfoY);
-    pop();
   }
 
-  taskInfoPopUp() {
+  displayTaskInfoPopUp() {
     push();
     fill(255);
     strokeWeight(0);
@@ -99,10 +82,6 @@ export default class TaskInfo {
     pop();
   }
 
-  displayTaskInfo() {
-    this.taskInfoPopUp();
-  }
-
   prioButtonHitTest() {
     if (
       mouseX >= this.taskInfoX + 120 &&
@@ -116,12 +95,12 @@ export default class TaskInfo {
     }
   }
 
-  taskButtonHitTest() {
+  taskButtonHitTest(i) {
     if (
       mouseX >= this.taskInfoX - 160 &&
       mouseX <= this.taskInfoX + 120 &&
-      mouseY >= this.taskInfoY - 35 &&
-      mouseY <= this.taskInfoY + 35
+      mouseY >= this.taskInfoY - 35 + i * 39 &&
+      mouseY <= this.taskInfoY + 35 + i * 39
     ) {
       return true;
     } else {

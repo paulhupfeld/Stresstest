@@ -213,7 +213,7 @@ function draw() {
   // rect(915, 600, 200, 50);
 
   if (installLights.clicked) {
-    installLights.displayTaskInfo();
+    installLights.displayTaskInfoPopUp();
   }
 
   //   broom.display();
@@ -242,21 +242,23 @@ let index;
 function mouseClicked() {
   installLights.checkMouseClicks();
 
+  //Installights Priobutton
   if (
     installLights.prioButtonHitTest() &&
     installLights.isOnPrioBoard === false
   ) {
     prioBoard.tasksOnPrioBoard.push(installLights);
 
-    console.log(prioBoard.tasksOnPrioBoard);
+    // console.log(prioBoard.tasksOnPrioBoard);
     installLights.isOnPrioBoard = true;
   } else if (installLights.prioButtonHitTest() && installLights.isOnPrioBoard) {
     index = prioBoard.tasksOnPrioBoard.indexOf(installLights);
     prioBoard.tasksOnPrioBoard.splice(index, 1);
 
-    console.log(prioBoard.tasksOnPrioBoard);
     installLights.isOnPrioBoard = false;
   }
+
+  prioBoard.checkMouseClicks();
 }
 
 window.draw = draw;

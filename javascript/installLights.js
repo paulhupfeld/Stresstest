@@ -22,6 +22,7 @@ export default class InstallLights extends TaskInfo {
   }
 
   checkMouseClicks() {
+    //activate popup (manual hitbox)
     if (this.done === false) {
       if (
         (mouseX >= 150 && mouseX <= 350 && mouseY >= 600 && mouseY <= 650) ||
@@ -31,10 +32,12 @@ export default class InstallLights extends TaskInfo {
       }
     }
 
-    if (this.taskButtonHitTest()) {
-      //activate TaskScreen
+    //activate TaskScreen...
+    if (this.taskButtonHitTest(0)) {
       this.clicked = false;
       console.log("activate TaskScreen");
     }
+
+    //else if priohitbox, else clicked = false...
   }
 }
