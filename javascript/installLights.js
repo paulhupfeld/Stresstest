@@ -1,7 +1,7 @@
 import TaskInfo from "./taskInfo.js";
 
 export default class InstallLights extends TaskInfo {
-  constructor(title, time) {
+  constructor(title, time, spotlightDown, spotlightOff) {
     super(title, time, 640, 550);
 
     this.clicked = false;
@@ -9,15 +9,17 @@ export default class InstallLights extends TaskInfo {
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
+    this.spotlightDown = spotlightDown;
+    this.spotlightOff = spotlightOff;
   }
 
-  // displayImage() {
-  //   if (this.done === false) {
-  //     spotlightDown.display();
-  //   } else {
-  //     spotlightOff.display();
-  //   }
-  // }
+  displayImage() {
+    if (this.done === false) {
+      this.spotlightDown.display();
+    } else {
+      this.spotlightOff.display();
+    }
+  }
 
   checkMouseClicks() {
     if (this.done === false) {

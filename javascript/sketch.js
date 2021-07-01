@@ -1,8 +1,10 @@
 // Offene Fragen:
-// display wieder in installLights einbauen
+// Array[0].title abbilden
+
 // if start=true funktion auslagern
+// display wieder in installLights einbauen
+
 // für jede klasse eigene aufgabe?
-// In Prioboard auf array aus InstallLights zugreifen
 
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
@@ -67,7 +69,6 @@ function draw() {
     theaterBackground = new TaskImage(
       640,
       360,
-
       180,
       180,
       160,
@@ -170,7 +171,12 @@ function draw() {
       emergencySignImage
     );
 
-    installLights = new InstallLights("Teleprompter programmieren", 13);
+    installLights = new InstallLights(
+      "Teleprompter programmieren",
+      13,
+      spotlightDown,
+      spotlightOff
+    );
 
     prioBoard = new PrioBoard();
 
@@ -186,11 +192,13 @@ function draw() {
   curtainLeft.display();
   curtainRight.display();
 
-  if (installLights.done === false) {
-    spotlightDown.display();
-  } else {
-    spotlightOff.display();
-  }
+  // if (installLights.done === false) {
+  //   spotlightDown.display();
+  // } else {
+  //   spotlightOff.display();
+  // }
+
+  installLights.displayImage();
 
   stage.display();
 
@@ -204,7 +212,9 @@ function draw() {
   // rect(150, 600, 200, 50);
   // rect(915, 600, 200, 50);
 
-  installLights.displayTaskInfo();
+  if (installLights.clicked) {
+    installLights.displayTaskInfo();
+  }
 
   //   broom.display();
   //   emergencySign.display();

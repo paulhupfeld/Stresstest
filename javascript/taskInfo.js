@@ -5,26 +5,50 @@ export default class TaskInfo {
 
     this.taskInfoX = taskInfoX;
     this.taskInfoY = taskInfoY;
+    this.actualTask = taskInfoY;
   }
 
   taskInfoPrioBoard() {
     push();
     fill(255);
     noStroke();
-    rect(this.taskInfoX - 160, this.taskInfoY - 35, 320, 70);
 
     fill(0);
     textAlign(LEFT, TOP);
     textFont("Allerta");
     textSize(17);
     strokeWeight(0);
-    text(this.title, this.taskInfoX - 148, this.taskInfoY - 18);
+
+    //Problem:
+    //For tasksOnPrioBoard.length
+
+    let i = 0;
+    this.tasksOnPrioBoard.forEach((actualTask) => {
+      // actualTask = tasksOnPrioBoard[0].title;
+      console.log(actualTask);
+      text(
+        actualTask.title,
+        this.taskInfoX - 148,
+        this.taskInfoY - 18 + i * 23
+      );
+      i++;
+    });
+
+    // if (this.tasksOnPrioBoard.length) {
+    //   // debugger;
+
+    //   console.log(this.actualTask);
+    //   text(this.actualTask, this.taskInfoX - 148, this.taskInfoY - 18);
+    // }
+
+    // text(
+    //   "Teleprompter programmieren",
+    //   this.taskInfoX - 148,
+    //   this.taskInfoY - 18
+    // );
+
     textSize(13);
-    text(
-      "ca. " + this.time + " min.",
-      this.taskInfoX - 148,
-      this.taskInfoY + 8
-    );
+    text("ca. 8 min.", this.taskInfoX - 148, this.taskInfoY + 8);
 
     // line(
     //   this.taskInfoX + 110,
@@ -76,9 +100,7 @@ export default class TaskInfo {
   }
 
   displayTaskInfo() {
-    if (this.clicked) {
-      this.taskInfoPopUp();
-    }
+    this.taskInfoPopUp();
   }
 
   prioButtonHitTest() {

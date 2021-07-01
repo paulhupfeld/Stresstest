@@ -4,7 +4,7 @@ import { prioBoardImage } from "../p5setup.js";
 export default class PrioBoard extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223);
-    this.active = false;
+    this.active = true;
 
     this.tasksOnPrioBoard = [];
   }
@@ -17,7 +17,8 @@ export default class PrioBoard extends TaskInfo {
 
     for (let i = 0; i < 17; i++) {
       push();
-      strokeWeight(2);
+      strokeWeight(1.3);
+      stroke(150);
 
       //Lücke für X nur wenn Zeile auch beschrieben
       if (i % 3 === 0) {
@@ -30,6 +31,7 @@ export default class PrioBoard extends TaskInfo {
       pop();
     }
   }
+
   displayFrame() {
     push();
     scale(0.9);
@@ -46,6 +48,7 @@ export default class PrioBoard extends TaskInfo {
   display() {
     if (this.active) {
       this.displayBoard();
+      this.taskInfoPrioBoard();
     } else {
       this.displayFrame();
     }
