@@ -1,7 +1,3 @@
-// Offene Fragen:
-// display wieder in installLights einbauen
-// if start=true funktion auslagern
-
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
 import InstallLights from "./installLights.js";

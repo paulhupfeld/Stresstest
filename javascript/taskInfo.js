@@ -81,8 +81,6 @@ export default class TaskInfo {
     }
   }
 
-  pushOnPrioBoard() {}
-
   prioButtonHitTest() {
     if (
       mouseX >= this.taskInfoX + 120 &&
@@ -109,15 +107,15 @@ export default class TaskInfo {
     }
   }
 
-  // checkMouseClicks() {
-  //   if (this.prioButtonHitTest()) {
-  //     this.prioBoard = !this.prioBoard;
-  //     console.log("prioBoard = " + this.prioBoard);
-  //   }
+  checkMouseClicks() {
+    if (this.prioButtonHitTest()) {
+      this.prioBoard = !this.prioBoard;
+      console.log("prioBoard = " + this.prioBoard);
+    }
 
-  //   if (this.taskButtonHitTest()) {
-  //     //activate TaskScreen
-  //     console.log("activate TaskScreen");
-  //   }
-  // }
+    if (this.taskButtonHitTest()) {
+      //activate TaskScreen
+      console.log("activate TaskScreen");
+    }
+  }
 }

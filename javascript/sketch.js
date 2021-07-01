@@ -1,3 +1,9 @@
+// Offene Fragen:
+// display wieder in installLights einbauen
+// if start=true funktion auslagern
+// für jede klasse eigene aufgabe?
+// In Prioboard auf array aus InstallLights zugreifen
+
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
 import InstallLights from "./installLights.js";
@@ -217,10 +223,30 @@ function draw() {
   //   chairbox.showHitbox();
   //   reservedBox.showHitbox();
   //   teleprompterOff.showHitbox();
+
+  // console.log(installLights.isOnPrioBoard);
 }
+
+let index;
 
 function mouseClicked() {
   installLights.checkMouseClicks();
+
+  if (
+    installLights.prioButtonHitTest() &&
+    installLights.isOnPrioBoard === false
+  ) {
+    prioBoard.tasksOnPrioBoard.push(installLights);
+
+    console.log(prioBoard.tasksOnPrioBoard);
+    installLights.isOnPrioBoard = true;
+  } else if (installLights.prioButtonHitTest() && installLights.isOnPrioBoard) {
+    index = prioBoard.tasksOnPrioBoard.indexOf(installLights);
+    prioBoard.tasksOnPrioBoard.splice(index, 1);
+
+    console.log(prioBoard.tasksOnPrioBoard);
+    installLights.isOnPrioBoard = false;
+  }
 }
 
 window.draw = draw;

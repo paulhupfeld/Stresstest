@@ -5,7 +5,7 @@ export default class InstallLights extends TaskInfo {
     super(title, time, 640, 550);
 
     this.clicked = false;
-    this.prioBoard = false;
+    this.isOnPrioBoard = false;
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
@@ -26,21 +26,13 @@ export default class InstallLights extends TaskInfo {
         (mouseX >= 950 && mouseX <= 1150 && mouseY >= 600 && mouseY <= 650)
       ) {
         this.clicked = true;
-
-        console.log(this.clicked);
       }
     }
 
     if (this.taskButtonHitTest()) {
       //activate TaskScreen
       this.clicked = false;
-      this.pushOnPrioBoard();
       console.log("activate TaskScreen");
-    }
-
-    if (this.prioButtonHitTest()) {
-      this.prioBoard = !this.prioBoard;
-      console.log("prioBoard = " + this.prioBoard);
     }
   }
 }
