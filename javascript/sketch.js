@@ -167,7 +167,7 @@ function draw() {
     );
 
     installLights = new InstallLights(
-      "Teleprompter programmieren",
+      "Scheinwerfer anbringen",
       13,
       spotlightDown,
       spotlightOff
@@ -187,18 +187,11 @@ function draw() {
   curtainLeft.display();
   curtainRight.display();
 
-  // if (installLights.done === false) {
-  //   spotlightDown.display();
-  // } else {
-  //   spotlightOff.display();
-  // }
+  supportBeam.display();
 
   installLights.displayImage();
 
   stage.display();
-
-  supportBeam.display();
-
   prioBoard.display();
 
   // noFill();
@@ -207,9 +200,7 @@ function draw() {
   // rect(150, 600, 200, 50);
   // rect(915, 600, 200, 50);
 
-  if (installLights.clicked) {
-    installLights.displayTaskInfoPopUp();
-  }
+  installLights.displayTaskInfoPopUp();
 
   //   broom.display();
   //   emergencySign.display();
@@ -232,28 +223,10 @@ function draw() {
   // console.log(installLights.isOnPrioBoard);
 }
 
-let index;
-
 function mouseClicked() {
-  installLights.checkMouseClicks();
+  installLights.checkMouseClicks(prioBoard.tasksOnPrioBoard);
 
-  //Installights Priobutton
-  if (
-    installLights.prioButtonHitTest(0) &&
-    installLights.isOnPrioBoard === false
-  ) {
-    prioBoard.tasksOnPrioBoard.push(installLights);
-
-    // console.log(prioBoard.tasksOnPrioBoard);
-    installLights.isOnPrioBoard = true;
-  } else if (installLights.prioButtonHitTest() && installLights.isOnPrioBoard) {
-    index = prioBoard.tasksOnPrioBoard.indexOf(installLights);
-    prioBoard.tasksOnPrioBoard.splice(index, 1);
-
-    installLights.isOnPrioBoard = false;
-  }
-
-  prioBoard.checkMouseClicks();
+  prioBoard.checkMouseClicks(installLights.isOnPrioBoard);
 }
 
 window.draw = draw;

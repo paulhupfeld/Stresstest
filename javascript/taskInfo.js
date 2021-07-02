@@ -5,7 +5,7 @@ export default class TaskInfo {
 
     this.taskInfoX = taskInfoX;
     this.taskInfoY = taskInfoY;
-    this.actualTask = taskInfoY;
+    this.actualTask = 0;
   }
 
   displayTaskInfoPrioBoard() {
@@ -48,38 +48,40 @@ export default class TaskInfo {
   }
 
   displayTaskInfoPopUp() {
-    push();
-    fill(255);
-    strokeWeight(0);
-    rect(this.taskInfoX - 160, this.taskInfoY - 35, 320, 70);
+    if (this.clicked) {
+      push();
+      fill(255);
+      strokeWeight(0);
+      rect(this.taskInfoX - 160, this.taskInfoY - 35, 320, 70);
 
-    fill(0);
-    textAlign(LEFT, TOP);
-    textFont("Allerta");
-    textSize(17);
+      fill(0);
+      textAlign(LEFT, TOP);
+      textFont("Allerta");
+      textSize(17);
 
-    text(this.title, this.taskInfoX - 148, this.taskInfoY - 18);
-    textSize(13);
-    text(
-      "ca. " + this.time + " min.",
-      this.taskInfoX - 148,
-      this.taskInfoY + 8
-    );
+      text(this.title, this.taskInfoX - 148, this.taskInfoY - 18);
+      textSize(13);
+      text(
+        "ca. " + this.time + " min.",
+        this.taskInfoX - 148,
+        this.taskInfoY + 8
+      );
 
-    strokeWeight(2);
-    line(
-      this.taskInfoX + 120,
-      this.taskInfoY - 35,
-      this.taskInfoX + 120,
-      this.taskInfoY + 35
-    );
-    fill(255, 75, 9);
-    textSize(45);
-    noStroke();
-    textAlign(CENTER, CENTER);
-    textFont("Allerta");
-    text("!", this.taskInfoX + 140, this.taskInfoY + 5);
-    pop();
+      strokeWeight(2);
+      line(
+        this.taskInfoX + 120,
+        this.taskInfoY - 35,
+        this.taskInfoX + 120,
+        this.taskInfoY + 35
+      );
+      fill(255, 75, 9);
+      textSize(45);
+      noStroke();
+      textAlign(CENTER, CENTER);
+      textFont("Allerta");
+      text("!", this.taskInfoX + 140, this.taskInfoY + 5);
+      pop();
+    }
   }
 
   prioButtonHitTest(i) {
@@ -107,16 +109,4 @@ export default class TaskInfo {
       return false;
     }
   }
-
-  // checkMouseClicks() {
-  //   if (this.prioButtonHitTest()) {
-  //     this.prioBoard = !this.prioBoard;
-  //     console.log("prioBoard = " + this.prioBoard);
-  //   }
-
-  //   if (this.taskButtonHitTest()) {
-  //     //activate TaskScreen
-  //     console.log("activate TaskScreen");
-  //   }
-  // }
 }

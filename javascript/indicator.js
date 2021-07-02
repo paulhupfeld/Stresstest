@@ -8,6 +8,7 @@ class DisplayTime {
     this.counterMinutes = 120;
     this.counterSecounds = 59;
   }
+
   display() {
     background(128);
     push();
