@@ -46,6 +46,40 @@ export default class PrioBoard extends TaskInfo {
     pop();
   }
 
+  displayTaskInfoPrioBoard() {
+    let i = 0;
+    this.tasksOnPrioBoard.forEach((actualTask) => {
+      push();
+
+      translate(this.boardPosition.x + 290, this.boardPosition.y + 219);
+      scale(this.boardPosition.scale);
+      fill(0);
+      textAlign(LEFT, TOP);
+      textFont("Allerta");
+      textSize(17);
+      strokeWeight(0);
+      text(actualTask.title, -148, -17 + i * 39);
+
+      textSize(13);
+      text("ca. " + actualTask.time + "min.", -148, +9 + i * 39);
+
+      //white space behind X
+      fill(255);
+      rect(130, -7 + i * 39, 20, 10);
+
+      fill(255, 75, 9);
+      textSize(35);
+      noStroke();
+      textAlign(CENTER, CENTER);
+      text("X", 140, i * 39);
+
+      //falls i * 39 ändern -> auch in hittest ändern
+
+      pop();
+      i++;
+    });
+  }
+
   // displayFrame() {
   //   push();
   //   scale(0.9);

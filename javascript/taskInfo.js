@@ -8,6 +8,11 @@ export default class TaskInfo {
     this.actualTask = 0;
   }
 
+  // x: 1150,
+  // y: 600,
+
+  // 640, 223
+
   displayTaskInfoPrioBoard() {
     let i = 0;
     this.tasksOnPrioBoard.forEach((actualTask) => {

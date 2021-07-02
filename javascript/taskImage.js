@@ -34,11 +34,11 @@ export default class TaskImage extends Button {
     pop();
   }
 
-  hitTest() {
-    if (this.image.hitTest()) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // hitTest() {
+  //   if (...) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }
