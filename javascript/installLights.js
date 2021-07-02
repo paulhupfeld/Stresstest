@@ -9,26 +9,30 @@ export default class InstallLights extends TaskInfo {
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
-
-    this.spotlightDown = spotlightDown;
-    this.spotlightOff = spotlightOff;
   }
 
-  displayImage() {
+  displayImage(spotlightDown, spotlightOff) {
     if (this.done === false) {
-      this.spotlightDown.display();
+      spotlightDown.display();
     } else {
-      this.spotlightOff.display();
+      spotlightOff.display();
     }
   }
 
-  checkMouseClicks(array) {
-    //clicks in room
+  checkMouseClicks(prioBoard) {
     //(manual hitbox)
     if (this.done === false) {
       if (
-        (mouseX >= 150 && mouseX <= 350 && mouseY >= 600 && mouseY <= 650) ||
-        (mouseX >= 950 && mouseX <= 1150 && mouseY >= 600 && mouseY <= 650)
+        (mouseX >= 150 &&
+          mouseX <= 350 &&
+          mouseY >= 600 &&
+          mouseY <= 650 &&
+          this.clicked === false) ||
+        (mouseX >= 950 &&
+          mouseX <= 1150 &&
+          mouseY >= 600 &&
+          mouseY <= 650 &&
+          this.clicked === false)
       ) {
         this.clicked = true;
         // console.log("show taskInfo");
@@ -37,11 +41,14 @@ export default class InstallLights extends TaskInfo {
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        array.push(this);
+        prioBoard.tasksOnPrioBoard.push(this);
         this.isOnPrioBoard = true;
         // console.log("push on prioBoard");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        array.splice(array.indexOf(this), 1);
+        prioBoard.tasksOnPrioBoard.splice(
+          prioBoard.tasksOnPrioBoard.indexOf(this),
+          1
+        );
         this.isOnPrioBoard = false;
         // console.log("remove from prioBoard");
       } else {

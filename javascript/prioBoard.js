@@ -17,6 +17,18 @@ export default class PrioBoard extends TaskInfo {
     this.tasksOnPrioBoard = [];
   }
 
+  display(prioIcon) {
+    // console.log(this.active);
+    if (this.active) {
+      this.popUpPrioBoardAnimation();
+      this.displayBoard();
+      this.displayTaskInfoPrioBoard();
+    } else {
+      prioIcon.display();
+      //this.displayFrame();
+    }
+  }
+
   popUpPrioBoardAnimation() {
     gsap.to(this.boardPosition, {
       duration: 1,
@@ -93,17 +105,6 @@ export default class PrioBoard extends TaskInfo {
   //   pop();
   // }
 
-  display(prioIcon) {
-    if (this.active) {
-      this.popUpPrioBoardAnimation();
-      this.displayBoard();
-      this.displayTaskInfoPrioBoard();
-    } else {
-      prioIcon.display();
-      //this.displayFrame();
-    }
-  }
-
   prioButtonHitTest() {
     if (
       mouseX >= this.taskInfoX + 120 &&
@@ -117,22 +118,25 @@ export default class PrioBoard extends TaskInfo {
     }
   }
 
-  checkMouseClicks(prioBoardState, prioIcon) {
+  checkMouseClicks(prioIcon) {
     if (this.active) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
         if (this.taskButtonHitTest(i)) {
           //...
           console.log("activate TaskScreen");
-        }
-        if (this.prioButtonHitTest(i)) {
+        } else if (this.prioButtonHitTest(i)) {
           this.tasksOnPrioBoard.splice(this.tasksOnPrioBoard[i], 1);
           actualTask.isOnPrioBoard = false;
           console.log("remove from prioBoard");
         }
       }
+      if (mouseX <= 410 || mouseX >= 870 || mouseY <= 30 || mouseY >= 680) {
+        this.active = false;
+        //Rückanimation einfügen
+      }
     } else {
-      if (prioIcon) {
+      if (prioIcon.hitTest()) {
         this.active = true;
       }
     }

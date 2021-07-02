@@ -174,20 +174,9 @@ function draw() {
     prioIcon = new TaskImage(1190, 630, 1190, 630, 120, 120, prioIconImage);
     prioIcon.scale = 0.4;
 
-    installLights = new InstallLights(
-      "Scheinwerfer anbringen",
-      13,
-      spotlightDown,
-      spotlightOff
-    );
+    installLights = new InstallLights("Scheinwerfer anbringen", 13);
 
-    setupChairs = new SetupChairs(
-      "Stühle aufstellen",
-      12,
-      boxes,
-      chairbox,
-      chairs
-    );
+    setupChairs = new SetupChairs("Stühle aufstellen", 12);
 
     prioBoard = new PrioBoard();
 
@@ -199,8 +188,9 @@ function draw() {
   teleprompterOff.display();
   doorLeft.display();
   doorRight.display();
-  setupChairs.displayImage();
-  installLights.displayImage();
+
+  setupChairs.displayImage(boxes, chairbox, chairs);
+  installLights.displayImage(spotlightDown, spotlightOff);
 
   stage.display();
   curtainLeft.display();
@@ -212,14 +202,7 @@ function draw() {
 
   // prioIcon.showHitbox();
 
-  // noFill();
-  // strokeWeight(5);
-  // stroke(200, 0, 0);
-  // rect(1050, 600, 200, 50);
-  // rect(1015, 600, 200, 50);
-
   installLights.displayTaskInfoPopUp();
-
   setupChairs.displayTaskInfoPopUp();
 
   //   broom.display();
@@ -244,9 +227,9 @@ function draw() {
 }
 
 function mouseClicked() {
-  installLights.checkMouseClicks(prioBoard.tasksOnPrioBoard);
+  installLights.checkMouseClicks(prioBoard);
 
-  prioBoard.checkMouseClicks(installLights.isOnPrioBoard, prioIcon.hitTest());
+  prioBoard.checkMouseClicks(prioIcon);
 }
 
 window.draw = draw;
