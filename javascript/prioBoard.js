@@ -4,7 +4,7 @@ import { prioBoardImage } from "../p5setup.js";
 export default class PrioBoard extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223);
-    this.active = true;
+    this.active = false;
 
     this.tasksOnPrioBoard = [];
   }
@@ -63,10 +63,14 @@ export default class PrioBoard extends TaskInfo {
 
   checkMouseClicks() {
     if (this.active) {
-      for (let i = 0; i < this.tasksOnPrioBoard.length; i++)
-        if (this.taskButtonHitTest(i)) {
+      for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
+        if (this.taskButtonHitTest(this.tasksOnPrioBoard.length - 1)) {
           console.log("activate TaskScreen");
         }
+        if (this.prioButtonHitTest(this.tasksOnPrioBoard.length - 1)) {
+          console.log("remove prio");
+        }
+      }
     }
   }
 }

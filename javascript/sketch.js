@@ -1,10 +1,5 @@
 // Offene Fragen:
-// Array[0].title abbilden
-
-// if start=true funktion auslagern
-// display wieder in installLights einbauen
-
-// für jede klasse eigene aufgabe?
+// Connection PrioBoard & InstallLights
 
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
@@ -244,7 +239,7 @@ function mouseClicked() {
 
   //Installights Priobutton
   if (
-    installLights.prioButtonHitTest() &&
+    installLights.prioButtonHitTest(0) &&
     installLights.isOnPrioBoard === false
   ) {
     prioBoard.tasksOnPrioBoard.push(installLights);

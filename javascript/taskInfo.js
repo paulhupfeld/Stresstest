@@ -82,12 +82,12 @@ export default class TaskInfo {
     pop();
   }
 
-  prioButtonHitTest() {
+  prioButtonHitTest(i) {
     if (
       mouseX >= this.taskInfoX + 120 &&
       mouseX <= this.taskInfoX + 160 &&
-      mouseY >= this.taskInfoY - 35 &&
-      mouseY <= this.taskInfoY + 35
+      mouseY >= this.taskInfoY - 35 + i * 39 &&
+      mouseY <= this.taskInfoY + 35 + i * 39
     ) {
       return true;
     } else {
@@ -108,15 +108,15 @@ export default class TaskInfo {
     }
   }
 
-  checkMouseClicks() {
-    if (this.prioButtonHitTest()) {
-      this.prioBoard = !this.prioBoard;
-      console.log("prioBoard = " + this.prioBoard);
-    }
+  // checkMouseClicks() {
+  //   if (this.prioButtonHitTest()) {
+  //     this.prioBoard = !this.prioBoard;
+  //     console.log("prioBoard = " + this.prioBoard);
+  //   }
 
-    if (this.taskButtonHitTest()) {
-      //activate TaskScreen
-      console.log("activate TaskScreen");
-    }
-  }
+  //   if (this.taskButtonHitTest()) {
+  //     //activate TaskScreen
+  //     console.log("activate TaskScreen");
+  //   }
+  // }
 }
