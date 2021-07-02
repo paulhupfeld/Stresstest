@@ -168,7 +168,7 @@ function draw() {
       emergencySignImage
     );
 
-    prioIcon = new TaskImage(1190, 630, 180, 180, 200, 200, prioIconImage);
+    prioIcon = new TaskImage(1190, 630, 1190, 630, 120, 120, prioIconImage);
     prioIcon.scale = 0.4;
 
     installLights = new InstallLights(
@@ -197,13 +197,14 @@ function draw() {
   supportBeam.display();
 
   prioBoard.display(prioIcon);
-  //prioIcon.display();
+
+  // prioIcon.showHitbox();
 
   // noFill();
   // strokeWeight(5);
   // stroke(200, 0, 0);
-  // rect(150, 600, 200, 50);
-  // rect(915, 600, 200, 50);
+  // rect(1050, 600, 200, 50);
+  // rect(1015, 600, 200, 50);
 
   installLights.displayTaskInfoPopUp();
 
@@ -231,7 +232,7 @@ function draw() {
 function mouseClicked() {
   installLights.checkMouseClicks(prioBoard.tasksOnPrioBoard);
 
-  prioBoard.checkMouseClicks(installLights.isOnPrioBoard);
+  prioBoard.checkMouseClicks(installLights.isOnPrioBoard, prioIcon.hitTest());
 }
 
 window.draw = draw;
