@@ -27,8 +27,10 @@ export default class Button {
       mouseY > this.hitboxY - this.height / 2 &&
       mouseY < this.hitboxY + this.height / 2
     ) {
+      console.log("true");
       return true;
     } else {
+      console.log("false");
       return false;
     }
   }

@@ -4,6 +4,7 @@
 import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
 import InstallLights from "./installLights.js";
+import SetupChairs from "./setupChairs.js";
 
 import {
   boxesImage,
@@ -58,6 +59,8 @@ let emergencySign;
 let prioIcon;
 
 let installLights;
+
+let setupChairs;
 
 let prioBoard;
 
@@ -178,6 +181,14 @@ function draw() {
       spotlightOff
     );
 
+    setupChairs = new SetupChairs(
+      "Stühle aufstellen",
+      12,
+      boxes,
+      chairbox,
+      chairs
+    );
+
     prioBoard = new PrioBoard();
 
     start = false;
@@ -188,8 +199,9 @@ function draw() {
   teleprompterOff.display();
   doorLeft.display();
   doorRight.display();
-
+  setupChairs.displayImage();
   installLights.displayImage();
+
   stage.display();
   curtainLeft.display();
   curtainRight.display();
@@ -207,6 +219,8 @@ function draw() {
   // rect(1015, 600, 200, 50);
 
   installLights.displayTaskInfoPopUp();
+
+  setupChairs.displayTaskInfoPopUp();
 
   //   broom.display();
   //   emergencySign.display();
