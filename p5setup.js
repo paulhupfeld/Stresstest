@@ -38,6 +38,7 @@ export let teleprompterOffImage;
 export let teleprompterOnImage;
 export let theaterBackgroundImage;
 export let curtainClosedImage;
+export let prioIconImage;
 
 function preload() {
   actorImage = loadImage("javascript/assets/actorImage.png");
@@ -67,6 +68,7 @@ function preload() {
   emergencySignImage = loadImage("javascript/assets/Emergency-sign.png");
   prioBoardImage = loadImage("javascript/assets/Prioboard.png");
   octagonImage = loadImage("javascript/assets/Octagon.png");
+  prioIconImage = loadImage("javascript/assets/PrioIcon.png");
 }
 
 window.preload = preload;

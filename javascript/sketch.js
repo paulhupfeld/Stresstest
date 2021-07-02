@@ -28,6 +28,7 @@ import {
   theaterBackgroundImage,
   curtainClosedImage,
   emergencySignImage,
+  prioIconImage,
 } from "../p5setup.js";
 
 let start = true;
@@ -54,6 +55,7 @@ let teleprompterOn;
 let theaterBackground;
 let curtainClosed;
 let emergencySign;
+let prioIcon;
 
 let installLights;
 
@@ -166,6 +168,9 @@ function draw() {
       emergencySignImage
     );
 
+    prioIcon = new TaskImage(1190, 630, 180, 180, 200, 200, prioIconImage);
+    prioIcon.scale = 0.4;
+
     installLights = new InstallLights(
       "Scheinwerfer anbringen",
       13,
@@ -183,16 +188,16 @@ function draw() {
   teleprompterOff.display();
   doorLeft.display();
   doorRight.display();
-  exit.display();
-  curtainLeft.display();
-  curtainRight.display();
-
-  supportBeam.display();
 
   installLights.displayImage();
-
   stage.display();
-  prioBoard.display();
+  curtainLeft.display();
+  curtainRight.display();
+  exit.display();
+  supportBeam.display();
+
+  prioBoard.display(prioIcon);
+  //prioIcon.display();
 
   // noFill();
   // strokeWeight(5);

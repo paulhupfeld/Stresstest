@@ -4,7 +4,7 @@ import { prioBoardImage } from "../p5setup.js";
 export default class PrioBoard extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223);
-    this.active = true;
+    this.active = false;
 
     this.tasksOnPrioBoard = [];
   }
@@ -26,25 +26,27 @@ export default class PrioBoard extends TaskInfo {
     }
   }
 
-  displayFrame() {
-    push();
-    scale(0.9);
-    image(
-      prioBoardImage,
-      1315,
-      70,
-      prioBoardImage.width,
-      prioBoardImage.height
-    );
-    pop();
-  }
+  // displayFrame() {
+  //   push();
+  //   scale(0.9);
+  //   image(
+  //     prioBoardImage,
+  //     1315,
+  //     70,
+  //     prioBoardImage.width,
+  //     prioBoardImage.height
+  //   );
+  //   pop();
+  // }
 
-  display() {
+  display(prioIcon) {
     if (this.active) {
+      //animation
       this.displayBoard();
       this.displayTaskInfoPrioBoard();
     } else {
-      this.displayFrame();
+      prioIcon.display();
+      //this.displayFrame();
     }
   }
 
