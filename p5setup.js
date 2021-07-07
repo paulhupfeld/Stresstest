@@ -1,7 +1,3 @@
-function setup() {
-  createCanvas(1280, 720);
-  frameRate(30);
-}
 window.setup = setup;
 
 new p5();
@@ -13,32 +9,32 @@ window.addEventListener("resize", function () {
   clear();
 });
 
-export let actorImage;
-export let boxesImage;
-export let broomImage;
-export let chairboxImage;
-export let chairsReservedImage;
-export let chairsImage;
-export let coffeeCupImage;
-export let curtainClosedImage;
-export let curtainLeftImage;
-export let curtainRightImage;
-export let doorLeftImage;
-export let doorRightImage;
-export let emergencySignImage;
-export let exitImage;
-export let konfettiImage;
-export let octagonImage;
-export let prioBoardImage;
-export let reservedBoxImage;
-export let spotlightDownImage;
-export let spotlightOffImage;
-export let spotlightOnImage;
-export let stageImage;
-export let supportBeamImage;
-export let teleprompterOffImage;
-export let teleprompterOnImage;
-export let theaterBackgroundImage;
+export let actorImage,
+  boxesImage,
+  broomImage,
+  chairboxImage,
+  chairsReservedImage,
+  chairsImage,
+  coffeeCupImage,
+  curtainClosedImage,
+  curtainLeftImage,
+  curtainRightImage,
+  doorLeftImage,
+  doorRightImage,
+  emergencySignImage,
+  exitImage,
+  konfettiImage,
+  octagonImage,
+  prioBoardImage,
+  reservedBoxImage,
+  spotlightDownImage,
+  spotlightOffImage,
+  spotlightOnImage,
+  stageImage,
+  supportBeamImage,
+  teleprompterOffImage,
+  teleprompterOnImage,
+  theaterBackgroundImage;
 
 function preload() {
   actorImage = loadImage("javascript/assets/actorImage.png");
@@ -69,6 +65,11 @@ function preload() {
   emergencySignImage = loadImage("javascript/assets/Emergency-sign.png");
   prioBoardImage = loadImage("javascript/assets/Prioboard.png");
   octagonImage = loadImage("javascript/assets/Octagon.png");
+}
+
+function setup() {
+  createCanvas(1280, 720);
+  frameRate(30);
 }
 
 window.preload = preload;
