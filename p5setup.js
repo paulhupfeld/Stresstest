@@ -19,6 +19,8 @@ export let broomImage;
 export let chairboxImage;
 export let chairsReservedImage;
 export let chairsImage;
+export let coffeeCupImage;
+export let curtainClosedImage;
 export let curtainLeftImage;
 export let curtainRightImage;
 export let doorLeftImage;
@@ -28,6 +30,7 @@ export let exitImage;
 export let konfettiImage;
 export let octagonImage;
 export let prioBoardImage;
+export let prioIconImage;
 export let reservedBoxImage;
 export let spotlightDownImage;
 export let spotlightOffImage;
@@ -37,8 +40,6 @@ export let supportBeamImage;
 export let teleprompterOffImage;
 export let teleprompterOnImage;
 export let theaterBackgroundImage;
-export let curtainClosedImage;
-export let prioIconImage;
 
 function preload() {
   actorImage = loadImage("javascript/assets/actorImage.png");
@@ -47,6 +48,7 @@ function preload() {
   chairboxImage = loadImage("javascript/assets/Chair-box.png");
   chairsReservedImage = loadImage("javascript/assets/Chairs-reserved.png");
   chairsImage = loadImage("javascript/assets/Chairs.png");
+  coffeeCupImage = loadImage("javascript/assets/CoffeeCup.png");
   curtainLeftImage = loadImage("javascript/assets/Curtain-Left.png");
   curtainRightImage = loadImage("javascript/assets/Curtain-right.png");
   doorLeftImage = loadImage("javascript/assets/Door-Left.png");

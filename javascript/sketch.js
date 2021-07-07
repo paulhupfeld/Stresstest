@@ -12,6 +12,7 @@ import {
   chairboxImage,
   chairsReservedImage,
   chairsImage,
+  coffeeCupImage,
   curtainLeftImage,
   curtainRightImage,
   doorLeftImage,
@@ -39,6 +40,7 @@ let boxes;
 let chairbox;
 let chairsReserved;
 let chairs;
+let coffeeCup;
 let curtainLeft;
 let curtainRight;
 let doorLeft;
@@ -108,6 +110,7 @@ function draw() {
       170,
       curtainRightImage
     );
+    coffeeCup = new TaskImage(0, 0, 180, 180, 160, 170, coffeeCupImage);
     doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
     doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
     exit = new TaskImage(76, 230, 75, 230, 110, 60, exitImage);
@@ -209,7 +212,7 @@ function draw() {
   // spotlightOn.display();
   //   curtainClosed.display();
 
-  prioBoard.display();
+  prioBoard.display(coffeeCup);
 
   //Hitboxen:
   //   broom.showHitbox();

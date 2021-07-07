@@ -9,12 +9,31 @@ export default class PrioBoard extends TaskInfo {
       scale: 0.13,
       x: 1150,
       y: 568,
-      // scale: 1,
-      // x: 350,
-      // y: 5,
     };
 
     this.tasksOnPrioBoard = [];
+  }
+
+  displayBreakButton(coffeeCup) {
+    push();
+    noStroke();
+    fill(255);
+    ellipse(90, 630, 150);
+
+    push();
+    translate(90, 615);
+    scale(0.36);
+    coffeeCup.display();
+    pop();
+
+    fill(255, 75, 0);
+    textAlign(CENTER, CENTER);
+    textFont("Allerta");
+    textSize(17);
+    strokeWeight(0);
+    text("Pause", 90, 675);
+
+    pop();
   }
 
   displayPrioButton() {
@@ -122,25 +141,12 @@ export default class PrioBoard extends TaskInfo {
     });
   }
 
-  // displayFrame() {
-  //   push();
-  //   scale(0.9);
-  //   image(
-  //     prioBoardImage,
-  //     1315,
-  //     70,
-  //     prioBoardImage.width,
-  //     prioBoardImage.height
-  //   );
-  //   pop();
-  // }
-
-  prioButtonHitTest() {
+  prioButtonHitTest(i) {
     if (
       mouseX >= this.taskInfoX + 120 &&
       mouseX <= this.taskInfoX + 160 &&
-      mouseY >= this.taskInfoY - 35 &&
-      mouseY <= this.taskInfoY + 35
+      mouseY >= this.taskInfoY - 35 + i * 46 &&
+      mouseY <= this.taskInfoY + 35 + i * 46
     ) {
       return true;
     } else {
@@ -148,14 +154,14 @@ export default class PrioBoard extends TaskInfo {
     }
   }
 
-  display() {
+  display(coffeeCup) {
+    this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
     this.displayBoard();
 
     if (this.active) {
       // console.log("hello");
       this.displayTaskInfoPrioBoard();
-    } else {
     }
   }
 
@@ -163,11 +169,12 @@ export default class PrioBoard extends TaskInfo {
     if (this.active) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
-        console.log(i);
         if (this.taskButtonHitTest(i)) {
           //...
           console.log("activate TaskScreen");
         } else if (this.prioButtonHitTest(i)) {
+          console.log(i);
+          console.log(this.tasksOnPrioBoard);
           this.tasksOnPrioBoard.splice(this.tasksOnPrioBoard[i], 1);
           actualTask.isOnPrioBoard = false;
           console.log("remove from prioBoard");

@@ -96,7 +96,6 @@ export default class TaskInfo {
       mouseY >= this.taskInfoY - 35 + i * 46 &&
       mouseY <= this.taskInfoY + 35 + i * 46
     ) {
-      console.log("treffer versenkt");
       return true;
     } else {
       return false;
