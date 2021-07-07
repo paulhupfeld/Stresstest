@@ -9,14 +9,24 @@ export default class SetupChairs extends TaskInfo {
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
+    this.activateAnimation = false;
   }
 
   displayImage(boxes, chairbox, chairs) {
     if (this.done === false) {
       boxes.display();
       chairbox.display();
+      this.scaleAnimation(chairbox);
     } else {
       chairs.display();
+    }
+  }
+
+  scaleAnimation(chairbox) {
+    if (chairbox.hitTest() && chairbox.scale < 1.4) {
+      chairbox.scale = 1.4;
+    } else if (chairbox.hitTest() === false && chairbox.scale > 1) {
+      chairbox.scale = 1;
     }
   }
 
