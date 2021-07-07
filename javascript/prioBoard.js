@@ -53,12 +53,6 @@ export default class PrioBoard extends TaskInfo {
   }
 
   popUpPrioBoardAnimation() {
-    // this.boardPosition = {
-    //   scale: 0.1,
-    //   x: 1150,
-    //   y: 600,
-    // };
-
     if (this.active) {
       gsap.to(this.boardPosition, {
         duration: 1,
@@ -165,7 +159,7 @@ export default class PrioBoard extends TaskInfo {
     }
   }
 
-  checkMouseClicks(prioIcon) {
+  checkMouseClicks() {
     if (this.active) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
@@ -185,7 +179,7 @@ export default class PrioBoard extends TaskInfo {
         this.popUpPrioBoardAnimation();
       }
     } else {
-      if (prioIcon.hitTest()) {
+      if (mouseX >= 1130 && mouseX <= 1250 && mouseY >= 570 && mouseY <= 680) {
         this.active = true;
         this.popUpPrioBoardAnimation();
       }

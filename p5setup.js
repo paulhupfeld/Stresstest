@@ -30,7 +30,6 @@ export let exitImage;
 export let konfettiImage;
 export let octagonImage;
 export let prioBoardImage;
-export let prioIconImage;
 export let reservedBoxImage;
 export let spotlightDownImage;
 export let spotlightOffImage;
@@ -70,7 +69,6 @@ function preload() {
   emergencySignImage = loadImage("javascript/assets/Emergency-sign.png");
   prioBoardImage = loadImage("javascript/assets/Prioboard.png");
   octagonImage = loadImage("javascript/assets/Octagon.png");
-  prioIconImage = loadImage("javascript/assets/PrioIcon.png");
 }
 
 window.preload = preload;

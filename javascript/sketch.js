@@ -30,7 +30,6 @@ import {
   theaterBackgroundImage,
   curtainClosedImage,
   emergencySignImage,
-  prioIconImage,
 } from "../p5setup.js";
 
 let start = true;
@@ -58,7 +57,6 @@ let teleprompterOn;
 let theaterBackground;
 let curtainClosed;
 let emergencySign;
-let prioIcon;
 
 let installLights;
 
@@ -113,7 +111,7 @@ function draw() {
     coffeeCup = new TaskImage(0, 0, 180, 180, 160, 170, coffeeCupImage);
     doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
     doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
-    exit = new TaskImage(76, 230, 75, 230, 110, 60, exitImage);
+    exit = new TaskImage(150, 325, 150, 320, 75, 55, exitImage);
     konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
     reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
     spotlightDown = new TaskImage(
@@ -174,9 +172,6 @@ function draw() {
       emergencySignImage
     );
 
-    prioIcon = new TaskImage(1190, 630, 1190, 630, 120, 120, prioIconImage);
-    prioIcon.scale = 0.4;
-
     installLights = new InstallLights("Scheinwerfer anbringen", 13);
 
     setupChairs = new SetupChairs("Stühle aufstellen", 12);
@@ -215,8 +210,6 @@ function draw() {
   prioBoard.display(coffeeCup);
 
   //Hitboxen:
-  //   broom.showHitbox();
-  //   chairbox.showHitbox();
   //   reservedBox.showHitbox();
   //   teleprompterOff.showHitbox();
 
@@ -227,7 +220,7 @@ function mouseClicked() {
   installLights.checkMouseClicks(prioBoard);
   setupChairs.checkMouseClicks(prioBoard, chairbox);
 
-  prioBoard.checkMouseClicks(prioIcon);
+  prioBoard.checkMouseClicks();
 }
 
 window.draw = draw;

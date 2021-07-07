@@ -28,8 +28,8 @@ export default class InstallLights extends TaskInfo {
           mouseY >= 600 &&
           mouseY <= 650 &&
           this.clicked === false) ||
-        (mouseX >= 950 &&
-          mouseX <= 1150 &&
+        (mouseX >= 915 &&
+          mouseX <= 1115 &&
           mouseY >= 600 &&
           mouseY <= 650 &&
           this.clicked === false)
