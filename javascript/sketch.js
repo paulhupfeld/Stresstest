@@ -198,24 +198,18 @@ function draw() {
   exit.display();
   supportBeam.display();
 
-  prioBoard.display(prioIcon);
-
-  // prioIcon.showHitbox();
-
   installLights.displayTaskInfoPopUp();
   setupChairs.displayTaskInfoPopUp();
 
-  //   broom.display();
-  //   emergencySign.display();
-  //   boxes.display();
-  //   chairbox.display();
-  //   chairs.display();
-  //   chairsReserved.display();
-  //   reservedBox.display();
-  //   teleprompterOn.display();
-  //   spotlightOn.display();
-
+  broom.display();
+  emergencySign.display();
+  // chairsReserved.display();
+  reservedBox.display();
+  teleprompterOn.display();
+  // spotlightOn.display();
   //   curtainClosed.display();
+
+  prioBoard.display();
 
   //Hitboxen:
   //   broom.showHitbox();
@@ -228,6 +222,7 @@ function draw() {
 
 function mouseClicked() {
   installLights.checkMouseClicks(prioBoard);
+  setupChairs.checkMouseClicks(prioBoard, chairbox);
 
   prioBoard.checkMouseClicks(prioIcon);
 }

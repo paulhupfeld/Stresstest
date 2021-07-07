@@ -2,7 +2,7 @@ import TaskInfo from "./taskInfo.js";
 
 export default class SetupChairs extends TaskInfo {
   constructor(title, time) {
-    super(title, time, 640, 550);
+    super(title, time, 400, 450);
 
     this.clicked = false;
     this.isOnPrioBoard = false;
@@ -20,26 +20,29 @@ export default class SetupChairs extends TaskInfo {
     }
   }
 
-  checkMouseClicks(array) {
+  checkMouseClicks(prioBoard, chairbox) {
     if (this.done === false) {
-      if (this.chairbox.hitTest() && this.clicked === false) {
+      if (chairbox.hitTest() && this.clicked === false) {
         this.clicked = true;
-        console.log("show taskInfo");
+        // console.log("show taskInfo");
       } else if (this.taskButtonHitTest(0)) {
         this.clicked = false;
         //...
-        console.log("activate TaskScreen");
+        // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        array.push(this);
+        prioBoard.tasksOnPrioBoard.push(this);
         this.isOnPrioBoard = true;
-        console.log("push on prioBoard");
+        // console.log("push on prioBoard");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        array.splice(array.indexOf(this), 1);
+        prioBoard.tasksOnPrioBoard.splice(
+          prioBoard.tasksOnPrioBoard.indexOf(this),
+          1
+        );
         this.isOnPrioBoard = false;
-        console.log("remove from prioBoard");
+        // console.log("remove from prioBoard");
       } else {
         this.clicked = false;
-        console.log("stop showing taskInfo");
+        // console.log("stop showing taskInfo");
       }
     }
   }

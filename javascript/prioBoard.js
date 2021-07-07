@@ -6,9 +6,9 @@ export default class PrioBoard extends TaskInfo {
     super(0, 0, 640, 223);
     this.active = false;
     this.boardPosition = {
-      scale: 0.1,
+      scale: 0.13,
       x: 1150,
-      y: 600,
+      y: 568,
       // scale: 1,
       // x: 350,
       // y: 5,
@@ -17,30 +17,60 @@ export default class PrioBoard extends TaskInfo {
     this.tasksOnPrioBoard = [];
   }
 
-  display(prioIcon) {
-    // console.log(this.active);
-    if (this.active) {
-      this.popUpPrioBoardAnimation();
-      this.displayBoard();
-      this.displayTaskInfoPrioBoard();
-    } else {
-      prioIcon.display();
-      //this.displayFrame();
-    }
+  displayPrioButton() {
+    push();
+    noStroke();
+    fill(255);
+    ellipse(1190, 630, 150);
+
+    fill(255, 75, 0);
+    textAlign(CENTER, CENTER);
+    textFont("Allerta");
+    textSize(17);
+    strokeWeight(0);
+    text("Prioboard", 1190, 675);
+
+    pop();
   }
 
   popUpPrioBoardAnimation() {
-    gsap.to(this.boardPosition, {
-      duration: 1,
-      scale: 1,
-      x: 350,
-      ease: "power4.out",
-    });
-    gsap.to(this.boardPosition, {
-      duration: 0.8,
-      y: 5,
-      ease: "power4.out",
-    });
+    // this.boardPosition = {
+    //   scale: 0.1,
+    //   x: 1150,
+    //   y: 600,
+    // };
+
+    if (this.active) {
+      gsap.to(this.boardPosition, {
+        duration: 1,
+        scale: 1,
+        x: 350,
+        ease: "power4.out",
+      });
+      gsap.to(this.boardPosition, {
+        duration: 0.8,
+        y: 5,
+        ease: "power4.out",
+        // onComplete: () => {
+        //   popUpPrioBoardAnimation();
+        // },
+      });
+    } else {
+      gsap.to(this.boardPosition, {
+        duration: 0.8,
+        scale: 0.13,
+        x: 1150,
+        ease: "power4.out",
+      });
+      gsap.to(this.boardPosition, {
+        duration: 1,
+        y: 568,
+        ease: "power4.out",
+        // onComplete: () => {
+        //   popUpPrioBoardAnimation();
+        // },
+      });
+    }
   }
 
   displayBoard() {
@@ -70,20 +100,20 @@ export default class PrioBoard extends TaskInfo {
       textFont("Allerta");
       textSize(17);
       strokeWeight(0);
-      text(actualTask.title, -148, -17 + i * 39);
+      text(actualTask.title, -148, -17 + i * 46);
 
       textSize(13);
-      text("ca. " + actualTask.time + "min.", -148, +9 + i * 39);
+      text("ca. " + actualTask.time + "min.", -148, +9 + i * 46);
 
       //white space behind X
       fill(255);
-      rect(130, -7 + i * 39, 20, 10);
+      rect(130, -7 + i * 46, 20, 10);
 
       fill(255, 75, 9);
       textSize(35);
       noStroke();
       textAlign(CENTER, CENTER);
-      text("X", 140, i * 39);
+      text("X", 140, i * 46);
 
       //falls i * 39 ändern -> auch in hittest ändern
 
@@ -118,10 +148,22 @@ export default class PrioBoard extends TaskInfo {
     }
   }
 
+  display() {
+    this.displayPrioButton();
+    this.displayBoard();
+
+    if (this.active) {
+      // console.log("hello");
+      this.displayTaskInfoPrioBoard();
+    } else {
+    }
+  }
+
   checkMouseClicks(prioIcon) {
     if (this.active) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
+        console.log(i);
         if (this.taskButtonHitTest(i)) {
           //...
           console.log("activate TaskScreen");
@@ -133,11 +175,12 @@ export default class PrioBoard extends TaskInfo {
       }
       if (mouseX <= 410 || mouseX >= 870 || mouseY <= 30 || mouseY >= 680) {
         this.active = false;
-        //Rückanimation einfügen
+        this.popUpPrioBoardAnimation();
       }
     } else {
       if (prioIcon.hitTest()) {
         this.active = true;
+        this.popUpPrioBoardAnimation();
       }
     }
   }

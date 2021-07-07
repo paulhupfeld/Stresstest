@@ -93,9 +93,10 @@ export default class TaskInfo {
     if (
       mouseX >= this.taskInfoX + 120 &&
       mouseX <= this.taskInfoX + 160 &&
-      mouseY >= this.taskInfoY - 35 + i * 39 &&
-      mouseY <= this.taskInfoY + 35 + i * 39
+      mouseY >= this.taskInfoY - 35 + i * 46 &&
+      mouseY <= this.taskInfoY + 35 + i * 46
     ) {
+      console.log("treffer versenkt");
       return true;
     } else {
       return false;
@@ -106,8 +107,8 @@ export default class TaskInfo {
     if (
       mouseX >= this.taskInfoX - 160 &&
       mouseX <= this.taskInfoX + 120 &&
-      mouseY >= this.taskInfoY - 35 + i * 39 &&
-      mouseY <= this.taskInfoY + 35 + i * 39
+      mouseY >= this.taskInfoY - 35 + i * 46 &&
+      mouseY <= this.taskInfoY + 35 + i * 46
     ) {
       return true;
     } else {
