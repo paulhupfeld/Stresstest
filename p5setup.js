@@ -9,8 +9,6 @@ window.addEventListener("resize", function () {
   clear();
 });
 
-let theaterBackgroundImage;
-
 export let actorImage,
   boxesImage,
   broomImage,
@@ -35,7 +33,8 @@ export let actorImage,
   stageImage,
   supportBeamImage,
   teleprompterOffImage,
-  teleprompterOnImage;
+  teleprompterOnImage,
+  theaterBackgroundImage;
 
 function preload() {
   actorImage = loadImage("javascript/assets/actorImage.png");
@@ -70,12 +69,125 @@ function preload() {
 
 import TaskImage from "./javascript/taskImage.js";
 
-export let theaterBackground;
+export let boxes,
+  broom,
+  chairbox,
+  chairsReserved,
+  chairs,
+  coffeeCup,
+  curtainClosed,
+  curtainLeft,
+  curtainRight,
+  doorLeft,
+  doorRight,
+  emergencySign,
+  exit,
+  konfetti,
+  octagon,
+  prioBoard,
+  reservedBox,
+  spotlightDown,
+  spotlightOff,
+  spotlightOn,
+  stage,
+  supportBeam,
+  teleprompterOff,
+  teleprompterOn,
+  theaterBackground;
 
 function setup() {
   createCanvas(1280, 720);
   frameRate(30);
+  broom = new TaskImage(1150, 480, 1150, 540, 100, 80, broomImage);
+  boxes = new TaskImage(700, 370, 180, 180, 160, 170, boxesImage);
+  chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
+  chairsReserved = new TaskImage(
+    640,
+    485,
+    180,
+    180,
+    160,
+    170,
+    chairsReservedImage
+  );
+  chairs = new TaskImage(640, 485, 180, 180, 160, 170, chairsImage);
+  curtainLeft = new TaskImage(
+    120,
+    350,
 
+    180,
+    180,
+    160,
+    170,
+    curtainLeftImage
+  );
+  curtainRight = new TaskImage(
+    1160,
+    350,
+
+    180,
+    180,
+    160,
+    170,
+    curtainRightImage
+  );
+  coffeeCup = new TaskImage(0, 0, 180, 180, 160, 170, coffeeCupImage);
+  doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
+  doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
+  exit = new TaskImage(150, 325, 150, 320, 75, 55, exitImage);
+  konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
+  reservedBox = new TaskImage(670, 590, 1135, 613, 60, 45, reservedBoxImage);
+  // reservedBox = new TaskImage(1085, 565, 1135, 613, 60, 45, reservedBoxImage);
+  // reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
+  spotlightDown = new TaskImage(
+    640,
+    360,
+    245,
+    630,
+    170,
+    45,
+    spotlightDownImage
+  );
+  spotlightOff = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOffImage);
+  spotlightOn = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOnImage);
+  stage = new TaskImage(640, 360, 180, 180, 160, 170, stageImage);
+  supportBeam = new TaskImage(640, 45, 180, 180, 160, 170, supportBeamImage);
+  teleprompterOff = new TaskImage(
+    540,
+    220,
+    540,
+    220,
+    150,
+    90,
+    teleprompterOffImage
+  );
+  teleprompterOn = new TaskImage(
+    540,
+    220,
+    180,
+    180,
+    160,
+    170,
+    teleprompterOnImage
+  );
+  curtainClosed = new TaskImage(
+    640,
+    360,
+    180,
+    180,
+    160,
+    170,
+    curtainClosedImage
+  );
+  emergencySign = new TaskImage(
+    1020,
+    240,
+    180,
+    180,
+    160,
+    170,
+    emergencySignImage
+  );
   theaterBackground = new TaskImage(
     640,
     360,
