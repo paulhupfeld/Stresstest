@@ -45,7 +45,11 @@ export default class Auditorium {
     this.setupChairs.checkMouseClicks(prioBoard, chairbox);
   }
 
-  displayBackground() {
+  displayPopUps() {
+    this.setupChairs.displayTaskInfoPopUp();
+    this.installLights.displayTaskInfoPopUp();
+  }
+  display() {
     theaterBackground.display();
     konfetti.display();
     teleprompterOff.display();
@@ -55,7 +59,20 @@ export default class Auditorium {
     this.setupChairs.displayImage(boxes, chairbox, chairs);
     this.installLights.displayImage(spotlightDown, spotlightOff);
 
-    this.setupChairs.displayTaskInfoPopUp();
-    this.installLights.displayTaskInfoPopUp();
+    stage.display();
+    curtainLeft.display();
+    curtainRight.display();
+    exit.display();
+    supportBeam.display();
+
+    broom.display();
+    emergencySign.display();
+    // chairsReserved.display();
+    reservedBox.display();
+    teleprompterOn.display();
+    // spotlightOn.display();
+    //   curtainClosed.display();
+
+    this.displayPopUps();
   }
 }

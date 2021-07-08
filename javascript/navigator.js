@@ -2,13 +2,23 @@ import Auditorium from "./auditorium.js";
 
 export default class Navigator {
   constructor(auditorium) {
+    this.actualscreen = "mainscreen";
     this.actualRoom = "auditorium";
+
     this.auditorium = auditorium;
   }
 
-  display() {
+  displayMainscreen() {
     if (this.actualRoom === "auditorium") {
-      this.auditorium.displayBackground();
+      this.auditorium.display();
+    }
+  }
+
+  display() {
+    if (this.actualscreen === "startscreen") {
+      console.log("display Startscreen");
+    } else if (this.actualscreen === "mainscreen") {
+      this.displayMainscreen();
     }
   }
 
