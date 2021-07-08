@@ -1,10 +1,10 @@
 // Offene Fragen:
 // Connection PrioBoard & InstallLights
 
-import TaskImage from "./taskImage.js";
 import PrioBoard from "./prioBoard.js";
-import InstallLights from "./installLights.js";
-import SetupChairs from "./setupChairs.js";
+// import InstallLights from "./installLights.js";
+// import SetupChairs from "./setupChairs.js";
+import Auditorium from "./auditorium.js";
 
 import {
   boxes,
@@ -34,31 +34,30 @@ import {
 
 let start = true;
 
-let installLights;
+// let installLights;
+// let setupChairs;
+let auditorium;
 
-let setupChairs;
-
-let prioBoard;
+export let prioBoard;
 
 function draw() {
   if (start === true) {
-    installLights = new InstallLights("Scheinwerfer anbringen", 13);
+    // installLights = new InstallLights("Scheinwerfer anbringen", 13);
 
-    setupChairs = new SetupChairs("Stühle aufstellen", 12);
+    // setupChairs = new SetupChairs("Stühle aufstellen", 12);
+
+    auditorium = new Auditorium();
+
+    auditorium.createObjects();
 
     prioBoard = new PrioBoard();
 
     start = false;
   }
 
-  theaterBackground.display();
-  konfetti.display();
-  teleprompterOff.display();
-  doorLeft.display();
-  doorRight.display();
-
-  setupChairs.displayImage(boxes, chairbox, chairs);
-  installLights.displayImage(spotlightDown, spotlightOff);
+  auditorium.displayBackground();
+  // setupChairs.displayImage(boxes, chairbox, chairs);
+  // installLights.displayImage(spotlightDown, spotlightOff);
 
   stage.display();
   curtainLeft.display();
@@ -66,8 +65,8 @@ function draw() {
   exit.display();
   supportBeam.display();
 
-  installLights.displayTaskInfoPopUp();
-  setupChairs.displayTaskInfoPopUp();
+  // setupChairs.displayTaskInfoPopUp();
+  // installLights.displayTaskInfoPopUp();
 
   broom.display();
   emergencySign.display();
@@ -83,14 +82,14 @@ function draw() {
   //   reservedBox.showHitbox();
   //   teleprompterOff.showHitbox();
 
-  // console.log(installLights.isOnPrioBoard);
-  console.log("draw");
+  // console.log("draw");
 }
 
 function mouseClicked() {
-  installLights.checkMouseClicks(prioBoard);
-  setupChairs.checkMouseClicks(prioBoard, chairbox);
+  // installLights.checkMouseClicks(prioBoard);
+  // setupChairs.checkMouseClicks(prioBoard, chairbox);
 
+  auditorium.checkMouseClicks();
   prioBoard.checkMouseClicks();
 }
 
