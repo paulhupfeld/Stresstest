@@ -2,9 +2,9 @@
 // Connection PrioBoard & InstallLights
 
 import PrioBoard from "./prioBoard.js";
+import Navigator from "./navigator.js";
 // import InstallLights from "./installLights.js";
 // import SetupChairs from "./setupChairs.js";
-import Auditorium from "./auditorium.js";
 
 import {
   boxes,
@@ -36,7 +36,8 @@ let start = true;
 
 // let installLights;
 // let setupChairs;
-let auditorium;
+// let auditorium;
+let navigator;
 
 export let prioBoard;
 
@@ -46,16 +47,17 @@ function draw() {
 
     // setupChairs = new SetupChairs("Stühle aufstellen", 12);
 
-    auditorium = new Auditorium();
+    navigator = new Navigator();
 
-    auditorium.createObjects();
+    navigator.createObjects();
 
     prioBoard = new PrioBoard();
 
     start = false;
   }
 
-  auditorium.displayBackground();
+  navigator.display();
+
   // setupChairs.displayImage(boxes, chairbox, chairs);
   // installLights.displayImage(spotlightDown, spotlightOff);
 
@@ -89,7 +91,7 @@ function mouseClicked() {
   // installLights.checkMouseClicks(prioBoard);
   // setupChairs.checkMouseClicks(prioBoard, chairbox);
 
-  auditorium.checkMouseClicks();
+  navigator.checkMouseClicks();
   prioBoard.checkMouseClicks();
 }
 

@@ -7,7 +7,7 @@ export default class SetupChairs extends TaskInfo {
     this.clicked = false;
     this.inProgress = false;
     this.progress = 0;
-    this.done = true;
+    this.done = false;
     this.activateAnimation = false;
   }
 

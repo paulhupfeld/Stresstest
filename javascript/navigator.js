@@ -1,10 +1,26 @@
-import TaskImage from "./taskImage.js";
-import PrioBoard from "./prioBoard.js";
-import InstallLights from "./installLights.js";
+import Auditorium from "./auditorium.js";
 
 export default class Navigator {
-  constructor() {
-    this.timeInSeconds = 140 * 60;
-    this.actualRoom = "auditory";
+  constructor(auditorium) {
+    this.actualRoom = "auditorium";
+    this.auditorium = auditorium;
+  }
+
+  display() {
+    if (this.actualRoom === "auditorium") {
+      this.auditorium.displayBackground();
+    }
+  }
+
+  createObjects() {
+    this.auditorium = new Auditorium();
+
+    this.auditorium.createObjects();
+  }
+
+  checkMouseClicks() {
+    if (this.actualRoom === "auditorium") {
+      this.auditorium.checkMouseClicks();
+    }
   }
 }
