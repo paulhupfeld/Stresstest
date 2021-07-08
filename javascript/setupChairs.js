@@ -2,13 +2,12 @@ import TaskInfo from "./taskInfo.js";
 
 export default class SetupChairs extends TaskInfo {
   constructor(title, time) {
-    super(title, time, 400, 450);
+    super(title, time, 400, 450, false);
 
     this.clicked = false;
-    this.isOnPrioBoard = false;
     this.inProgress = false;
     this.progress = 0;
-    this.done = false;
+    this.done = true;
     this.activateAnimation = false;
   }
 
@@ -23,11 +22,12 @@ export default class SetupChairs extends TaskInfo {
   }
 
   scaleAnimation(chairbox) {
-    if (chairbox.hitTest() && chairbox.scale < 1.4) {
-      chairbox.scale = 1.4;
+    if (chairbox.hitTest() && chairbox.scale < 1.25) {
+      chairbox.scale += 0.025;
     } else if (chairbox.hitTest() === false && chairbox.scale > 1) {
       chairbox.scale = 1;
     }
+    // console.log(chairbox.scale);
   }
 
   checkMouseClicks(prioBoard, chairbox) {

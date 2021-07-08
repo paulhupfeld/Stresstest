@@ -27,7 +27,7 @@ import {
   supportBeamImage,
   teleprompterOffImage,
   teleprompterOnImage,
-  theaterBackgroundImage,
+  theaterBackground,
   curtainClosedImage,
   emergencySignImage,
 } from "../p5setup.js";
@@ -54,7 +54,6 @@ let stage;
 let supportBeam;
 let teleprompterOff;
 let teleprompterOn;
-let theaterBackground;
 let curtainClosed;
 let emergencySign;
 
@@ -66,18 +65,9 @@ let prioBoard;
 
 function draw() {
   if (start === true) {
-    theaterBackground = new TaskImage(
-      640,
-      360,
-      180,
-      180,
-      160,
-      170,
-      theaterBackgroundImage
-    );
     broom = new TaskImage(1150, 480, 1150, 540, 100, 80, broomImage);
-    boxes = new TaskImage(640, 360, 180, 180, 160, 170, boxesImage);
-    chairbox = new TaskImage(130, 555, 129, 555, 150, 100, chairboxImage);
+    boxes = new TaskImage(700, 370, 180, 180, 160, 170, boxesImage);
+    chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
     chairsReserved = new TaskImage(
       640,
       485,
@@ -113,7 +103,9 @@ function draw() {
     doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
     exit = new TaskImage(150, 325, 150, 320, 75, 55, exitImage);
     konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
-    reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
+    reservedBox = new TaskImage(670, 590, 1135, 613, 60, 45, reservedBoxImage);
+    // reservedBox = new TaskImage(1085, 565, 1135, 613, 60, 45, reservedBoxImage);
+    // reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
     spotlightDown = new TaskImage(
       640,
       360,
@@ -214,6 +206,7 @@ function draw() {
   //   teleprompterOff.showHitbox();
 
   // console.log(installLights.isOnPrioBoard);
+  console.log("draw");
 }
 
 function mouseClicked() {

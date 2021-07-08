@@ -2,10 +2,9 @@ import TaskInfo from "./taskInfo.js";
 
 export default class InstallLights extends TaskInfo {
   constructor(title, time, spotlightDown, spotlightOff) {
-    super(title, time, 640, 550);
+    super(title, time, 640, 550, false);
 
     this.clicked = false;
-    this.isOnPrioBoard = false;
     this.inProgress = false;
     this.progress = 0;
     this.done = false;

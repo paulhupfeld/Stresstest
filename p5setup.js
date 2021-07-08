@@ -9,6 +9,8 @@ window.addEventListener("resize", function () {
   clear();
 });
 
+let theaterBackgroundImage;
+
 export let actorImage,
   boxesImage,
   broomImage,
@@ -33,8 +35,7 @@ export let actorImage,
   stageImage,
   supportBeamImage,
   teleprompterOffImage,
-  teleprompterOnImage,
-  theaterBackgroundImage;
+  teleprompterOnImage;
 
 function preload() {
   actorImage = loadImage("javascript/assets/actorImage.png");
@@ -67,9 +68,23 @@ function preload() {
   octagonImage = loadImage("javascript/assets/Octagon.png");
 }
 
+import TaskImage from "./javascript/taskImage.js";
+
+export let theaterBackground;
+
 function setup() {
   createCanvas(1280, 720);
   frameRate(30);
+
+  theaterBackground = new TaskImage(
+    640,
+    360,
+    180,
+    180,
+    160,
+    170,
+    theaterBackgroundImage
+  );
 }
 
 window.preload = preload;

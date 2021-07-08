@@ -3,7 +3,7 @@ import { prioBoardImage } from "../p5setup.js";
 
 export default class PrioBoard extends TaskInfo {
   constructor() {
-    super(0, 0, 640, 223);
+    super(0, 0, 640, 223, false);
     this.active = false;
     this.boardPosition = {
       scale: 0.13,
@@ -26,7 +26,7 @@ export default class PrioBoard extends TaskInfo {
     coffeeCup.display();
     pop();
 
-    fill(255, 75, 0);
+    fill(255, 75, 9);
     textAlign(CENTER, CENTER);
     textFont("Allerta");
     textSize(17);
@@ -42,7 +42,7 @@ export default class PrioBoard extends TaskInfo {
     fill(255);
     ellipse(1190, 630, 150);
 
-    fill(255, 75, 0);
+    fill(255, 75, 9);
     textAlign(CENTER, CENTER);
     textFont("Allerta");
     textSize(17);
@@ -113,20 +113,20 @@ export default class PrioBoard extends TaskInfo {
       textFont("Allerta");
       textSize(17);
       strokeWeight(0);
-      text(actualTask.title, -148, -17 + i * 46);
+      text(actualTask.title, -148, -17 + i * 69);
 
       textSize(13);
-      text("ca. " + actualTask.time + "min.", -148, +9 + i * 46);
+      text("ca. " + actualTask.time + "min.", -148, +9 + i * 69);
 
       //white space behind X
       fill(255);
-      rect(130, -7 + i * 46, 20, 10);
+      rect(130, -7 + i * 69, 20, 10);
 
       fill(255, 75, 9);
       textSize(35);
       noStroke();
       textAlign(CENTER, CENTER);
-      text("X", 140, i * 46);
+      text("X", 140, i * 69);
 
       //falls i * 39 ändern -> auch in hittest ändern
 
@@ -139,8 +139,8 @@ export default class PrioBoard extends TaskInfo {
     if (
       mouseX >= this.taskInfoX + 120 &&
       mouseX <= this.taskInfoX + 160 &&
-      mouseY >= this.taskInfoY - 35 + i * 46 &&
-      mouseY <= this.taskInfoY + 35 + i * 46
+      mouseY >= this.taskInfoY - 35 + i * 69 &&
+      mouseY <= this.taskInfoY + 35 + i * 69
     ) {
       return true;
     } else {
@@ -167,9 +167,7 @@ export default class PrioBoard extends TaskInfo {
           //...
           console.log("activate TaskScreen");
         } else if (this.prioButtonHitTest(i)) {
-          console.log(i);
-          console.log(this.tasksOnPrioBoard);
-          this.tasksOnPrioBoard.splice(this.tasksOnPrioBoard[i], 1);
+          this.tasksOnPrioBoard.splice(i, 1);
           actualTask.isOnPrioBoard = false;
           console.log("remove from prioBoard");
         }
