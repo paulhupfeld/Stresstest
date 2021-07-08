@@ -31,6 +31,7 @@ export let actorImage,
   spotlightOffImage,
   spotlightOnImage,
   stageImage,
+  stressTestLogoImage,
   supportBeamImage,
   teleprompterOffImage,
   teleprompterOnImage,
@@ -55,6 +56,7 @@ function preload() {
   spotlightOffImage = loadImage("javascript/assets/Spotlight-off.png");
   spotlightOnImage = loadImage("javascript/assets/Spotlight-on.png");
   stageImage = loadImage("javascript/assets/Stage.png");
+  stressTestLogoImage = loadImage("javascript/assets/StressTestLogo.png");
   supportBeamImage = loadImage("javascript/assets/Support-beam.png");
   teleprompterOffImage = loadImage("javascript/assets/Teleprompter-Off.png");
   teleprompterOnImage = loadImage("javascript/assets/Teleprompter-On.png");
@@ -90,6 +92,7 @@ export let boxes,
   spotlightOff,
   spotlightOn,
   stage,
+  // stressTestLogo,
   supportBeam,
   teleprompterOff,
   teleprompterOn,
@@ -152,6 +155,15 @@ function setup() {
   spotlightOff = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOffImage);
   spotlightOn = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOnImage);
   stage = new TaskImage(640, 360, 180, 180, 160, 170, stageImage);
+  // stressTestLogo = new TaskImage(
+  //   640,
+  //   360,
+  //   180,
+  //   180,
+  //   160,
+  //   170,
+  //   stressTestLogoImage
+  // );
   supportBeam = new TaskImage(640, 45, 180, 180, 160, 170, supportBeamImage);
   teleprompterOff = new TaskImage(
     540,

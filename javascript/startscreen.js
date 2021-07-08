@@ -1,9 +1,10 @@
 export default class Startscreen {
-  constructor() {}
+  constructor(stressTestLogoImage) {
+    this.stressTestLogoImage = stressTestLogoImage;
+  }
 
   display() {
-    background(200);
-    text("startscreen", 100, 100);
+    console.log("display Startscreen");
+    image(this.stressTestLogoImage, 100, 100);
   }
 }
-
