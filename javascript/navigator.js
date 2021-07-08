@@ -42,8 +42,11 @@ export default class Navigator {
 
   checkMouseClicks() {
     if (this.actualscreen === "startscreen") {
-      console.log("check Startscreen");
-      this.actualscreen = "mainscreen";
+      // console.log("check Startscreen");
+      this.startscreen.checkMouseClicks();
+      if (this.startscreen.startGame) {
+        this.actualscreen = "mainscreen";
+      }
     } else if (this.actualscreen === "mainscreen") {
       this.checkMouseClicksMainscreen();
     }
