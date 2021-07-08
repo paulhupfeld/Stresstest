@@ -1,4 +1,6 @@
 import Auditorium from "./auditorium.js";
+import { prioBoard } from "../p5setup.js";
+import { coffeeCup } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium) {
@@ -20,6 +22,7 @@ export default class Navigator {
     } else if (this.actualscreen === "mainscreen") {
       this.displayMainscreen();
     }
+    prioBoard.display(coffeeCup);
   }
 
   createObjects() {
@@ -32,5 +35,6 @@ export default class Navigator {
     if (this.actualRoom === "auditorium") {
       this.auditorium.checkMouseClicks();
     }
+    prioBoard.checkMouseClicks();
   }
 }

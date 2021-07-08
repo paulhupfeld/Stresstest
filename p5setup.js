@@ -68,6 +68,7 @@ function preload() {
 }
 
 import TaskImage from "./javascript/taskImage.js";
+import PrioBoard from "./javascript/prioBoard.js";
 
 export let boxes,
   broom,
@@ -84,7 +85,6 @@ export let boxes,
   exit,
   konfetti,
   octagon,
-  prioBoard,
   reservedBox,
   spotlightDown,
   spotlightOff,
@@ -93,7 +93,8 @@ export let boxes,
   supportBeam,
   teleprompterOff,
   teleprompterOn,
-  theaterBackground;
+  theaterBackground,
+  prioBoard;
 
 function setup() {
   createCanvas(1280, 720);
@@ -197,6 +198,8 @@ function setup() {
     170,
     theaterBackgroundImage
   );
+
+  prioBoard = new PrioBoard();
 }
 
 window.preload = preload;

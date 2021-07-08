@@ -1,6 +1,6 @@
 import InstallLights from "./installLights.js";
 import SetupChairs from "./setupChairs.js";
-import { prioBoard } from "./sketch.js";
+import { prioBoard } from "../p5setup.js";
 
 import {
   boxes,
@@ -8,7 +8,6 @@ import {
   chairbox,
   chairsReserved,
   chairs,
-  coffeeCup,
   curtainLeft,
   curtainRight,
   doorLeft,
