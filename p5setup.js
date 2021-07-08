@@ -92,7 +92,7 @@ export let boxes,
   spotlightOff,
   spotlightOn,
   stage,
-  // stressTestLogo,
+  stressTestLogo,
   supportBeam,
   teleprompterOff,
   teleprompterOn,
@@ -155,15 +155,15 @@ function setup() {
   spotlightOff = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOffImage);
   spotlightOn = new TaskImage(640, 360, 180, 180, 160, 170, spotlightOnImage);
   stage = new TaskImage(640, 360, 180, 180, 160, 170, stageImage);
-  // stressTestLogo = new TaskImage(
-  //   640,
-  //   360,
-  //   180,
-  //   180,
-  //   160,
-  //   170,
-  //   stressTestLogoImage
-  // );
+  stressTestLogo = new TaskImage(
+    640,
+    360,
+    180,
+    180,
+    160,
+    170,
+    stressTestLogoImage
+  );
   supportBeam = new TaskImage(640, 45, 180, 180, 160, 170, supportBeamImage);
   teleprompterOff = new TaskImage(
     540,

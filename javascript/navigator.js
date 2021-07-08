@@ -1,6 +1,6 @@
 import Auditorium from "./auditorium.js";
 import Startscreen from "./startscreen.js";
-import { prioBoard, coffeeCup, stressTestLogoImage } from "../p5setup.js";
+import { prioBoard, coffeeCup, stressTestLogo } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen) {
@@ -15,7 +15,7 @@ export default class Navigator {
     this.auditorium = new Auditorium();
     this.auditorium.createObjects();
 
-    this.startscreen = new Startscreen(stressTestLogoImage);
+    this.startscreen = new Startscreen(stressTestLogo);
   }
 
   displayMainscreen() {
