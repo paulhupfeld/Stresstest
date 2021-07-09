@@ -13,8 +13,9 @@ export default class MainscreenInstruments extends TaskInfo {
 
     this.tasksOnPrioBoard = [];
 
-    this.counterMinutes = 104;
-    this.counterSecounds = 34;
+    this.frameCounter = 0;
+    this.counterMinutes = 150;
+    this.counterSecounds = 0;
   }
 
   displayBreakButton(coffeeCup) {
@@ -151,6 +152,24 @@ export default class MainscreenInstruments extends TaskInfo {
     }
   }
 
+  countTime() {
+    if (this.counterSecounds === 0) {
+      this.counterSecounds = 60;
+      this.counterMinutes -= 1;
+    }
+
+    if (this.frameCounter === 30) {
+      this.counterSecounds -= 1;
+      this.frameCounter = 0;
+    }
+    console.log(this.frameCounter);
+    this.frameCounter += 1;
+  }
+
+  developParameters() {
+    this.countTime();
+  }
+
   displayTimeCounter() {
     push();
     translate(0, -25);
@@ -166,6 +185,8 @@ export default class MainscreenInstruments extends TaskInfo {
   }
 
   display(coffeeCup) {
+    this.developParameters();
+
     this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
     this.displayBoard();
