@@ -1,7 +1,7 @@
 import TaskInfo from "./taskInfo.js";
 import { prioBoardImage } from "../p5setup.js";
 
-export default class PrioBoard extends TaskInfo {
+export default class MainscreenInstruments extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223, false);
     this.active = false;

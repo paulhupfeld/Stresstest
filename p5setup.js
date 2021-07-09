@@ -70,7 +70,7 @@ function preload() {
 }
 
 import TaskImage from "./javascript/taskImage.js";
-import PrioBoard from "./javascript/prioBoard.js";
+import MainscreenInstruments from "./javascript/mainscreenInstruments.js";
 
 export let boxes,
   broom,
@@ -97,7 +97,7 @@ export let boxes,
   teleprompterOff,
   teleprompterOn,
   theaterBackground,
-  prioBoard;
+  mainscreenInstruments;
 
 function setup() {
   createCanvas(1280, 720);
@@ -211,7 +211,7 @@ function setup() {
     theaterBackgroundImage
   );
 
-  prioBoard = new PrioBoard();
+  mainscreenInstruments = new MainscreenInstruments();
 }
 
 window.preload = preload;

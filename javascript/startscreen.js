@@ -6,29 +6,36 @@ export default class Startscreen {
   }
 
   swipeUpAnimation() {
-    console.log("swipeUp");
     gsap.to(this.stressTestLogo, {
-      duration: 0.8,
+      duration: 0.7,
       delay: 1,
-      // scale: 1,
-      imageY: 210,
+      imageY: 220,
       ease: "power4.out",
     });
   }
 
   startButton() {
     push();
-    fill(250, 250, 250);
-    rect(565, 500, 150, 50);
+    // fill(250, 250, 250);
     fill(255, 75, 9);
-    textFont("Pop Warner");
-    textSize(20);
-    text("BEREIT?", 610, 533);
+    rect(565, 500, 150, 50);
+
+    // fill(255, 75, 9);
+    // textFont("Pop Warner");
+    // textSize(20);
+    // text("BEREIT?", 610, 533);
+
+    // fill(255, 75, 9);
+    fill(250, 250, 250);
+    textFont("Allerta");
+    textSize(19);
+    strokeWeight(0);
+
+    text("Bereit?", 610, 533);
     pop();
   }
 
   display() {
-    // console.log("display Startscreen");
     background(38, 38, 38);
     this.startButton();
     this.stressTestLogo.scale = 0.15;
@@ -40,7 +47,6 @@ export default class Startscreen {
     }
   }
   checkMouseClicks() {
-    console.log("click");
     if (mouseX >= 565 && mouseX <= 715 && mouseY >= 500 && mouseY <= 550) {
       this.startGame = true;
     }

@@ -30,7 +30,7 @@ export default class SetupChairs extends TaskInfo {
     // console.log(chairbox.scale);
   }
 
-  checkMouseClicks(prioBoard, chairbox) {
+  checkMouseClicks(mainscreenInstruments, chairbox) {
     if (this.done === false) {
       if (chairbox.hitTest() && this.clicked === false) {
         this.clicked = true;
@@ -40,12 +40,12 @@ export default class SetupChairs extends TaskInfo {
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        prioBoard.tasksOnPrioBoard.push(this);
+        mainscreenInstruments.tasksOnPrioBoard.push(this);
         this.isOnPrioBoard = true;
         // console.log("push on prioBoard");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        prioBoard.tasksOnPrioBoard.splice(
-          prioBoard.tasksOnPrioBoard.indexOf(this),
+        mainscreenInstruments.tasksOnPrioBoard.splice(
+          mainscreenInstruments.tasksOnPrioBoard.indexOf(this),
           1
         );
         this.isOnPrioBoard = false;

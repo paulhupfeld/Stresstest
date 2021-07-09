@@ -49,7 +49,7 @@ export default class InstallLights extends TaskInfo {
     }
   }
 
-  checkMouseClicks(prioBoard) {
+  checkMouseClicks(mainscreenInstruments) {
     //(manual hitbox)
     if (this.done === false) {
       if (this.manualHitbox()) {
@@ -60,12 +60,12 @@ export default class InstallLights extends TaskInfo {
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        prioBoard.tasksOnPrioBoard.push(this);
+        mainscreenInstruments.tasksOnPrioBoard.push(this);
         this.isOnPrioBoard = true;
         // console.log("push on prioBoard");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        prioBoard.tasksOnPrioBoard.splice(
-          prioBoard.tasksOnPrioBoard.indexOf(this),
+        mainscreenInstruments.tasksOnPrioBoard.splice(
+          mainscreenInstruments.tasksOnPrioBoard.indexOf(this),
           1
         );
         this.isOnPrioBoard = false;

@@ -1,7 +1,7 @@
 import InstallLights from "./installLights.js";
 import SetupChairs from "./setupChairs.js";
-import { prioBoard } from "../p5setup.js";
-
+import { mainscreenInstruments } from "../p5setup.js";
+mainscreenInstruments;
 import {
   boxes,
   broom,
@@ -40,8 +40,8 @@ export default class Auditorium {
   }
 
   checkMouseClicks() {
-    this.installLights.checkMouseClicks(prioBoard);
-    this.setupChairs.checkMouseClicks(prioBoard, chairbox);
+    this.installLights.checkMouseClicks(mainscreenInstruments);
+    this.setupChairs.checkMouseClicks(mainscreenInstruments, chairbox);
   }
 
   displayPopUps() {
