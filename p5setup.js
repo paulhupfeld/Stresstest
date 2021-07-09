@@ -104,7 +104,9 @@ function setup() {
   frameRate(30);
   broom = new TaskImage(1150, 480, 1150, 540, 100, 80, broomImage);
   boxes = new TaskImage(700, 370, 180, 180, 160, 170, boxesImage);
-  chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
+  // chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
+  chairbox = new TaskImage(195, 565, 205, 560, 120, 70, chairboxImage);
+
   chairsReserved = new TaskImage(
     640,
     485,

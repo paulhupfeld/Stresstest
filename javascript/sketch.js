@@ -14,7 +14,7 @@ function draw() {
 
   navigator.display();
 
-  console.log(frameRate());
+  // console.log(frameRate());
 }
 
 function mouseClicked() {
