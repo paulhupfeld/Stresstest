@@ -1,5 +1,6 @@
 import Auditorium from "./auditorium.js";
 import Startscreen from "./startscreen.js";
+
 import {
   mainscreenInstruments,
   coffeeCup,
@@ -11,15 +12,15 @@ export default class Navigator {
     this.actualscreen = "mainscreen";
     this.actualRoom = "auditorium";
 
-    this.auditorium = auditorium;
     this.startscreen = startscreen;
+    this.auditorium = auditorium;
   }
 
   createObjects() {
+    this.startscreen = new Startscreen(stressTestLogo);
+
     this.auditorium = new Auditorium();
     this.auditorium.createObjects();
-
-    this.startscreen = new Startscreen(stressTestLogo);
   }
 
   displayMainscreen() {

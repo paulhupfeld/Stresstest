@@ -1,5 +1,5 @@
 import TaskInfo from "./taskInfo.js";
-import { prioBoardImage } from "../p5setup.js";
+import { prioBoardImage, octagonImage } from "../p5setup.js";
 
 export default class MainscreenInstruments extends TaskInfo {
   constructor() {
@@ -12,6 +12,9 @@ export default class MainscreenInstruments extends TaskInfo {
     };
 
     this.tasksOnPrioBoard = [];
+
+    this.counterMinutes = 104;
+    this.counterSecounds = 34;
   }
 
   displayBreakButton(coffeeCup) {
@@ -148,10 +151,25 @@ export default class MainscreenInstruments extends TaskInfo {
     }
   }
 
+  displayTimeCounter() {
+    push();
+    translate(0, -25);
+    scale(1.25);
+    image(octagonImage, 10, 30, 100, 100);
+
+    fill(241, 208, 58);
+    textSize(27);
+    textFont("Pop Warner");
+    textAlign(CENTER, CENTER);
+    text(this.counterMinutes + ":" + this.counterSecounds, 60, 83);
+    pop();
+  }
+
   display(coffeeCup) {
     this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
     this.displayBoard();
+    this.displayTimeCounter();
 
     if (this.active) {
       this.displayTaskInfoPrioBoard();
