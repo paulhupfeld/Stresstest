@@ -21,12 +21,10 @@ export default class InstallLights extends TaskInfo {
   }
 
   scaleAnimation(spotlightDown) {
-    if (this.manualHitbox() && spotlightDown.scale < 1.1) {
-      spotlightDown.scale = 1.1;
-      spotlightDown.imageY -= 50;
-    } else if (this.manualHitbox() === false && spotlightDown.scale > 1) {
-      spotlightDown.scale = 1;
-      spotlightDown.imageY += 50;
+    if (this.manualHitbox() && spotlightDown.imageY > 350) {
+      spotlightDown.imageY -= 1;
+    } else if (this.manualHitbox() === false && spotlightDown.imageY < 360) {
+      spotlightDown.imageY += 1;
     }
   }
 

@@ -8,7 +8,7 @@ import {
 
 export default class Navigator {
   constructor(auditorium, startscreen) {
-    this.actualscreen = "startscreen";
+    this.actualscreen = "mainscreen";
     this.actualRoom = "auditorium";
 
     this.auditorium = auditorium;
