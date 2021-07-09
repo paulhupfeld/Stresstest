@@ -1,11 +1,11 @@
 export default class TaskInfo {
-  constructor(title, time, taskInfoX, taskInfoY, isOnPrioBoard) {
+  constructor(title, time, taskInfoX, taskInfoY) {
     this.title = title;
     this.time = time;
 
     this.taskInfoX = taskInfoX;
     this.taskInfoY = taskInfoY;
-    this.isOnPrioBoard = isOnPrioBoard;
+    this.isOnPrioBoard = false;
   }
 
   displayTaskInfoPopUp() {

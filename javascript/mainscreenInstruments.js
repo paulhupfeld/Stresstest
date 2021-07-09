@@ -154,7 +154,6 @@ export default class MainscreenInstruments extends TaskInfo {
     this.displayBoard();
 
     if (this.active) {
-      // console.log("hello");
       this.displayTaskInfoPrioBoard();
     }
   }
@@ -165,11 +164,11 @@ export default class MainscreenInstruments extends TaskInfo {
         let actualTask = this.tasksOnPrioBoard[i];
         if (this.taskButtonHitTest(i)) {
           //...
-          console.log("activate TaskScreen");
+          // console.log("activate TaskScreen");
         } else if (this.prioButtonHitTest(i)) {
           this.tasksOnPrioBoard.splice(i, 1);
           actualTask.isOnPrioBoard = false;
-          console.log("remove from prioBoard");
+          // console.log("remove from prioBoard");
         }
       }
       if (mouseX <= 410 || mouseX >= 870 || mouseY <= 30 || mouseY >= 680) {

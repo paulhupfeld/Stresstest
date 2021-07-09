@@ -1,42 +1,41 @@
 import TaskInfo from "./taskInfo.js";
 
-export default class SetupChairs extends TaskInfo {
-  constructor(title, time, boxes, chairbox, reservedBox) {
-    super(title, time, 400, 450);
+export default class ProgramPrompter extends TaskInfo {
+  constructor(title, time, teleprompterOff, teleprompterOn) {
+    super(title, time, 740, 320);
 
     this.clicked = false;
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
-    this.activateAnimation = false;
 
-    this.boxes = boxes;
-    this.chairbox = chairbox;
-    this.reservedBox = reservedBox;
+    this.teleprompterOff = teleprompterOff;
+    this.teleprompterOn = teleprompterOn;
   }
 
-  displayImage(placeReservationSigns) {
+  displayImage() {
     if (this.done === false) {
-      this.boxes.display();
-      this.chairbox.display();
-      this.reservedBox.display();
+      this.teleprompterOff.display();
       this.scaleAnimation();
     } else {
-      placeReservationSigns.activated = true;
+      this.teleprompterOn.display();
     }
   }
 
   scaleAnimation() {
-    if (this.chairbox.hitTest() && this.chairbox.scale < 1.1) {
-      this.chairbox.scale += 0.01;
-    } else if (this.chairbox.hitTest() === false && this.chairbox.scale > 1) {
-      this.chairbox.scale = 1;
+    if (this.teleprompterOff.hitTest() && this.teleprompterOff.scale < 1.1) {
+      this.teleprompterOff.scale += 0.01;
+    } else if (
+      this.teleprompterOff.hitTest() === false &&
+      this.teleprompterOff.scale > 1
+    ) {
+      this.teleprompterOff.scale = 1;
     }
   }
 
   checkMouseClicks(mainscreenInstruments) {
     if (this.done === false) {
-      if (this.chairbox.hitTest() && this.clicked === false) {
+      if (this.teleprompterOff.hitTest() && this.clicked === false) {
         this.clicked = true;
         // console.log("show taskInfo");
       } else if (this.taskButtonHitTest(0)) {

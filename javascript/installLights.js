@@ -1,30 +1,35 @@
 import TaskInfo from "./taskInfo.js";
 
 export default class InstallLights extends TaskInfo {
-  constructor(title, time, spotlightDown, spotlightOff) {
-    super(title, time, 640, 550, false);
+  constructor(title, time, spotlightDown) {
+    super(title, time, 640, 550);
 
     this.clicked = false;
     this.inProgress = false;
     this.progress = 0;
     this.done = false;
+
+    this.spotlightDown = spotlightDown;
   }
 
-  displayImage(spotlightDown, spotlightOff) {
+  displayImage(turnOnLights) {
     if (this.done === false) {
-      spotlightDown.display();
+      this.spotlightDown.display();
 
-      this.scaleAnimation(spotlightDown);
+      this.scaleAnimation();
     } else {
-      spotlightOff.display();
+      turnOnLights.activated = true;
     }
   }
 
-  scaleAnimation(spotlightDown) {
-    if (this.manualHitbox() && spotlightDown.imageY > 350) {
-      spotlightDown.imageY -= 1;
-    } else if (this.manualHitbox() === false && spotlightDown.imageY < 360) {
-      spotlightDown.imageY += 1;
+  scaleAnimation() {
+    if (this.manualHitbox() && this.spotlightDown.imageY > 350) {
+      this.spotlightDown.imageY -= 1;
+    } else if (
+      this.manualHitbox() === false &&
+      this.spotlightDown.imageY < 360
+    ) {
+      this.spotlightDown.imageY += 1;
     }
   }
 
@@ -55,6 +60,7 @@ export default class InstallLights extends TaskInfo {
         // console.log("show taskInfo");
       } else if (this.taskButtonHitTest(0)) {
         this.clicked = false;
+        this.done = true;
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {

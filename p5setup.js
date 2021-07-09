@@ -143,7 +143,7 @@ function setup() {
   doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
   exit = new TaskImage(160, 380, 125, 350, 75, 50, exitImage);
   konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
-  reservedBox = new TaskImage(670, 590, 1135, 613, 60, 45, reservedBoxImage);
+  reservedBox = new TaskImage(670, 590, 675, 595, 60, 55, reservedBoxImage);
   spotlightDown = new TaskImage(
     640,
     360,
