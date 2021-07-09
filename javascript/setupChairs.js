@@ -22,8 +22,8 @@ export default class SetupChairs extends TaskInfo {
   }
 
   scaleAnimation(chairbox) {
-    if (chairbox.hitTest() && chairbox.scale < 1.25) {
-      chairbox.scale += 0.025;
+    if (chairbox.hitTest() && chairbox.scale < 1.1) {
+      chairbox.scale += 0.01;
     } else if (chairbox.hitTest() === false && chairbox.scale > 1) {
       chairbox.scale = 1;
     }

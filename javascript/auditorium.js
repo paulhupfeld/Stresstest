@@ -58,8 +58,6 @@ export default class Auditorium {
     this.setupChairs.displayImage(boxes, chairbox, chairs);
     this.installLights.displayImage(spotlightDown, spotlightOff);
 
-    chairbox.showHitbox();
-
     stage.display();
     curtainLeft.display();
     curtainRight.display();

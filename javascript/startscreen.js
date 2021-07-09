@@ -28,10 +28,10 @@ export default class Startscreen {
     // fill(255, 75, 9);
     fill(250, 250, 250);
     textFont("Allerta");
-    textSize(19);
+    textSize(22);
     strokeWeight(0);
 
-    text("Bereit?", 610, 533);
+    text("Bereit?", 600, 533);
     pop();
   }
 
