@@ -3,6 +3,9 @@ import TurnOnLights from "./turnOnLights.js";
 import SetupChairs from "./setupChairs.js";
 import PlaceReservationSigns from "./placeReservationSigns.js";
 import ProgramPrompter from "./programPrompter.js";
+import ClearFloor from "./clearFloor.js";
+import CloseCurtain from "./closeCurtain.js";
+
 import { mainscreenInstruments } from "../p5setup.js";
 
 import {
@@ -36,13 +39,17 @@ export default class Auditorium {
     setupChairs,
     programPrompter,
     turnOnLights,
-    placeReservationSigns
+    placeReservationSigns,
+    clearFloor,
+    closeCurtain
   ) {
     this.installLights = installLights;
     this.setupChairs = setupChairs;
     this.turnOnLights = turnOnLights;
     this.placeReservationSigns = placeReservationSigns;
     this.programPrompter = programPrompter;
+    this.clearFloor = clearFloor;
+    this.closeCurtain = closeCurtain;
   }
 
   createObjects() {
@@ -65,8 +72,8 @@ export default class Auditorium {
       reservedBox
     );
     this.placeReservationSigns = new PlaceReservationSigns(
-      "Stühle aufstellen",
-      12,
+      "Reserviert-Schilder platzieren",
+      4,
       reservedBox,
       chairs,
       chairsReserved
@@ -77,6 +84,14 @@ export default class Auditorium {
       teleprompterOff,
       teleprompterOn
     );
+    this.clearFloor = new ClearFloor("Sauber machen", 9, broom, konfetti);
+    this.closeCurtain = new CloseCurtain(
+      "Vorhang schließen",
+      2,
+      curtainLeft,
+      curtainRight,
+      curtainClosed
+    );
   }
 
   displayPopUps() {
@@ -85,32 +100,28 @@ export default class Auditorium {
     this.setupChairs.displayTaskInfoPopUp();
     this.placeReservationSigns.displayTaskInfoPopUp();
     this.programPrompter.displayTaskInfoPopUp();
+    this.clearFloor.displayTaskInfoPopUp();
+    this.closeCurtain.displayTaskInfoPopUp();
   }
 
   display() {
     theaterBackground.display();
-    konfetti.display();
     doorLeft.display();
     doorRight.display();
 
+    this.clearFloor.displayImage();
     this.setupChairs.displayImage(this.placeReservationSigns);
     this.placeReservationSigns.displayImage();
-
     this.installLights.displayImage(this.turnOnLights);
     this.programPrompter.displayImage();
 
     stage.display();
-    curtainLeft.display();
-    curtainRight.display();
-    exit.scale = 0.7;
     exit.display();
+    emergencySign.display();
+
+    this.closeCurtain.displayImage();
 
     supportBeam.display();
-
-    broom.display();
-    emergencySign.display();
-    // spotlightOn.display();
-    //   curtainClosed.display();
 
     this.turnOnLights.displayImage();
 
@@ -123,5 +134,7 @@ export default class Auditorium {
     this.setupChairs.checkMouseClicks(mainscreenInstruments);
     this.placeReservationSigns.checkMouseClicks(mainscreenInstruments);
     this.programPrompter.checkMouseClicks(mainscreenInstruments);
+    this.clearFloor.checkMouseClicks(mainscreenInstruments);
+    this.closeCurtain.checkMouseClicks(mainscreenInstruments);
   }
 }

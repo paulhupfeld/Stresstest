@@ -103,7 +103,7 @@ export let boxes,
 function setup() {
   createCanvas(1280, 720);
   frameRate(30);
-  broom = new TaskImage(1150, 480, 1150, 540, 100, 80, broomImage);
+  broom = new TaskImage(1150, 480, 1140, 500, 50, 120, broomImage);
   boxes = new TaskImage(700, 370, 180, 180, 160, 170, boxesImage);
   // chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
   chairbox = new TaskImage(195, 565, 205, 560, 120, 70, chairboxImage);
@@ -142,6 +142,7 @@ function setup() {
   doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
   doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
   exit = new TaskImage(160, 380, 125, 350, 75, 50, exitImage);
+  exit.scale = 0.7;
   konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
   reservedBox = new TaskImage(670, 590, 675, 595, 60, 55, reservedBoxImage);
   spotlightDown = new TaskImage(
