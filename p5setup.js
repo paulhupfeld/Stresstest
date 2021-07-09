@@ -138,11 +138,9 @@ function setup() {
   coffeeCup = new TaskImage(0, 0, 180, 180, 160, 170, coffeeCupImage);
   doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);
   doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
-  exit = new TaskImage(150, 325, 150, 320, 75, 55, exitImage);
+  exit = new TaskImage(160, 380, 125, 350, 75, 50, exitImage);
   konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
   reservedBox = new TaskImage(670, 590, 1135, 613, 60, 45, reservedBoxImage);
-  // reservedBox = new TaskImage(1085, 565, 1135, 613, 60, 45, reservedBoxImage);
-  // reservedBox = new TaskImage(1135, 612, 1135, 613, 60, 45, reservedBoxImage);
   spotlightDown = new TaskImage(
     640,
     360,

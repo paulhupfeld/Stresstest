@@ -61,7 +61,9 @@ export default class Auditorium {
     stage.display();
     curtainLeft.display();
     curtainRight.display();
+    exit.scale = 0.7;
     exit.display();
+
     supportBeam.display();
 
     broom.display();

@@ -14,11 +14,7 @@ function draw() {
 
   navigator.display();
 
-  //Hitboxen:
-  //   reservedBox.showHitbox();
-  //   teleprompterOff.showHitbox();
-
-  // console.log("draw");
+  console.log(frameRate());
 }
 
 function mouseClicked() {
