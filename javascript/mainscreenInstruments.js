@@ -162,7 +162,7 @@ export default class MainscreenInstruments extends TaskInfo {
       this.counterSecounds -= 1;
       this.frameCounter = 0;
     }
-    console.log(this.frameCounter);
+    // console.log(this.frameCounter);
     this.frameCounter += 1;
   }
 

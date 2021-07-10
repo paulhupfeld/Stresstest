@@ -18,11 +18,13 @@ export default class CloseCurtain extends TaskInfo {
     if (this.done === false) {
       this.curtainLeft.display();
       this.curtainRight.display();
+      this.title = "Vorhang schließen";
       //   this.scaleAnimation();
     } else {
       this.curtainClosed.display();
       this.curtainLeft.display();
       this.curtainRight.display();
+      this.title = "Vorhang öffnen";
 
       this.clicked = true;
     }
@@ -41,11 +43,11 @@ export default class CloseCurtain extends TaskInfo {
     if (this.done === false) {
       if (this.curtainLeft.hitTest() && this.clicked === false) {
         this.clicked = true;
-        console.log("show taskInfo");
+        // console.log("show taskInfo");
       } else if (this.taskButtonHitTest(0)) {
         this.clicked = false;
         this.done = true;
-        this.title = "Vorhang schließen";
+
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
@@ -66,7 +68,7 @@ export default class CloseCurtain extends TaskInfo {
     } else if (this.taskButtonHitTest(0)) {
       this.clicked = false;
       this.done = false;
-      this.title = "Vorhang öffnen";
+
       //...
       // console.log("activate TaskScreen");
     }
