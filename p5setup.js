@@ -19,6 +19,8 @@ export let actorImage,
   curtainClosedImage,
   curtainLeftImage,
   curtainRightImage,
+  curtainRopeLeftImage,
+  curtainRopeRightImage,
   doorLeftImage,
   doorRightImage,
   emergencySignImage,
@@ -68,6 +70,8 @@ function preload() {
   emergencySignImage = loadImage("javascript/assets/Emergency-sign.png");
   prioBoardImage = loadImage("javascript/assets/Prioboard.png");
   octagonImage = loadImage("javascript/assets/Octagon.png");
+  curtainRopeLeftImage = loadImage("javascript/assets/CurtainRope1.png");
+  curtainRopeRightImage = loadImage("javascript/assets/CurtainRope2.png");
 }
 
 import TaskImage from "./javascript/taskImage.js";
@@ -82,6 +86,8 @@ export let boxes,
   curtainClosed,
   curtainLeft,
   curtainRight,
+  curtainRopeRight,
+  curtainRopeLeft,
   doorLeft,
   doorRight,
   emergencySign,
@@ -122,10 +128,10 @@ function setup() {
     120,
     350,
 
-    180,
-    180,
-    160,
-    170,
+    1200,
+    350,
+    70,
+    300,
     curtainLeftImage
   );
   curtainRight = new TaskImage(
@@ -137,6 +143,24 @@ function setup() {
     160,
     170,
     curtainRightImage
+  );
+  curtainRopeRight = new TaskImage(
+    1200,
+    230,
+    200,
+    200,
+    160,
+    170,
+    curtainRopeRightImage
+  );
+  curtainRopeLeft = new TaskImage(
+    1200,
+    210,
+    200,
+    200,
+    160,
+    170,
+    curtainRopeLeftImage
   );
   coffeeCup = new TaskImage(0, 0, 180, 180, 160, 170, coffeeCupImage);
   doorLeft = new TaskImage(253, 386, 180, 180, 160, 170, doorLeftImage);

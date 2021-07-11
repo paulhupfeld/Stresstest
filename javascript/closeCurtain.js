@@ -1,7 +1,15 @@
 import TaskInfo from "./taskInfo.js";
 
 export default class CloseCurtain extends TaskInfo {
-  constructor(title, time, curtainLeft, curtainRight, curtainClosed) {
+  constructor(
+    title,
+    time,
+    curtainLeft,
+    curtainRight,
+    curtainClosed,
+    curtainRopeRight,
+    curtainRopeLeft
+  ) {
     super(title, time, 930, 300);
 
     this.clicked = false;
@@ -12,18 +20,23 @@ export default class CloseCurtain extends TaskInfo {
     this.curtainLeft = curtainLeft;
     this.curtainRight = curtainRight;
     this.curtainClosed = curtainClosed;
+    this.curtainRopeRight = curtainRopeRight;
+    this.curtainRopeLeft = curtainRopeLeft;
   }
 
   displayImage() {
     if (this.done === false) {
       this.curtainLeft.display();
       this.curtainRight.display();
+      this.curtainRopeRight.display();
       this.title = "Vorhang schließen";
       //   this.scaleAnimation();
     } else {
       this.curtainClosed.display();
       this.curtainLeft.display();
       this.curtainRight.display();
+      this.curtainRopeLeft.display();
+
       this.title = "Vorhang öffnen";
 
       this.clicked = true;

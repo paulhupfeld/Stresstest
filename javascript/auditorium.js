@@ -16,6 +16,8 @@ import {
   chairs,
   curtainLeft,
   curtainRight,
+  curtainRopeRight,
+  curtainRopeLeft,
   doorLeft,
   doorRight,
   exit,
@@ -90,7 +92,9 @@ export default class Auditorium {
       2,
       curtainLeft,
       curtainRight,
-      curtainClosed
+      curtainClosed,
+      curtainRopeRight,
+      curtainRopeLeft
     );
   }
 
