@@ -109,6 +109,7 @@ export default class Auditorium {
   }
 
   display() {
+    //!
     theaterBackground.display();
     doorLeft.display();
     doorRight.display();
@@ -122,13 +123,9 @@ export default class Auditorium {
     stage.display();
     exit.display();
     emergencySign.display();
-
     this.closeCurtain.displayImage();
-
     supportBeam.display();
-
     this.turnOnLights.displayImage();
-
     this.displayPopUps();
   }
 

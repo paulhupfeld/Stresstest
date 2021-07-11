@@ -175,7 +175,6 @@ export default class MainscreenInstruments extends TaskInfo {
     translate(0, -25);
     scale(1.25);
     image(octagonImage, 10, 30, 100, 100);
-
     fill(241, 208, 58);
     textSize(27);
     textFont("Pop Warner");
