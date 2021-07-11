@@ -24,11 +24,15 @@ export default class InstallLights extends TaskInfo {
 
   scaleAnimation() {
     if (this.manualHitbox() && this.spotlightDown.scale < 1.1) {
+      console.log(this.spotlightDown.imageY);
       this.spotlightDown.imageY -= 5;
       this.spotlightDown.scale += 0.01;
-    } else if (this.manualHitbox() === false && this.spotlightDown.scale >= 1) {
-      this.spotlightDown.imageY += 5;
-      this.spotlightDown.scale -= 0.01;
+    } else if (
+      this.manualHitbox() === false &&
+      this.spotlightDown.scale >= 0.99
+    ) {
+      this.spotlightDown.imageY = 360;
+      this.spotlightDown.scale = 0.99;
     }
   }
 
@@ -57,7 +61,7 @@ export default class InstallLights extends TaskInfo {
       if (this.manualHitbox()) {
         this.clicked = true;
         // console.log("show taskInfo");
-      } else if (this.taskButtonHitTest(0)) {
+      } else if (this.taskButtonHitTest(0) && this.clicked === true) {
         this.clicked = false;
         this.done = true;
         //...

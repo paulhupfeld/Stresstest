@@ -30,7 +30,7 @@ export default class CloseCurtain extends TaskInfo {
       this.curtainRight.display();
       this.curtainRopeRight.display();
       this.title = "Vorhang schließen";
-      //   this.scaleAnimation();
+      this.scaleAnimation();
     } else {
       this.curtainClosed.display();
       this.curtainLeft.display();
@@ -41,23 +41,26 @@ export default class CloseCurtain extends TaskInfo {
 
       this.clicked = true;
     }
-    this.curtainLeft.showHitbox();
+    // this.curtainLeft.showHitbox();
   }
 
-  //   scaleAnimation() {
-  //     if (this.curtainLeft.hitTest() && this.curtainLeft.scale < 1.1) {
-  //       this.curtainLeft.scale += 0.01;
-  //     } else if (this.curtainLeft.hitTest() === false && this.curtainLeft.scale > 1) {
-  //       this.curtainLeft.scale = 1;
-  //     }
-  //   }
+  scaleAnimation() {
+    if (this.curtainLeft.hitTest() && this.curtainRopeRight.scale < 1.1) {
+      this.curtainRopeRight.scale += 0.01;
+    } else if (
+      this.curtainLeft.hitTest() === false &&
+      this.curtainRopeRight.scale > 1
+    ) {
+      this.curtainRopeRight.scale = 1;
+    }
+  }
 
   checkMouseClicks(mainscreenInstruments) {
     if (this.done === false) {
       if (this.curtainLeft.hitTest() && this.clicked === false) {
         this.clicked = true;
         // console.log("show taskInfo");
-      } else if (this.taskButtonHitTest(0)) {
+      } else if (this.taskButtonHitTest(0) && this.clicked === true) {
         this.clicked = false;
         this.done = true;
 
@@ -78,7 +81,7 @@ export default class CloseCurtain extends TaskInfo {
         this.clicked = false;
         // console.log("stop showing taskInfo");
       }
-    } else if (this.taskButtonHitTest(0)) {
+    } else if (this.taskButtonHitTest(0) && this.clicked === true) {
       this.clicked = false;
       this.done = false;
 
