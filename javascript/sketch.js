@@ -13,8 +13,6 @@ function draw() {
   }
 
   navigator.display();
-
-  console.log(frameRate());
 }
 
 function mouseClicked() {

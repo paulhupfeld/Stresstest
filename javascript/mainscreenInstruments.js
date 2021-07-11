@@ -153,6 +153,14 @@ export default class MainscreenInstruments extends TaskInfo {
   }
 
   countTime() {
+    // this.counterSecounds -= 1 / this.frameCounter;
+    // // console.log(this.counterSecounds);
+
+    // this.frameCounter = Math.round(frameRate());
+    // console.log(1 / this.frameCounter);
+
+    // console.log(this.frameCounter);
+
     if (this.counterSecounds === 0) {
       this.counterSecounds = 60;
       this.counterMinutes -= 1;
@@ -162,7 +170,8 @@ export default class MainscreenInstruments extends TaskInfo {
       this.counterSecounds -= 1;
       this.frameCounter = 0;
     }
-    // console.log(this.frameCounter);
+
+    console.log(this.frameCounter);
     this.frameCounter += 1;
   }
 
