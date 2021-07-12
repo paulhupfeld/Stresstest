@@ -29,7 +29,7 @@ export default class ClearFloor extends TaskInfo {
     }
   }
 
-  checkMouseClicks(mainscreenInstruments, closeCurtain) {
+  checkMouseClicks(Mainscreen, closeCurtain) {
     if (closeCurtain.done === false) {
       //^^^^checkt, ob der Vorhang zu ist
       if (this.done === false) {
@@ -42,12 +42,12 @@ export default class ClearFloor extends TaskInfo {
           //...
           // console.log("activate TaskScreen");
         } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-          mainscreenInstruments.tasksOnPrioBoard.push(this);
+          Mainscreen.tasksOnPrioBoard.push(this);
           this.isOnPrioBoard = true;
           // console.log("push on prioBoard");
         } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-          mainscreenInstruments.tasksOnPrioBoard.splice(
-            mainscreenInstruments.tasksOnPrioBoard.indexOf(this),
+          Mainscreen.tasksOnPrioBoard.splice(
+            Mainscreen.tasksOnPrioBoard.indexOf(this),
             1
           );
           this.isOnPrioBoard = false;

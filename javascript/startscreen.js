@@ -1,8 +1,9 @@
 export default class Startscreen {
   constructor(stressTestLogo) {
     this.swipeUp = true;
-    this.stressTestLogo = stressTestLogo;
     this.startGame = false;
+
+    this.stressTestLogo = stressTestLogo;
   }
 
   swipeUpAnimation() {

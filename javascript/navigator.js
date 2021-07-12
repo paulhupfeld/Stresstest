@@ -1,11 +1,7 @@
 import Auditorium from "./auditorium.js";
 import Startscreen from "./startscreen.js";
 
-import {
-  mainscreenInstruments,
-  coffeeCup,
-  stressTestLogo,
-} from "../p5setup.js";
+import { mainscreen, coffeeCup, stressTestLogo } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen) {
@@ -27,7 +23,7 @@ export default class Navigator {
     if (this.actualRoom === "auditorium") {
       this.auditorium.display();
     }
-    mainscreenInstruments.display(coffeeCup);
+    mainscreen.display(coffeeCup);
   }
 
   display() {
@@ -42,7 +38,7 @@ export default class Navigator {
     if (this.actualRoom === "auditorium") {
       this.auditorium.checkMouseClicks();
     }
-    mainscreenInstruments.checkMouseClicks();
+    mainscreen.checkMouseClicks();
   }
 
   checkMouseClicks() {

@@ -6,7 +6,7 @@ import ProgramPrompter from "./programPrompter.js";
 import ClearFloor from "./clearFloor.js";
 import CloseCurtain from "./closeCurtain.js";
 
-import { mainscreenInstruments } from "../p5setup.js";
+import { mainscreen } from "../p5setup.js";
 
 import {
   boxes,
@@ -130,24 +130,12 @@ export default class Auditorium {
   }
 
   checkMouseClicks() {
-    this.installLights.checkMouseClicks(
-      mainscreenInstruments,
-      this.closeCurtain
-    );
-    this.turnOnLights.checkMouseClicks(
-      mainscreenInstruments,
-      this.closeCurtain
-    );
-    this.setupChairs.checkMouseClicks(mainscreenInstruments, this.closeCurtain);
-    this.placeReservationSigns.checkMouseClicks(
-      mainscreenInstruments,
-      this.closeCurtain
-    );
-    this.programPrompter.checkMouseClicks(
-      mainscreenInstruments,
-      this.closeCurtain
-    );
-    this.clearFloor.checkMouseClicks(mainscreenInstruments, this.closeCurtain);
-    this.closeCurtain.checkMouseClicks(mainscreenInstruments);
+    this.installLights.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.turnOnLights.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.setupChairs.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.placeReservationSigns.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.programPrompter.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.clearFloor.checkMouseClicks(Mainscreen, this.closeCurtain);
+    this.closeCurtain.checkMouseClicks(Mainscreen);
   }
 }

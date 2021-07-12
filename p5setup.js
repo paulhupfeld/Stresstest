@@ -75,7 +75,7 @@ function preload() {
 }
 
 import TaskImage from "./javascript/taskImage.js";
-import MainscreenInstruments from "./javascript/mainscreenInstruments.js";
+import Mainscreen from "./javascript/Mainscreen.js";
 
 export let boxes,
   broom,
@@ -104,7 +104,7 @@ export let boxes,
   teleprompterOff,
   teleprompterOn,
   theaterBackground,
-  mainscreenInstruments;
+  mainscreen;
 
 function setup() {
   createCanvas(1280, 720);
@@ -239,7 +239,7 @@ function setup() {
     theaterBackgroundImage
   );
 
-  mainscreenInstruments = new MainscreenInstruments();
+  mainscreen = new Mainscreen();
 }
 
 window.preload = preload;

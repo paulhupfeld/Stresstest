@@ -55,7 +55,7 @@ export default class CloseCurtain extends TaskInfo {
     }
   }
 
-  checkMouseClicks(mainscreenInstruments) {
+  checkMouseClicks(Mainscreen) {
     if (this.done === false) {
       if (this.curtainLeft.hitTest() && this.clicked === false) {
         this.clicked = true;
@@ -67,12 +67,12 @@ export default class CloseCurtain extends TaskInfo {
         //...
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        mainscreenInstruments.tasksOnPrioBoard.push(this);
+        Mainscreen.tasksOnPrioBoard.push(this);
         this.isOnPrioBoard = true;
         // console.log("push on prioBoard");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        mainscreenInstruments.tasksOnPrioBoard.splice(
-          mainscreenInstruments.tasksOnPrioBoard.indexOf(this),
+        Mainscreen.tasksOnPrioBoard.splice(
+          Mainscreen.tasksOnPrioBoard.indexOf(this),
           1
         );
         this.isOnPrioBoard = false;
