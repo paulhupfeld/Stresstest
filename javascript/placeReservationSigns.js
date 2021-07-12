@@ -38,7 +38,7 @@ export default class PlaceReservationSigns extends TaskInfo {
     }
   }
 
-  checkMouseClicks(Mainscreen, closeCurtain) {
+  checkMouseClicks(mainscreen, closeCurtain) {
     if (closeCurtain.done === false) {
       //^^^^checkt, ob der Vorhang zu ist
       if (this.activated) {
@@ -55,12 +55,12 @@ export default class PlaceReservationSigns extends TaskInfo {
             this.prioButtonHitTest(0) &&
             this.isOnPrioBoard === false
           ) {
-            Mainscreen.tasksOnPrioBoard.push(this);
+            mainscreen.tasksOnPrioBoard.push(this);
             this.isOnPrioBoard = true;
             // console.log("push on prioBoard");
           } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-            Mainscreen.tasksOnPrioBoard.splice(
-              Mainscreen.tasksOnPrioBoard.indexOf(this),
+            mainscreen.tasksOnPrioBoard.splice(
+              mainscreen.tasksOnPrioBoard.indexOf(this),
               1
             );
             this.isOnPrioBoard = false;

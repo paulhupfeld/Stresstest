@@ -130,12 +130,12 @@ export default class Auditorium {
   }
 
   checkMouseClicks() {
-    this.installLights.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.turnOnLights.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.setupChairs.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.placeReservationSigns.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.programPrompter.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.clearFloor.checkMouseClicks(Mainscreen, this.closeCurtain);
-    this.closeCurtain.checkMouseClicks(Mainscreen);
+    this.installLights.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.turnOnLights.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.setupChairs.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.placeReservationSigns.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.programPrompter.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.clearFloor.checkMouseClicks(mainscreen, this.closeCurtain);
+    this.closeCurtain.checkMouseClicks(mainscreen);
   }
 }
