@@ -1,7 +1,7 @@
 import Navigator from "./navigator.js";
 
 let start = true;
-let navigator;
+export let navigator;
 
 function draw() {
   if (start === true) {
