@@ -1,19 +1,24 @@
 import Auditorium from "./auditorium.js";
 import Startscreen from "./startscreen.js";
+import Taskscreen from "./taskscreen.js";
 
 import { mainscreen, stressTestLogo } from "../p5setup.js";
 
 export default class Navigator {
-  constructor(auditorium, startscreen) {
+  constructor(auditorium, startscreen, taskscreen) {
     this.actualscreen = "mainscreen";
     this.actualRoom = "auditorium";
 
     this.startscreen = startscreen;
     this.auditorium = auditorium;
+    this.taskscreen = taskscreen;
+
+    this.doingBreak = false;
   }
 
   createObjects() {
     this.startscreen = new Startscreen(stressTestLogo);
+    this.taskscreen = new Taskscreen(this, mainscreen);
 
     this.auditorium = new Auditorium();
     this.auditorium.createObjects();
@@ -29,6 +34,8 @@ export default class Navigator {
   display() {
     if (this.actualscreen === "startscreen") {
       this.startscreen.display();
+    } else if (this.actualscreen === "taskscreen") {
+      this.taskscreen.display();
     } else if (this.actualscreen === "mainscreen") {
       this.displayMainscreen();
     }

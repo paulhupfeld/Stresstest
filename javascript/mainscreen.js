@@ -5,7 +5,7 @@ import { navigator } from "./sketch.js";
 export default class Mainscreen extends TaskInfo {
   constructor() {
     super(0, 0, 640, 223, false);
-    this.active = false;
+    this.prioBoardIsActive = false;
     this.boardPosition = {
       scale: 0.13,
       x: 1150,
@@ -22,7 +22,6 @@ export default class Mainscreen extends TaskInfo {
     this.counterMinutes = 50;
     this.minutesSinceLastBreak = 0;
 
-    this.doingBreak = false;
     //k
     this.concentration = 30;
     //W_R
@@ -68,7 +67,7 @@ export default class Mainscreen extends TaskInfo {
   }
 
   popUpPrioBoardAnimation() {
-    if (this.active) {
+    if (this.prioBoardIsActive) {
       gsap.to(this.boardPosition, {
         duration: 1,
         scale: 1,
@@ -184,14 +183,18 @@ export default class Mainscreen extends TaskInfo {
     // }
   }
 
+  // in TaskScreen minutesSinceLastBreak auf 0 setzen
+
   developConcentration() {
     if (
       navigator.actualscreen === "mainscreen" &&
       this.gainOverview === false
     ) {
       this.concentration -= 1;
-      //doingBreak in TaskScreen speichern && dort minutesSinceLastBreak auf 0 setzen
-    } else if (navigator.actualscreen === "taskscreen" && this.doingBreak) {
+    } else if (
+      navigator.actualscreen === "taskscreen" &&
+      navigator.doingBreak
+    ) {
       this.concentration += this.breakEffectivity;
     } else if (navigator.actualscreen === "taskscreen") {
       this.concentration -= 0.5;
@@ -256,13 +259,13 @@ export default class Mainscreen extends TaskInfo {
     this.displayPrioBoard();
     this.displayInstrumenta();
 
-    if (this.active) {
+    if (this.prioBoardIsActive) {
       this.displayTaskInfoPrioBoard();
     }
   }
 
   checkMouseClicks() {
-    if (this.active) {
+    if (this.prioBoardIsActive) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
         if (this.taskButtonHitTest(i)) {
@@ -274,15 +277,28 @@ export default class Mainscreen extends TaskInfo {
           // console.log("remove from prioBoard");
         }
       }
+
+      //PrioBoard hittest
       if (mouseX <= 410 || mouseX >= 870 || mouseY <= 30 || mouseY >= 680) {
-        this.active = false;
+        this.prioBoardIsActive = false;
         this.popUpPrioBoardAnimation();
       }
-    } else {
-      if (mouseX >= 1130 && mouseX <= 1250 && mouseY >= 570 && mouseY <= 680) {
-        this.active = true;
-        this.popUpPrioBoardAnimation();
-      }
+    } else if (
+      mouseX >= 1130 &&
+      mouseX <= 1250 &&
+      mouseY >= 570 &&
+      mouseY <= 680
+    ) {
+      this.prioBoardIsActive = true;
+      this.popUpPrioBoardAnimation();
+    }
+
+    //Break hittest
+    if (mouseX >= 30 && mouseX <= 150 && mouseY >= 570 && mouseY <= 680) {
+      navigator.actualscreen = "taskscreen";
+      navigator.doingBreak = true;
+
+      // console.log("versnekt");
     }
   }
 }

@@ -24,7 +24,7 @@ export default class InstallLights extends TaskInfo {
 
   scaleAnimation() {
     if (this.manualHitbox() && this.spotlightDown.scale < 1.1) {
-      console.log(this.spotlightDown.imageY);
+      // console.log(this.spotlightDown.imageY);
       this.spotlightDown.imageY -= 5;
       this.spotlightDown.scale += 0.01;
     } else if (
