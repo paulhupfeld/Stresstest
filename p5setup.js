@@ -75,7 +75,7 @@ function preload() {
 }
 
 import TaskImage from "./javascript/taskImage.js";
-import Mainscreen from "./javascript/Mainscreen.js";
+import Mainscreen from "./javascript/mainscreen.js";
 
 export let boxes,
   broom,
