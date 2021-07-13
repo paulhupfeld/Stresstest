@@ -18,12 +18,14 @@ export default class Mainscreen extends TaskInfo {
 
     this.frameCounter = 1;
     this.frameCounterOnlyMainscreen = 0;
-    this.counterSecounds = 0;
+    this.counterSecounds = 1;
     this.counterMinutes = 50;
     this.minutesSinceLastBreak = 0;
 
     this.doingBreak = false;
+    //k
     this.concentration = 30;
+    //W_R
     this.breakEffectivity = 18;
   }
 
@@ -156,8 +158,14 @@ export default class Mainscreen extends TaskInfo {
   }
 
   countTime() {
-    if (this.frameCounter === 30) {
+    if (frameRate() > 0) {
+      this.frameCounter += 1 / frameRate();
+    }
+
+    if (this.frameCounter >= 1) {
       this.counterSecounds -= 1;
+      this.counterSecounds = Math.round(this.counterSecounds);
+
       this.frameCounter = 0;
     }
 
@@ -167,18 +175,13 @@ export default class Mainscreen extends TaskInfo {
       this.minutesSinceLastBreak++;
     }
 
-    //works only with frameRate = 30
-    this.frameCounter += 1;
-
     // if (this.frameCounterOnlyMainscreen === 60 * 30) {
     //   this.developConcentration();
     // }
 
-    // //works only with frameRate = 30
     // if (navigator.actualscreen === "mainscreen") {
     //   this.frameCounterOnlyMainscreen++;
     // }
-    // console.log(frameRate());
   }
 
   developConcentration() {
@@ -187,7 +190,7 @@ export default class Mainscreen extends TaskInfo {
       this.gainOverview === false
     ) {
       this.concentration -= 1;
-      //doingBrak in TaskScreen speichern && dort minutesSinceLastBreak auf 0 setzen
+      //doingBreak in TaskScreen speichern && dort minutesSinceLastBreak auf 0 setzen
     } else if (navigator.actualscreen === "taskscreen" && this.doingBreak) {
       this.concentration += this.breakEffectivity;
     } else if (navigator.actualscreen === "taskscreen") {
@@ -198,7 +201,12 @@ export default class Mainscreen extends TaskInfo {
   }
 
   developBreakEffectivity() {
-    if (navigator.actualscreen === "mainscreen") {
+    if (
+      navigator.actualscreen === "mainscreen" &&
+      this.minutesSinceLastBreak >= 25 &&
+      this.minutesSinceLastBreak <= 40
+    ) {
+      this.breakEffectivity = (17 / 15) * (this.minutesSinceLastBreak - 25);
       // console.log("h9");
     }
   }
@@ -207,7 +215,7 @@ export default class Mainscreen extends TaskInfo {
     this.countTime();
 
     //once a minute
-    if (this.counterSecounds === 1) {
+    if (this.counterSecounds === 2) {
       this.developConcentration();
     }
   }
