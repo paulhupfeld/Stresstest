@@ -189,8 +189,6 @@ export default class Mainscreen extends TaskInfo {
       this.minutesSinceLastBreak++;
       this.developParametersEveryMinute();
     }
-
-    // console.log(this.counterMinutes + " : " + this.counterSecounds);
   }
 
   developConcentration() {
@@ -233,7 +231,7 @@ export default class Mainscreen extends TaskInfo {
     }
   }
 
-  displayInstrumenta() {
+  displayInstruments() {
     //Time
     push();
     translate(0, -25);
@@ -267,7 +265,7 @@ export default class Mainscreen extends TaskInfo {
     this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
     this.displayPrioBoard();
-    this.displayInstrumenta();
+    this.displayInstruments();
 
     if (this.prioBoardIsActive) {
       this.displayTaskInfoPrioBoard();

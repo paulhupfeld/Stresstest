@@ -10,6 +10,8 @@ export default class ProgramPrompter extends TaskInfo {
     this.progress = 0;
     this.done = false;
 
+    this.points = 8;
+
     this.teleprompterOff = teleprompterOff;
     this.teleprompterOn = teleprompterOn;
   }

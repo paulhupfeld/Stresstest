@@ -11,6 +11,8 @@ export default class PlaceReservationSigns extends TaskInfo {
     this.progress = 0;
     this.done = false;
 
+    this.points = 8;
+
     this.reservedBox = reservedBox;
     this.chairs = chairs;
     this.chairsReserved = chairsReserved;

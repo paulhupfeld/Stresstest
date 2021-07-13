@@ -11,6 +11,8 @@ export default class SetupChairs extends TaskInfo {
     this.done = false;
     this.activateAnimation = false;
 
+    this.points = 10;
+
     this.boxes = boxes;
     this.chairbox = chairbox;
     this.reservedBox = reservedBox;

@@ -11,11 +11,7 @@ export default class Taskscreen {
   doBreak() {
     if (this.navigator.doingBreak) {
       for (let i = 0; i < 5; i++) {
-        // console.log(this.mainscreen.breakEffectivity);
-
         this.mainscreen.developConcentration();
-        // console.log(this.mainscreen.concentration);
-        // console.log(this.mainscreen.breakEffectivity);
       }
 
       this.mainscreen.counterMinutes -= 5;
@@ -26,14 +22,6 @@ export default class Taskscreen {
     this.neededTime =
       (this.navigator.actualTaskTime * (3 / 4)) /
       (this.mainscreen.concentration / 100);
-
-    console.log(
-      this.navigator.actualTaskTime +
-        " * (3 / 4) / " +
-        this.mainscreen.concentration +
-        " = " +
-        this.neededTime
-    );
 
     for (let i = 0; i < this.navigator.actualTaskTime; i++) {
       this.mainscreen.developConcentration();

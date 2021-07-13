@@ -18,6 +18,8 @@ export default class CloseCurtain extends TaskInfo {
     this.progress = 0;
     this.done = false;
 
+    this.points = 2;
+
     this.curtainLeft = curtainLeft;
     this.curtainRight = curtainRight;
     this.curtainClosed = curtainClosed;

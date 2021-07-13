@@ -11,6 +11,8 @@ export default class TurnOnLights extends TaskInfo {
     this.progress = 0;
     this.done = false;
 
+    this.points = 20;
+
     this.spotlightOff = spotlightOff;
     this.spotlightOn = spotlightOn;
   }

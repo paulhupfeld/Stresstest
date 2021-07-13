@@ -7,7 +7,7 @@ import { mainscreen, stressTestLogo } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen, taskscreen, endscreen) {
-    this.actualscreen = "mainscreen";
+    this.actualscreen = "startscreen";
     this.actualRoom = "auditorium";
 
     this.startscreen = startscreen;
@@ -28,7 +28,7 @@ export default class Navigator {
   createObjects() {
     this.startscreen = new Startscreen(stressTestLogo);
     this.taskscreen = new Taskscreen(this, mainscreen);
-    this.endscreen = new Endscreen();
+    this.endscreen = new Endscreen(this);
 
     this.auditorium = new Auditorium();
     this.auditorium.createObjects();
@@ -53,10 +53,6 @@ export default class Navigator {
   }
 
   display() {
-    // console.log(this.actualTaskName);
-    // console.log(this.actualTaskTime);
-    // console.log(this.actualTaskPoints);
-
     if (this.actualscreen === "startscreen") {
       this.startscreen.display();
     } else if (this.actualscreen === "taskscreen") {
