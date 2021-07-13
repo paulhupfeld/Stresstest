@@ -3,7 +3,7 @@ import { prioBoardImage, octagonImage, coffeeCupImage } from "../p5setup.js";
 import { navigator } from "./sketch.js";
 
 export default class Mainscreen extends TaskInfo {
-  constructor() {
+  constructor(taskscreen) {
     super(0, 0, 640, 223, false);
     this.prioBoardIsActive = false;
     this.boardPosition = {
@@ -22,6 +22,8 @@ export default class Mainscreen extends TaskInfo {
     this.counterSecounds = 59;
     this.counterMinutes = 49;
     this.minutesSinceLastBreak = 0;
+
+    this.taskscreen = taskscreen;
 
     //k
     this.concentration = 30;
@@ -162,6 +164,14 @@ export default class Mainscreen extends TaskInfo {
   }
 
   countTime() {
+    //end game
+    if (
+      (this.counterSecounds <= 0 && this.counterMinutes === 0) ||
+      this.counterMinutes <= 0
+    ) {
+      navigator.actualscreen = "endscreen";
+    }
+
     if (frameRate() > 0) {
       this.frameCounter += (1 / frameRate()) * navigator.timeFactor;
     }
@@ -173,23 +183,15 @@ export default class Mainscreen extends TaskInfo {
       this.frameCounter = 0;
     }
 
-    if (this.counterSecounds === 0) {
+    if (this.counterSecounds <= 0) {
       this.counterSecounds = 60;
       this.counterMinutes -= 1;
       this.minutesSinceLastBreak++;
       this.developParametersEveryMinute();
     }
 
-    // if (this.frameCounterOnlyMainscreen === 60 * 30) {
-    //   this.developConcentration();
-    // }
-
-    // if (navigator.actualscreen === "mainscreen") {
-    //   this.frameCounterOnlyMainscreen++;
-    // }
+    // console.log(this.counterMinutes + " : " + this.counterSecounds);
   }
-
-  // in TaskScreen minutesSinceLastBreak auf 0 setzen
 
   developConcentration() {
     if (
@@ -197,7 +199,10 @@ export default class Mainscreen extends TaskInfo {
       this.gainOverview === false
     ) {
       this.concentration -= 1;
-    } else if (navigator.actualscreen === "taskscreen") {
+    } else if (
+      navigator.actualscreen === "taskscreen" &&
+      navigator.doingBreak === false
+    ) {
       this.concentration -= 0.5;
     } else if (navigator.doingBreak) {
       this.concentration += this.breakEffectivity;
@@ -212,19 +217,17 @@ export default class Mainscreen extends TaskInfo {
       this.minutesSinceLastBreak >= 25 &&
       this.minutesSinceLastBreak <= 40
     ) {
-      // this.breakEffectivity = (17 / 15) * (this.minutesSinceLastBreak - 25);
       this.breakEffectivity += 17 / 15;
-      console.log("h9");
     } else if (navigator.doingBreak && this.breakEffectivity >= 3.4) {
       this.breakEffectivity -= 3.4;
-      // console.log(this.breakEffectivity);
-      // console.log(this.concentration);
     }
   }
 
   developParametersEveryMinute(taskscreen) {
     if (navigator.actualscreen === "mainscreen") {
       this.developConcentration();
+    } else if (navigator.doingTask) {
+      taskscreen.doTask();
     } else if (navigator.doingBreak) {
       taskscreen.doBreak();
     }
@@ -306,8 +309,6 @@ export default class Mainscreen extends TaskInfo {
       navigator.doingBreak = true;
 
       this.developParametersEveryMinute(taskscreen);
-
-      // console.log("versnekt");
     }
   }
 }

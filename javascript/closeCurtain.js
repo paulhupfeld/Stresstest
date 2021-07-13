@@ -1,4 +1,5 @@
 import TaskInfo from "./taskInfo.js";
+import { navigator } from "./sketch.js";
 
 export default class CloseCurtain extends TaskInfo {
   constructor(
@@ -41,7 +42,6 @@ export default class CloseCurtain extends TaskInfo {
 
       this.clicked = true;
     }
-    // this.curtainLeft.showHitbox();
   }
 
   scaleAnimation() {
@@ -64,7 +64,8 @@ export default class CloseCurtain extends TaskInfo {
         this.clicked = false;
         this.done = true;
 
-        //...
+        navigator.activateTaskWork(this.title, this.time, this.points);
+
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
         mainscreen.tasksOnPrioBoard.push(this);
@@ -85,7 +86,7 @@ export default class CloseCurtain extends TaskInfo {
       this.clicked = false;
       this.done = false;
 
-      //...
+      navigator.activateTaskWork(this.title, this.time, -2);
       // console.log("activate TaskScreen");
     }
   }

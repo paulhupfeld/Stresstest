@@ -1,4 +1,5 @@
 import TaskInfo from "./taskInfo.js";
+import { navigator } from "./sketch.js";
 
 export default class PlaceReservationSigns extends TaskInfo {
   constructor(title, time, reservedBox, chairs, chairsReserved) {
@@ -49,7 +50,9 @@ export default class PlaceReservationSigns extends TaskInfo {
           } else if (this.taskButtonHitTest(0) && this.clicked === true) {
             this.clicked = false;
             this.done = true;
-            //...
+
+            navigator.activateTaskWork(this.title, this.time, this.points);
+
             // console.log("activate TaskScreen");
           } else if (
             this.prioButtonHitTest(0) &&

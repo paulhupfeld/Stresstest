@@ -4,16 +4,16 @@ export default class Taskscreen {
 
     this.navigator = navigator;
     this.mainscreen = mainscreen;
+
+    this.neededTime = 0;
   }
 
   doBreak() {
     if (this.navigator.doingBreak) {
       for (let i = 0; i < 5; i++) {
         // console.log(this.mainscreen.breakEffectivity);
-        this.mainscreen.concentration += this.mainscreen.breakEffectivity;
 
         this.mainscreen.developConcentration();
-        // this.mainscreen.developBreakEffectivity();
         // console.log(this.mainscreen.concentration);
         // console.log(this.mainscreen.breakEffectivity);
       }
@@ -22,7 +22,28 @@ export default class Taskscreen {
     }
   }
 
-  doTask() {}
+  doTask() {
+    this.neededTime =
+      (this.navigator.actualTaskTime * (3 / 4)) /
+      (this.mainscreen.concentration / 100);
+
+    console.log(
+      this.navigator.actualTaskTime +
+        " * (3 / 4) / " +
+        this.mainscreen.concentration +
+        " = " +
+        this.neededTime
+    );
+
+    for (let i = 0; i < this.navigator.actualTaskTime; i++) {
+      this.mainscreen.developConcentration();
+    }
+
+    //durantion rounded to minutes
+    this.mainscreen.counterMinutes = Math.round(
+      this.mainscreen.counterMinutes - this.neededTime
+    );
+  }
 
   display() {
     background(38, 38, 38);
@@ -31,20 +52,25 @@ export default class Taskscreen {
     fill(241, 207, 57);
     textAlign(CENTER, CENTER);
     textSize(30);
-    text("Aufgabenscreen (kommt bald)", 640, 180);
 
     textSize(20);
     if (this.navigator.doingBreak) {
-      text("Du hast 5 Minuten Pause gemacht", 640, 400);
+      text("Du hast 5 Minuten Pause gemacht.", 640, 400);
     } else {
-      text("Du hast die Aufgabe erledigt", 640, 400);
+      text(
+        "Du hast die Aufgabe erledigt. Benötigte Zeit: " +
+          Math.round(this.neededTime) +
+          " min.",
+        640,
+        400
+      );
     }
     textSize(15);
     text("Klicke zum Fortfahren", 640, 450);
 
     //missing:
     // animation & progressBar
-    // calculated duration (calculated in dependet on taskTime)
+    // calculated duration (depends on taskTime)
     // "Stop Task"-button
 
     pop();
