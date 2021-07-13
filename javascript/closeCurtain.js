@@ -10,7 +10,7 @@ export default class CloseCurtain extends TaskInfo {
     curtainRopeRight,
     curtainRopeLeft
   ) {
-    super(title, time, 930, 300);
+    super(title, time, 930, 225);
 
     this.clicked = false;
     this.inProgress = false;

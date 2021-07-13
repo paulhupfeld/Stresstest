@@ -15,11 +15,12 @@ export default class Mainscreen extends TaskInfo {
     this.tasksOnPrioBoard = [];
 
     this.gainOverview = false;
+    this.doingBreak = false;
 
     this.frameCounter = 1;
     this.frameCounterOnlyMainscreen = 0;
-    this.counterSecounds = 1;
-    this.counterMinutes = 50;
+    this.counterSecounds = 59;
+    this.counterMinutes = 49;
     this.minutesSinceLastBreak = 0;
 
     //k
@@ -46,6 +47,10 @@ export default class Mainscreen extends TaskInfo {
     textSize(17);
     strokeWeight(0);
     text("Pause", 90, 675);
+
+    fill(123, 123, 123);
+    textSize(12);
+    text("5m", 91, 619);
 
     pop();
   }
@@ -158,7 +163,7 @@ export default class Mainscreen extends TaskInfo {
 
   countTime() {
     if (frameRate() > 0) {
-      this.frameCounter += 1 / frameRate();
+      this.frameCounter += (1 / frameRate()) * navigator.timeFactor;
     }
 
     if (this.frameCounter >= 1) {
@@ -172,6 +177,7 @@ export default class Mainscreen extends TaskInfo {
       this.counterSecounds = 60;
       this.counterMinutes -= 1;
       this.minutesSinceLastBreak++;
+      this.developParametersEveryMinute();
     }
 
     // if (this.frameCounterOnlyMainscreen === 60 * 30) {
@@ -191,13 +197,10 @@ export default class Mainscreen extends TaskInfo {
       this.gainOverview === false
     ) {
       this.concentration -= 1;
-    } else if (
-      navigator.actualscreen === "taskscreen" &&
-      navigator.doingBreak
-    ) {
-      this.concentration += this.breakEffectivity;
     } else if (navigator.actualscreen === "taskscreen") {
       this.concentration -= 0.5;
+    } else if (navigator.doingBreak) {
+      this.concentration += this.breakEffectivity;
     }
 
     this.developBreakEffectivity();
@@ -209,17 +212,21 @@ export default class Mainscreen extends TaskInfo {
       this.minutesSinceLastBreak >= 25 &&
       this.minutesSinceLastBreak <= 40
     ) {
-      this.breakEffectivity = (17 / 15) * (this.minutesSinceLastBreak - 25);
-      // console.log("h9");
+      // this.breakEffectivity = (17 / 15) * (this.minutesSinceLastBreak - 25);
+      this.breakEffectivity += 17 / 15;
+      console.log("h9");
+    } else if (navigator.doingBreak && this.breakEffectivity >= 3.4) {
+      this.breakEffectivity -= 3.4;
+      // console.log(this.breakEffectivity);
+      // console.log(this.concentration);
     }
   }
 
-  developParameters() {
-    this.countTime();
-
-    //once a minute
-    if (this.counterSecounds === 2) {
+  developParametersEveryMinute(taskscreen) {
+    if (navigator.actualscreen === "mainscreen") {
       this.developConcentration();
+    } else if (navigator.doingBreak) {
+      taskscreen.doBreak();
     }
   }
 
@@ -252,7 +259,7 @@ export default class Mainscreen extends TaskInfo {
   }
 
   display(coffeeCup) {
-    this.developParameters();
+    this.countTime();
 
     this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
@@ -264,7 +271,7 @@ export default class Mainscreen extends TaskInfo {
     }
   }
 
-  checkMouseClicks() {
+  checkMouseClicks(taskscreen) {
     if (this.prioBoardIsActive) {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
@@ -297,6 +304,8 @@ export default class Mainscreen extends TaskInfo {
     if (mouseX >= 30 && mouseX <= 150 && mouseY >= 570 && mouseY <= 680) {
       navigator.actualscreen = "taskscreen";
       navigator.doingBreak = true;
+
+      this.developParametersEveryMinute(taskscreen);
 
       // console.log("versnekt");
     }

@@ -13,6 +13,7 @@ export default class Navigator {
     this.auditorium = auditorium;
     this.taskscreen = taskscreen;
 
+    this.timeFactor = 999999999;
     this.doingBreak = false;
   }
 
@@ -45,7 +46,7 @@ export default class Navigator {
     if (this.actualRoom === "auditorium") {
       this.auditorium.checkMouseClicks();
     }
-    mainscreen.checkMouseClicks();
+    mainscreen.checkMouseClicks(this.taskscreen);
   }
 
   checkMouseClicks() {
@@ -57,6 +58,10 @@ export default class Navigator {
       }
     } else if (this.actualscreen === "mainscreen") {
       this.checkMouseClicksMainscreen();
+    } else if (this.actualscreen === "taskscreen") {
+      this.actualscreen = "mainscreen";
+      this.doingBreak = false;
+      mainscreen.minutesSinceLastBreak = 0;
     }
   }
 }
