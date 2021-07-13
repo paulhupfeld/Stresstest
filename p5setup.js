@@ -1,13 +1,6 @@
 window.setup = setup;
 
 new p5();
-var width = windowWidth;
-var height = windowHeight;
-
-window.addEventListener("resize", function () {
-  resizeCanvas(width, height);
-  clear();
-});
 
 export let actorImage,
   boxesImage,
@@ -94,6 +87,7 @@ export let boxes,
   exit,
   konfetti,
   octagon,
+  prioBoard,
   reservedBox,
   spotlightDown,
   spotlightOff,
@@ -169,6 +163,8 @@ function setup() {
   exit.scale = 0.7;
   octagon = new TaskImage(10, 30, 125, 350, 100, 100, octagonImage);
   octagon.scale = 1.25;
+  prioBoard = new TaskImage(1150, 568, 125, 350, 100, 100, prioBoardImage);
+  prioBoard.scale = 1.13;
   konfetti = new TaskImage(640, 360, 180, 180, 160, 170, konfettiImage);
   reservedBox = new TaskImage(670, 590, 675, 595, 60, 55, reservedBoxImage);
   spotlightDown = new TaskImage(

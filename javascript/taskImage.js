@@ -25,7 +25,7 @@ export default class TaskImage extends Button {
       this.imageY - (this.image.height / 2) * this.scale
     );
 
-    // if (Math.random() > 0.8) {
+    // if (Math.random() > 0.9) {
     //   //Hat die Framerate verlangsamt, als es konstant war, also mussten wir sparsamer damit umgehen
     //   // Jetzt ist der Schaden minimal und der Effekt noch stressiger! #FailUpwards
     //   this.blurrX = random(0, 30);

@@ -1,7 +1,7 @@
 import Auditorium from "./auditorium.js";
 import Startscreen from "./startscreen.js";
 
-import { mainscreen, coffeeCup, stressTestLogo } from "../p5setup.js";
+import { mainscreen, stressTestLogo } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen) {
@@ -23,7 +23,7 @@ export default class Navigator {
     if (this.actualRoom === "auditorium") {
       this.auditorium.display();
     }
-    mainscreen.display(coffeeCup);
+    mainscreen.display();
   }
 
   display() {

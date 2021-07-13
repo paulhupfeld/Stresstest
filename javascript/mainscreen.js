@@ -1,5 +1,5 @@
 import TaskInfo from "./taskInfo.js";
-import { prioBoardImage, octagonImage } from "../p5setup.js";
+import { prioBoardImage, octagonImage, coffeeCupImage } from "../p5setup.js";
 import { navigator } from "./sketch.js";
 
 export default class Mainscreen extends TaskInfo {
@@ -16,7 +16,7 @@ export default class Mainscreen extends TaskInfo {
 
     this.gainOverview = false;
 
-    this.frameCounter = 0;
+    this.frameCounter = 1;
     this.frameCounterOnlyMainscreen = 0;
     this.counterSecounds = 0;
     this.counterMinutes = 50;
@@ -27,16 +27,16 @@ export default class Mainscreen extends TaskInfo {
     this.breakEffectivity = 18;
   }
 
-  displayBreakButton(coffeeCup) {
+  displayBreakButton() {
     push();
     noStroke();
     fill(255);
     ellipse(90, 630, 150);
 
     push();
-    translate(90, 615);
+    translate(59, 577);
     scale(0.36);
-    coffeeCup.display();
+    image(coffeeCupImage, 0, 0);
     pop();
 
     fill(255, 75, 9);
@@ -77,9 +77,6 @@ export default class Mainscreen extends TaskInfo {
         duration: 0.8,
         y: 5,
         ease: "power4.out",
-        // onComplete: () => {
-        //   popUpPrioBoardAnimation();
-        // },
       });
     } else {
       gsap.to(this.boardPosition, {
@@ -92,14 +89,11 @@ export default class Mainscreen extends TaskInfo {
         duration: 1,
         y: 568,
         ease: "power4.out",
-        // onComplete: () => {
-        //   popUpPrioBoardAnimation();
-        // },
       });
     }
   }
 
-  displayBoard() {
+  displayPrioBoard() {
     push();
     translate(this.boardPosition.x, this.boardPosition.y);
     scale(this.boardPosition.scale);
@@ -174,7 +168,7 @@ export default class Mainscreen extends TaskInfo {
     }
 
     //works only with frameRate = 30
-    this.frameCounter += 30;
+    this.frameCounter += 1;
 
     // if (this.frameCounterOnlyMainscreen === 60 * 30) {
     //   this.developConcentration();
@@ -251,7 +245,7 @@ export default class Mainscreen extends TaskInfo {
 
     this.displayBreakButton(coffeeCup);
     this.displayPrioButton();
-    this.displayBoard();
+    this.displayPrioBoard();
     this.displayInstrumenta();
 
     if (this.active) {
