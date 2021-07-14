@@ -1,5 +1,10 @@
 import TaskInfo from "./taskInfo.js";
-import { prioBoardImage, octagonImage, coffeeCupImage } from "../p5setup.js";
+import {
+  prioBoardImage,
+  octagonImage,
+  coffeeCupImage,
+  lightballImage,
+} from "../p5setup.js";
 import { navigator } from "./sketch.js";
 
 export default class Mainscreen extends TaskInfo {
@@ -250,11 +255,25 @@ export default class Mainscreen extends TaskInfo {
     //Concentration
     translate(105, 0);
     image(octagonImage, 10, 30, 100, 100);
-    fill(241, 208, 58);
-    textSize(27);
-    textFont("Pop Warner");
-    textAlign(CENTER, CENTER);
-    text(this.concentration, 60, 83);
+    push();
+    translate(25, 40);
+    scale(0.1);
+    if (this.concentration > 30) {
+      noTint();
+    } else if (this.concentration <= 30) {
+      // tint(255, 255, 255, 255 * ((8.5 * this.concentration) / 100));
+
+      tint(255, 255, 255, 255 * (this.concentration / 100));
+    }
+
+    image(lightballImage, 0, 0);
+
+    pop();
+    // fill(241, 208, 58);
+    // textSize(27);
+    // textFont("Pop Warner");
+    // textAlign(CENTER, CENTER);
+    // text(this.concentration, 60, 83);
 
     pop();
   }

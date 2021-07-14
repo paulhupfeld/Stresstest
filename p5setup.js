@@ -18,6 +18,7 @@ export let actorImage,
   doorRightImage,
   emergencySignImage,
   exitImage,
+  lightballImage,
   konfettiImage,
   octagonImage,
   prioBoardImage,
@@ -47,6 +48,7 @@ function preload() {
   doorLeftImage = loadImage("javascript/assets/Door-Left.png");
   doorRightImage = loadImage("javascript/assets/Door-Right.png");
   exitImage = loadImage("javascript/assets/Exit.png");
+  lightballImage = loadImage("javascript/assets/lightball.png");
   konfettiImage = loadImage("javascript/assets/Konfetti.png");
   reservedBoxImage = loadImage("javascript/assets/Reserved-Box.png");
   spotlightDownImage = loadImage("javascript/assets/Spotlight-down.png");
@@ -87,6 +89,7 @@ export let boxes,
   doorRight,
   emergencySign,
   exit,
+  lightball,
   konfetti,
   octagon,
   prioBoard,
@@ -163,6 +166,7 @@ function setup() {
   doorRight = new TaskImage(1030, 386, 180, 180, 160, 170, doorRightImage);
   exit = new TaskImage(160, 380, 125, 350, 75, 50, exitImage);
   exit.scale = 0.7;
+  lightball = new TaskImage(160, 380, 125, 350, 75, 50, exitImage);
   octagon = new TaskImage(10, 30, 125, 350, 100, 100, octagonImage);
   octagon.scale = 1.25;
   prioBoard = new TaskImage(1150, 568, 125, 350, 100, 100, prioBoardImage);
