@@ -7,7 +7,7 @@ import { mainscreen, stressTestLogo, taskscreenImg } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen, taskscreen, endscreen) {
-    this.actualscreen = "mainscreen";
+    this.actualscreen = "startscreen";
     this.actualRoom = "auditorium";
 
     this.startscreen = startscreen;
