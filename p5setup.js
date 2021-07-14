@@ -29,6 +29,7 @@ export let actorImage,
   bereitButtonImage,
   stressTestLogoImage,
   supportBeamImage,
+  taskscreenImage,
   teleprompterOffImage,
   teleprompterOnImage,
   theaterBackgroundImage;
@@ -54,6 +55,7 @@ function preload() {
   stageImage = loadImage("javascript/assets/Stage.png");
   stressTestLogoImage = loadImage("javascript/assets/StressTestLogo.png");
   supportBeamImage = loadImage("javascript/assets/Support-beam.png");
+  taskscreenImage = loadImage("javascript/assets/taskscreen.png");
   teleprompterOffImage = loadImage("javascript/assets/Teleprompter-Off.png");
   teleprompterOnImage = loadImage("javascript/assets/Teleprompter-On.png");
   theaterBackgroundImage = loadImage(
@@ -95,6 +97,7 @@ export let boxes,
   stage,
   stressTestLogo,
   supportBeam,
+  taskscreenImg,
   teleprompterOff,
   teleprompterOn,
   theaterBackground,
@@ -105,7 +108,6 @@ function setup() {
   frameRate(30);
   broom = new TaskImage(1150, 480, 1140, 500, 50, 120, broomImage);
   boxes = new TaskImage(700, 370, 180, 180, 160, 170, boxesImage);
-  // chairbox = new TaskImage(190, 565, 189, 565, 150, 100, chairboxImage);
   chairbox = new TaskImage(195, 565, 205, 560, 120, 70, chairboxImage);
 
   chairsReserved = new TaskImage(
@@ -189,6 +191,8 @@ function setup() {
     stressTestLogoImage
   );
   supportBeam = new TaskImage(640, 45, 180, 180, 160, 170, supportBeamImage);
+  taskscreenImg = new TaskImage(640, 300, 180, 180, 200, 200, taskscreenImage);
+  taskscreenImg.scale = 0.4;
   teleprompterOff = new TaskImage(
     540,
     220,

@@ -3,11 +3,11 @@ import Startscreen from "./startscreen.js";
 import Taskscreen from "./taskscreen.js";
 import Endscreen from "./endscreen.js";
 
-import { mainscreen, stressTestLogo } from "../p5setup.js";
+import { mainscreen, stressTestLogo, taskscreenImg } from "../p5setup.js";
 
 export default class Navigator {
   constructor(auditorium, startscreen, taskscreen, endscreen) {
-    this.actualscreen = "startscreen";
+    this.actualscreen = "taskscreen";
     this.actualRoom = "auditorium";
 
     this.startscreen = startscreen;
@@ -27,7 +27,7 @@ export default class Navigator {
 
   createObjects() {
     this.startscreen = new Startscreen(stressTestLogo);
-    this.taskscreen = new Taskscreen(this, mainscreen);
+    this.taskscreen = new Taskscreen(this, mainscreen, taskscreenImg);
     this.endscreen = new Endscreen(this);
 
     this.auditorium = new Auditorium();
