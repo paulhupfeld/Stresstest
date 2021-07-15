@@ -289,6 +289,11 @@ export default class Mainscreen extends TaskInfo {
     if (this.prioBoardIsActive) {
       this.displayTaskInfoPrioBoard();
     }
+
+    //delete:
+    if (keyIsDown(32)) {
+      this.concentration = 29;
+    }
   }
 
   checkMouseClicks(taskscreen) {
@@ -326,12 +331,6 @@ export default class Mainscreen extends TaskInfo {
       navigator.doingBreak = true;
 
       this.developParametersEveryMinute(taskscreen);
-    }
-    //delete:
-
-    if (mouseX >= 180 && mouseX <= 240 && mouseY >= 40 && mouseY <= 100) {
-      this.concentration = 29;
-      console.log("hh");
     }
   }
 }
