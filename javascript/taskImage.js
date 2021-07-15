@@ -1,6 +1,7 @@
 import Button from "./button.js";
 
 import { mainscreen } from "../p5setup.js";
+import { navigator } from "./sketch.js";
 
 export default class TaskImage extends Button {
   constructor(imageX, imageY, hitboxX, hitboxY, width, height, image) {
@@ -39,7 +40,11 @@ export default class TaskImage extends Button {
 
     console.log(this.blurFactor);
 
-    if (mainscreen.concentration <= 30 && Math.random() > this.blurFactor) {
+    if (
+      mainscreen.concentration <= 30 &&
+      Math.random() > this.blurFactor &&
+      navigator.actualscreen === "mainscreen"
+    ) {
       //Hat die Framerate verlangsamt, als es konstant war, also mussten wir sparsamer damit umgehen
       // Jetzt ist der Schaden minimal und der Effekt noch stressiger! #FailUpwards
       this.blurX = random(0, 30);

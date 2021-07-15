@@ -61,7 +61,7 @@ export default class Auditorium {
       spotlightDown
     );
     this.turnOnLights = new TurnOnLights(
-      "Lampen anschalten",
+      "Scheinwerfer anschalten",
       2,
       spotlightOff,
       spotlightOn
@@ -124,6 +124,7 @@ export default class Auditorium {
     exit.display();
     emergencySign.display();
     this.closeCurtain.displayImage();
+
     supportBeam.display();
     this.turnOnLights.displayImage();
     this.displayPopUps();

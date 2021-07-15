@@ -31,7 +31,7 @@ export default class Mainscreen extends TaskInfo {
     this.taskscreen = taskscreen;
 
     //k
-    this.concentration = 30;
+    this.concentration = 86;
     //W_R
     this.breakEffectivity = 18;
   }
@@ -326,6 +326,12 @@ export default class Mainscreen extends TaskInfo {
       navigator.doingBreak = true;
 
       this.developParametersEveryMinute(taskscreen);
+    }
+    //delete:
+
+    if (mouseX >= 180 && mouseX <= 240 && mouseY >= 40 && mouseY <= 100) {
+      this.concentration = 29;
+      console.log("hh");
     }
   }
 }
