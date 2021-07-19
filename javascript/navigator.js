@@ -15,7 +15,7 @@ export default class Navigator {
     this.taskscreen = taskscreen;
     this.endscreen = endscreen;
 
-    this.timeFactor = 3;
+    this.timeFactor = 10000;
 
     this.doingBreak = false;
     this.doingTask = false;
