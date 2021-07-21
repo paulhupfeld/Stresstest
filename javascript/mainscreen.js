@@ -31,7 +31,7 @@ export default class Mainscreen extends TaskInfo {
     this.taskscreen = taskscreen;
 
     //k
-    this.concentration = 86;
+    this.concentration = 30;
     //W_R
     this.breakEffectivity = 18;
   }
@@ -148,8 +148,6 @@ export default class Mainscreen extends TaskInfo {
       textAlign(CENTER, CENTER);
       text("X", 140, i * 69);
 
-      //falls i * 39 ändern -> auch in hittest ändern
-
       pop();
       i++;
     });
@@ -237,8 +235,9 @@ export default class Mainscreen extends TaskInfo {
   }
 
   displayInstruments() {
-    //Time
     push();
+
+    //Time
     translate(0, -25);
     scale(1.25);
     image(octagonImage, 10, 30, 100, 100);
@@ -258,22 +257,10 @@ export default class Mainscreen extends TaskInfo {
     push();
     translate(25, 40);
     scale(0.1);
-    if (this.concentration > 30) {
-      noTint();
-    } else if (this.concentration <= 30) {
-      // tint(255, 255, 255, 255 * ((8.5 * this.concentration) / 100));
-
-      tint(255, 255, 255, 255 * (this.concentration / 100));
-    }
-
+    tint(255, 255, 255, 255 * (this.concentration / 100));
+    console.log();
     image(lightballImage, 0, 0);
-
     pop();
-    // fill(241, 208, 58);
-    // textSize(27);
-    // textFont("Pop Warner");
-    // textAlign(CENTER, CENTER);
-    // text(this.concentration, 60, 83);
 
     pop();
   }
@@ -289,11 +276,6 @@ export default class Mainscreen extends TaskInfo {
     if (this.prioBoardIsActive) {
       this.displayTaskInfoPrioBoard();
     }
-
-    //delete:
-    if (keyIsDown(32)) {
-      this.concentration = 29;
-    }
   }
 
   checkMouseClicks(taskscreen) {
@@ -301,7 +283,9 @@ export default class Mainscreen extends TaskInfo {
       for (let i = 0; i < this.tasksOnPrioBoard.length; i++) {
         let actualTask = this.tasksOnPrioBoard[i];
         if (this.taskButtonHitTest(i)) {
-          //...
+          this.prioBoardIsActive = false;
+          actualTask.done = true;
+          navigator.activateTaskWork(actualTask.title, actualTask.time, 0);
           // console.log("activate TaskScreen");
         } else if (this.prioButtonHitTest(i)) {
           this.tasksOnPrioBoard.splice(i, 1);

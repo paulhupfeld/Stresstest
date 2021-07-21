@@ -65,9 +65,7 @@ export default class InstallLights extends TaskInfo {
       } else if (this.taskButtonHitTest(0) && this.clicked === true) {
         this.clicked = false;
         this.done = true;
-
         navigator.activateTaskWork(this.title, this.time, 0);
-
         // console.log("activate TaskScreen");
       } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
         mainscreen.tasksOnPrioBoard.push(this);

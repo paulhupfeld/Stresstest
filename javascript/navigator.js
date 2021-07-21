@@ -15,7 +15,7 @@ export default class Navigator {
     this.taskscreen = taskscreen;
     this.endscreen = endscreen;
 
-    this.timeFactor = 10000;
+    this.timeFactor = 3;
 
     this.doingBreak = false;
     this.doingTask = false;
@@ -73,7 +73,6 @@ export default class Navigator {
 
   checkMouseClicks() {
     if (this.actualscreen === "startscreen") {
-      // console.log("check Startscreen");
       this.startscreen.checkMouseClicks();
       if (this.startscreen.startGame) {
         this.actualscreen = "mainscreen";

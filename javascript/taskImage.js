@@ -30,15 +30,13 @@ export default class TaskImage extends Button {
       this.imageY - (this.image.height / 2) * this.scale
     );
 
-    if (mainscreen.concentration <= 30) {
-      this.blurFactor = 0.9;
-    } else if (mainscreen.concentration <= 20) {
+    if (mainscreen.concentration <= 10) {
       this.blurFactor = 0.8;
-    } else if (mainscreen.concentration <= 10) {
-      this.blurFactor = 0.7;
+    } else if (mainscreen.concentration <= 20) {
+      this.blurFactor = 0.92;
+    } else if (mainscreen.concentration <= 30) {
+      this.blurFactor = 0.98;
     }
-
-    console.log(this.blurFactor);
 
     if (
       mainscreen.concentration <= 30 &&
@@ -47,6 +45,9 @@ export default class TaskImage extends Button {
     ) {
       //Hat die Framerate verlangsamt, als es konstant war, also mussten wir sparsamer damit umgehen
       // Jetzt ist der Schaden minimal und der Effekt noch stressiger! #FailUpwards
+
+      console.log(this.blurFactor);
+
       this.blurX = random(0, 30);
       this.blurY = random(0, 10);
       tint(60, 170, 255, 200);

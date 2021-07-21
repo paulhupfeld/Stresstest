@@ -17,22 +17,15 @@ export default class Startscreen {
 
   startButton() {
     push();
-    // fill(250, 250, 250);
     fill(255, 75, 9);
     rect(565, 500, 150, 50);
 
-    // fill(255, 75, 9);
-    // textFont("Pop Warner");
-    // textSize(20);
-    // text("BEREIT?", 610, 533);
-
-    // fill(255, 75, 9);
     fill(250, 250, 250);
     textFont("Allerta");
     textSize(22);
     strokeWeight(0);
-
-    text("Bereit?", 600, 533);
+    textAlign(CENTER);
+    text("Bereit", 640, 533);
     pop();
   }
 
