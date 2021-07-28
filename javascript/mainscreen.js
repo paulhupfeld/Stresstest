@@ -31,7 +31,7 @@ export default class Mainscreen extends TaskInfo {
     this.taskscreen = taskscreen;
 
     //k
-    this.concentration = 30;
+    this.concentration = 0;
     //W_R
     this.breakEffectivity = 18;
   }
@@ -258,7 +258,6 @@ export default class Mainscreen extends TaskInfo {
     translate(25, 40);
     scale(0.1);
     tint(255, 255, 255, 255 * (this.concentration / 100));
-    console.log();
     image(lightballImage, 0, 0);
     pop();
 

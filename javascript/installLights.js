@@ -39,16 +39,8 @@ export default class InstallLights extends TaskInfo {
 
   manualHitbox() {
     if (
-      (mouseX >= 150 &&
-        mouseX <= 350 &&
-        mouseY >= 600 &&
-        mouseY <= 650 &&
-        this.clicked === false) ||
-      (mouseX >= 915 &&
-        mouseX <= 1115 &&
-        mouseY >= 600 &&
-        mouseY <= 650 &&
-        this.clicked === false)
+      (mouseX >= 150 && mouseX <= 350 && mouseY >= 600 && mouseY <= 650) ||
+      (mouseX >= 915 && mouseX <= 1115 && mouseY >= 600 && mouseY <= 650)
     ) {
       return true;
     } else {
@@ -56,31 +48,33 @@ export default class InstallLights extends TaskInfo {
     }
   }
 
-  checkMouseClicks(mainscreen) {
-    //(manual hitbox)
-    if (this.done === false) {
-      if (this.manualHitbox()) {
-        this.clicked = true;
-        // console.log("show taskInfo");
-      } else if (this.taskButtonHitTest(0) && this.clicked === true) {
-        this.clicked = false;
-        this.done = true;
-        navigator.activateTaskWork(this.title, this.time, 0);
-        // console.log("activate TaskScreen");
-      } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
-        mainscreen.tasksOnPrioBoard.push(this);
-        this.isOnPrioBoard = true;
-        // console.log("push on prioBoard");
-      } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
-        mainscreen.tasksOnPrioBoard.splice(
-          mainscreen.tasksOnPrioBoard.indexOf(this),
-          1
-        );
-        this.isOnPrioBoard = false;
-        // console.log("remove from prioBoard");
-      } else {
-        this.clicked = false;
-        // console.log("stop showing taskInfo");
+  checkMouseClicks(mainscreen, closeCurtain) {
+    if (closeCurtain.done === false) {
+      if (this.done === false) {
+        if (this.manualHitbox() && this.clicked === false) {
+          // this.clicked = !this.clicked;
+          this.clicked = true;
+          // console.log("show taskInfo");
+        } else if (this.taskButtonHitTest(0) && this.clicked === true) {
+          this.clicked = false;
+          this.done = true;
+          navigator.activateTaskWork(this.title, this.time, 0);
+          // console.log("activate TaskScreen");
+        } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard === false) {
+          mainscreen.tasksOnPrioBoard.push(this);
+          this.isOnPrioBoard = true;
+          // console.log("push on prioBoard");
+        } else if (this.prioButtonHitTest(0) && this.isOnPrioBoard) {
+          mainscreen.tasksOnPrioBoard.splice(
+            mainscreen.tasksOnPrioBoard.indexOf(this),
+            1
+          );
+          this.isOnPrioBoard = false;
+          // console.log("remove from prioBoard");
+        } else {
+          this.clicked = false;
+          // console.log("stop showing taskInfo");
+        }
       }
     }
   }

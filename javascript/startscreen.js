@@ -1,6 +1,6 @@
 export default class Startscreen {
   constructor(stressTestLogo) {
-    this.swipeUp = true;
+    this.waitingForSwipeUp = true;
     this.startGame = false;
 
     this.stressTestLogo = stressTestLogo;
@@ -33,11 +33,10 @@ export default class Startscreen {
     background(38, 38, 38);
     this.startButton();
     this.stressTestLogo.scale = 0.15;
-    // this.stressTestLogo.imageY = 210;
     this.stressTestLogo.display();
-    if (this.swipeUp) {
+    if (this.waitingForSwipeUp && mouseY > 10) {
       this.swipeUpAnimation();
-      this.swipeUp = false;
+      this.waitingForSwipeUp = false;
     }
   }
   checkMouseClicks() {

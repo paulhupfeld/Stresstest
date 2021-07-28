@@ -46,8 +46,6 @@ export default class TaskImage extends Button {
       //Hat die Framerate verlangsamt, als es konstant war, also mussten wir sparsamer damit umgehen
       // Jetzt ist der Schaden minimal und der Effekt noch stressiger! #FailUpwards
 
-      console.log(this.blurFactor);
-
       this.blurX = random(0, 30);
       this.blurY = random(0, 10);
       tint(60, 170, 255, 200);
