@@ -31,7 +31,7 @@ export default class Mainscreen extends TaskInfo {
     this.taskscreen = taskscreen;
 
     //k
-    this.concentration = 0;
+    this.concentration = 30;
     //W_R
     this.breakEffectivity = 18;
   }
